@@ -1,4 +1,4 @@
-version: "3.8"
+# version: "3.8"
 services:
   web:
     build:
@@ -10,6 +10,8 @@ services:
       - 3000:3000
     env_file:
       - .env  # Automatically load all variables from this file
+    environment:
+      DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
     command:
       - pnpm
       - web
@@ -17,20 +19,9 @@ services:
     depends_on:
       prep:
         condition: service_completed_successfully
-  chrome:
-    image: gcr.io/zenika-hub/alpine-chrome:123
-    restart: unless-stopped
-    command:
-      - --no-sandbox
-      - --disable-gpu
-      - --disable-dev-shm-usage
-      - --remote-debugging-address=0.0.0.0
-      - --remote-debugging-port=9222
-      - --hide-scrollbars
-  meilisearch:
-    image: getmeili/meilisearch:v1.13.3
-    volumes:
-      - meilisearch:/meili_data
+      postgres:
+        condition: service_healthy
+
   workers:
     build:
       dockerfile: Dockerfile.dev
@@ -44,6 +35,7 @@ services:
       MEILI_ADDR: http://meilisearch:7700
       BROWSER_WEB_URL: http://chrome:9222
       DATA_DIR: /data
+      DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
       # OPENAI_API_KEY: ...
     command:
       - pnpm
@@ -51,6 +43,9 @@ services:
     depends_on:
       prep:
         condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+
   prep:
     build:
       dockerfile: Dockerfile.dev
@@ -59,14 +54,50 @@ services:
     working_dir: /app
     environment:
       DATA_DIR: /data
+      DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
     volumes:
       - data:/data
       - ..:/app
     command:
-     - /bin/sh
-     - -c
-     - "pnpm install --frozen-lockfile && pnpm run db:migrate"
+      - /bin/sh
+      - -c
+      - "pnpm install --frozen-lockfile && pnpm run db:migrate"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: karakeep
+      POSTGRES_USER: karakeep
+      POSTGRES_PASSWORD: karakeep_password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U karakeep"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  chrome:
+    image: gcr.io/zenika-hub/alpine-chrome:123
+    restart: unless-stopped
+    command:
+      - --no-sandbox
+      - --disable-gpu
+      - --disable-dev-shm-usage
+      - --remote-debugging-address=0.0.0.0
+      - --remote-debugging-port=9222
+      - --hide-scrollbars
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.13.3
+    volumes:
+      - meilisearch:/meili_data
 
 volumes:
   meilisearch:
   data:
+  postgres_data:

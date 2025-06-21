@@ -1037,7 +1037,10 @@ importers:
         version: 16.4.5
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.3(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0)
+        version: 0.38.3(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0)(postgres@3.4.7)
+      postgres:
+        specifier: ^3.4.7
+        version: 3.4.7
       tsx:
         specifier: ^4.7.1
         version: 4.7.1
@@ -2688,6 +2691,7 @@ packages:
 
   '@crxjs/vite-plugin@2.0.0-beta.28':
     resolution: {integrity: sha512-JUoB1431PvruQqVpxvJ5j6qh0NNx5sXafAXo+VltORtJQrS6wprI5QK4k6PLKV+WacsFuPLveM2ydBCEopU49w==}
+    deprecated: Beta versions are no longer maintained. Please upgrade to the stable 2.0.0 release
 
   '@csstools/cascade-layer-name-parser@2.0.4':
     resolution: {integrity: sha512-7DFHlPuIxviKYZrOiwVU/PiHLm3lLUR23OMuEEtfEOQTOp9hzQ2JjdY6X5H18RVuUPJqSCI+qNnD5iOLMVE0bA==}
@@ -12511,6 +12515,10 @@ packages:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postgres@3.4.7:
+    resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
+    engines: {node: '>=12'}
+
   postman-code-generators@1.14.0:
     resolution: {integrity: sha512-//hTHsxtl4wZHJdjRhywkpAWBWkeOsvxdpsi2d9P8D7yhsDfOo3kYexoNsOiDv57PB9YZrftrhDtTbzejmIqCA==}
     engines: {node: '>=12'}
@@ -15751,7 +15759,7 @@ snapshots:
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
       convert-source-map: 2.0.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -15892,7 +15900,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-compilation-targets': 7.25.9
       '@babel/helper-plugin-utils': 7.25.9
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       lodash.debounce: 4.0.8
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -16014,7 +16022,7 @@ snapshots:
   '@babel/helper-skip-transparent-expression-wrappers@7.25.9':
     dependencies:
       '@babel/traverse': 7.25.9
-      '@babel/types': 7.26.0
+      '@babel/types': 7.27.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -16885,7 +16893,7 @@ snapshots:
       '@babel/helper-module-imports': 7.25.9
       '@babel/helper-plugin-utils': 7.25.9
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.0)
-      '@babel/types': 7.26.0
+      '@babel/types': 7.27.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -17363,7 +17371,7 @@ snapshots:
       '@babel/parser': 7.26.2
       '@babel/template': 7.25.9
       '@babel/types': 7.26.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -17375,7 +17383,7 @@ snapshots:
       '@babel/parser': 7.27.0
       '@babel/template': 7.27.0
       '@babel/types': 7.27.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -18808,7 +18816,7 @@ snapshots:
   '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.1
@@ -18864,7 +18872,7 @@ snapshots:
       ci-info: 3.9.0
       compression: 1.7.4
       connect: 3.7.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       env-editor: 0.4.2
       fast-glob: 3.3.2
       form-data: 3.0.1
@@ -18926,7 +18934,7 @@ snapshots:
       '@expo/plist': 0.2.0
       '@expo/sdk-runtime-versions': 1.0.0
       chalk: 4.1.2
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       getenv: 1.0.0
       glob: 10.4.5
       resolve-from: 5.0.0
@@ -18982,7 +18990,7 @@ snapshots:
   '@expo/env@0.4.0':
     dependencies:
       chalk: 4.1.2
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       dotenv: 16.4.5
       dotenv-expand: 11.0.7
       getenv: 1.0.0
@@ -18995,7 +19003,7 @@ snapshots:
       '@expo/spawn-async': 1.7.2
       arg: 5.0.2
       chalk: 4.1.2
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       find-up: 5.0.0
       getenv: 1.0.0
       minimatch: 3.1.2
@@ -19038,7 +19046,7 @@ snapshots:
       '@expo/json-file': 9.0.0
       '@expo/spawn-async': 1.7.2
       chalk: 4.1.2
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       fs-extra: 9.1.0
       getenv: 1.0.0
       glob: 10.4.5
@@ -19093,7 +19101,7 @@ snapshots:
       '@expo/image-utils': 0.6.3
       '@expo/json-file': 9.0.0
       '@react-native/normalize-colors': 0.76.3
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       fs-extra: 9.1.0
       resolve-from: 5.0.0
       semver: 7.6.3
@@ -19122,7 +19130,7 @@ snapshots:
     dependencies:
       '@remix-run/node': 2.15.0(typescript@5.7.3)
       abort-controller: 3.0.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       source-map-support: 0.5.21
     transitivePeerDependencies:
       - supports-color
@@ -19222,7 +19230,7 @@ snapshots:
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.2
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -22075,7 +22083,7 @@ snapshots:
       '@typescript-eslint/type-utils': 6.21.0(eslint@8.57.0)(typescript@5.7.3)
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.7.3)
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       eslint: 8.57.0
       graphemer: 1.4.0
       ignore: 5.3.1
@@ -22111,7 +22119,7 @@ snapshots:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.7.3)
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       eslint: 8.57.0
       typescript: 5.7.3
     transitivePeerDependencies:
@@ -22147,7 +22155,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.7.3)
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.7.3)
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       eslint: 8.57.0
       ts-api-utils: 1.2.1(typescript@5.7.3)
       typescript: 5.7.3
@@ -22177,7 +22185,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -23022,8 +23030,8 @@ snapshots:
 
   babel-plugin-jest-hoist@29.6.3:
     dependencies:
-      '@babel/template': 7.25.9
-      '@babel/types': 7.26.0
+      '@babel/template': 7.27.0
+      '@babel/types': 7.27.0
       '@types/babel__core': 7.20.5
       '@types/babel__traverse': 7.20.6
     dev: false
@@ -24383,10 +24391,6 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  debug@4.4.0:
-    dependencies:
-      ms: 2.1.3
-
   debug@4.4.0(supports-color@9.4.0):
     dependencies:
       ms: 2.1.3
@@ -24768,10 +24772,11 @@ snapshots:
       better-sqlite3: 11.3.0
     dev: false
 
-  drizzle-orm@0.38.3(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0):
+  drizzle-orm@0.38.3(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0)(postgres@3.4.7):
     dependencies:
       '@types/better-sqlite3': 7.6.11
       better-sqlite3: 11.3.0
+      postgres: 3.4.7
     dev: false
 
   drizzle-orm@0.38.3(@types/react@18.2.58)(better-sqlite3@11.3.0)(react@18.3.1):
@@ -31295,6 +31300,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  postgres@3.4.7:
+    dev: false
+
   postman-code-generators@1.14.0:
     dependencies:
       async: 3.2.2
@@ -31921,7 +31929,7 @@ snapshots:
       '@babel/helper-module-imports': 7.25.9
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
-      debug: 4.4.0
+      debug: 4.4.0(supports-color@9.4.0)
       lightningcss: 1.27.0
       react: 18.3.1
       react-native: 0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.9(@babel/core@7.26.0))(@types/react@18.3.12)(react@18.3.1)

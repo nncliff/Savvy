@@ -1,21 +1,9 @@
 import "dotenv/config";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import * as schema from "./schema";
-import { migrate } from "drizzle-orm/better-sqlite3/migrator";
-import path from "path";
 
-import dbConfig from "./drizzle.config";
-
-const sqlite = new Database(dbConfig.dbCredentials.url);
-export const db = drizzle(sqlite, { schema });
+const connectionString = process.env.DATABASE_URL!;
+const client = postgres(connectionString, { max: 1 }); // adjust pool size as needed
+export const db = drizzle(client, { schema });
 export type DB = typeof db;
-
-export function getInMemoryDB(runMigrations: boolean) {
-  const mem = new Database(":memory:");
-  const db = drizzle(mem, { schema, logger: false });
-  if (runMigrations) {
-    migrate(db, { migrationsFolder: path.resolve(__dirname, "./drizzle") });
-  }
-  return db;
-}

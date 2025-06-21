@@ -1,16 +1,12 @@
 import "dotenv/config";
 import type { Config } from "drizzle-kit";
-import serverConfig from "@karakeep/shared/config";
-
-const databaseURL = serverConfig.dataDir
-  ? `${serverConfig.dataDir}/db.db`
-  : "./db.db";
 
 export default {
-  dialect: "sqlite",
+  dialect: "postgresql",
   schema: "./schema.ts",
   out: "./drizzle",
   dbCredentials: {
-    url: databaseURL,
+    // Use the same connection string as in Docker Compose
+    url: process.env.DATABASE_URL || "postgres://karakeep:karakeep_password@localhost:5432/karakeep",
   },
 } satisfies Config;

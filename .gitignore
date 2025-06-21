@@ -60,3 +60,6 @@ data
 
 # VS-Code
 .vscode
+
+# Ignore all .log files
+*.log
