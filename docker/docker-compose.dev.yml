@@ -98,6 +98,27 @@ services:
     volumes:
       - meilisearch:/meili_data
 
+  llamaindex:
+    image: python:3.11
+    container_name: llamaindex
+    ports:
+      - 8080:8080  # Expose RAG API on port 8080
+    environment:
+      DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
+      # Add other environment variables as needed
+    volumes:
+      - ../llamaindex:/app/llamaindex
+    working_dir: /app/llamaindex
+    command:
+      - /bin/sh
+      - -c
+      - |
+        pip install --upgrade pip && \
+        pip install llama-index[postgres] fastapi uvicorn psycopg2-binary && \
+        uvicorn rag_api:app --host 0.0.0.0 --port 8080
+    depends_on:
+      - web
+
 volumes:
   meilisearch:
   data:
