@@ -12,6 +12,7 @@ services:
       - .env  # Automatically load all variables from this file
     environment:
       DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
+      DATA_DIR: /data
     command:
       - pnpm
       - web
