@@ -103,6 +103,8 @@ services:
     container_name: llamaindex
     ports:
       - 8080:8080  # Expose RAG API on port 8080
+    env_file:
+      - .env
     environment:
       DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
       # Add other environment variables as needed
