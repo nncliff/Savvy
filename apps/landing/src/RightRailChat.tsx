@@ -19,26 +19,23 @@ export default function RightRailChat() {
     setLoading(true);
     setMessages((msgs) => [...msgs, { role: "user", content: input }]);
     try {
-      // Use the Next.js API proxy endpoint instead of the public LlamaIndex URL
       const res = await fetch("/api/llamaindex", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: input }),
       });
-      let debugText = `Status: ${res.status}\n`;
       let data = null;
       try {
-        data = await res.clone().json();
-        debugText += `Body: ${JSON.stringify(data)}\n`;
+        data = await res.json();
       } catch (jsonErr) {
-        debugText += `Body: (not JSON)\n`;
+        // Ignore JSON parse errors
       }
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
       setMessages((msgs) => [
         ...msgs,
-        { role: "assistant", content: (data?.response || data?.error || "No response.") + "\n---\n" + debugText },
+        { role: "assistant", content: data?.response || data?.error || "No response." },
       ]);
     } catch (e) {
       setMessages((msgs) => [
