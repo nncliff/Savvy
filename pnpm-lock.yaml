@@ -818,7 +818,7 @@ importers:
         version: 16.4.5
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.3(@types/react@18.2.58)(better-sqlite3@11.3.0)(react@18.3.1)
+        version: 0.38.3(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0)(postgres@3.4.7)
       execa:
         specifier: 9.3.1
         version: 9.3.1
@@ -1247,7 +1247,7 @@ importers:
         version: 2.2.3
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.3(@types/react@18.2.58)(better-sqlite3@11.3.0)(react@18.3.1)
+        version: 0.38.3(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0)(postgres@3.4.7)
       superjson:
         specifier: ^2.2.1
         version: 2.2.1
