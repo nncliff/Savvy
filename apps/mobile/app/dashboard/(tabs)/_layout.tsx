@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { Tabs, useNavigation } from "expo-router";
 import { StyledTabs } from "@/components/navigation/tabs";
-import { ClipboardList, Home, Settings } from "lucide-react-native";
+import { ClipboardList, Home, Settings, MessageCircle } from "lucide-react-native";
 
 export default function TabLayout() {
   const navigation = useNavigation();
@@ -20,6 +20,13 @@ export default function TabLayout() {
         headerShown: false,
       }}
     >
+      <Tabs.Screen
+        name="chat"
+        options={{
+          title: "Chat",
+          tabBarIcon: ({ color }) => <MessageCircle color={color} />, // chat icon
+        }}
+      />
       <Tabs.Screen
         name="index"
         options={{
