@@ -1,0 +1,11 @@
+// .devcontainer/devcontainer.json
+{
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "5173": {
+      "label": "Savvy Dev Server",
+      "onAutoForward": "openBrowser",
+      "visibility": "public"
+    }
+  }
+}
