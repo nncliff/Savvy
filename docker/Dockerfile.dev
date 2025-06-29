@@ -1,11 +1,11 @@
-FROM node:22-alpine
+FROM node:22-slim
 
 WORKDIR /app
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat make g++ py3-pip linux-headers git
+# Install build tools and git (Debian/Ubuntu)
+RUN apt-get update && apt-get install -y build-essential python3-pip git && rm -rf /var/lib/apt/lists/*
 
 RUN corepack enable
 
