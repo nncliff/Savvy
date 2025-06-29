@@ -1,4 +1,4 @@
-import KarakeepFull from "@/public/icons/karakeep-full.svg";
+import KarakeepFull from "@/public/icons/savvy-full.svg";
 
 export default function KarakeepLogo({ height }: { height: number }) {
   return (

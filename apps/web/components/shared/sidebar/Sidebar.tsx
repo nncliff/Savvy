@@ -34,14 +34,14 @@ export default async function Sidebar({
       <Link
         href={
           serverConfig.serverVersion === "nightly"
-            ? `https://github.com/karakeep-app/karakeep`
-            : `https://github.com/karakeep-app/karakeep/releases/tag/v${serverConfig.serverVersion}`
+            ? `https://github.com/nncliff/karakeep`
+            : `https://github.com/nncliff/karakeep/releases/tag/v${serverConfig.serverVersion}`
         }
         target="_blank"
         rel="noopener noreferrer"
         className="mt-auto flex items-center border-t pt-2 text-sm text-gray-400 hover:underline"
       >
-        Karakeep v{serverConfig.serverVersion}
+        Savvy v{serverConfig.serverVersion}
       </Link>
     </aside>
   );

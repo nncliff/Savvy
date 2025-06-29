@@ -3,18 +3,18 @@
   "short_name": "Karakeep",
   "icons": [
     {
-      "src": "/icons/logo-16.png",
+      "src": "/icons/savvy-icon-16x15.png",
       "sizes": "16x16",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/logo-48.png",
+      "src": "/icons/savvy-icon-48x47.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "/icons/logo-128.png",
+      "src": "/icons/savvy-icon-128x127.png",
       "sizes": "128x128",
       "type": "image/png"
     }
