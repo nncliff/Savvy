@@ -63,13 +63,16 @@ def read_root():
 class QueryRequest(BaseModel):
     query: str
 
+# Set default LLM model name
+DEFAULT_LLM_MODEL = "gpt-4o-mini"
+
 @app.post("/query")
 def query_llamaindex(request: QueryRequest):
     global index
     with index_lock:
         if not index:
             return {"error": "Index not ready yet. Please try again later."}
-        llm = OpenAI()
+        llm = OpenAI(model=DEFAULT_LLM_MODEL)
         query_engine = index.as_query_engine(llm=llm)
         response = query_engine.query(request.query)
         return {"response": str(response)}
@@ -80,7 +83,7 @@ def query_llamaindex_get(query: str = Query(..., description="Query string")):
     with index_lock:
         if not index:
             return {"error": "Index not ready yet. Please try again later."}
-        llm = OpenAI()
+        llm = OpenAI(model=DEFAULT_LLM_MODEL)
         query_engine = index.as_query_engine(llm=llm)
         response = query_engine.query(query)
         return {"response": str(response)}
