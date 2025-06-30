@@ -9,6 +9,7 @@ from sqlalchemy.engine import Engine
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.schema import Document
 from llama_index.llms.openai import OpenAI
+from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -45,12 +46,13 @@ def fetch_bookmarklinks():
 
 def update_index_periodically():
     global bookmarklinks_data, index
+    embed_model = GoogleGenAIEmbedding(model="text-embedding-004")
     while True:
         docs = fetch_bookmarklinks()
         with index_lock:
             bookmarklinks_data = docs
             if docs:
-                index = VectorStoreIndex.from_documents(docs)
+                index = VectorStoreIndex.from_documents(docs, embed_model=embed_model)
         time.sleep(300)  # 5 minutes
 
 # Start background thread for periodic update
