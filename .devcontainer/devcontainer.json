@@ -2,9 +2,7 @@
 {
   "forwardPorts": [3000],
   "portsAttributes": {
-    "5173": {
-      "label": "Savvy Dev Server",
-      "onAutoForward": "openBrowser",
+    "3000": {
       "visibility": "public"
     }
   }

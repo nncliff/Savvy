@@ -9,6 +9,7 @@ from sqlalchemy.engine import Engine
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.schema import Document
 from llama_index.llms.openai import OpenAI
+from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -45,12 +46,13 @@ def fetch_bookmarklinks():
 
 def update_index_periodically():
     global bookmarklinks_data, index
+    embed_model = GoogleGenAIEmbedding(model="text-embedding-004")
     while True:
         docs = fetch_bookmarklinks()
         with index_lock:
             bookmarklinks_data = docs
             if docs:
-                index = VectorStoreIndex.from_documents(docs)
+                index = VectorStoreIndex.from_documents(docs, embed_model=embed_model)
         time.sleep(300)  # 5 minutes
 
 # Start background thread for periodic update
@@ -63,13 +65,16 @@ def read_root():
 class QueryRequest(BaseModel):
     query: str
 
+# Set default LLM model name
+DEFAULT_LLM_MODEL = "gpt-4o-mini"
+
 @app.post("/query")
 def query_llamaindex(request: QueryRequest):
     global index
     with index_lock:
         if not index:
             return {"error": "Index not ready yet. Please try again later."}
-        llm = OpenAI()
+        llm = OpenAI(model=DEFAULT_LLM_MODEL)
         query_engine = index.as_query_engine(llm=llm)
         response = query_engine.query(request.query)
         return {"response": str(response)}
@@ -80,7 +85,7 @@ def query_llamaindex_get(query: str = Query(..., description="Query string")):
     with index_lock:
         if not index:
             return {"error": "Index not ready yet. Please try again later."}
-        llm = OpenAI()
+        llm = OpenAI(model=DEFAULT_LLM_MODEL)
         query_engine = index.as_query_engine(llm=llm)
         response = query_engine.query(query)
         return {"response": str(response)}

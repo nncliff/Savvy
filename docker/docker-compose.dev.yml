@@ -116,7 +116,7 @@ services:
       - -c
       - |
         pip install --upgrade pip && \
-        pip install llama-index[postgres] fastapi uvicorn psycopg2-binary && \
+        pip install llama-index[postgres] fastapi uvicorn psycopg2-binary llama-index-embeddings-google-genai && \
         uvicorn rag_api:app --host 0.0.0.0 --port 8080
     depends_on:
       - web
