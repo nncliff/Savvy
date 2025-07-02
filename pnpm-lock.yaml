@@ -12,6 +12,10 @@ patchedDependencies:
 importers:
 
   .:
+    dependencies:
+      liteque:
+        specifier: ^0.3.2
+        version: 0.3.2(better-sqlite3@11.10.0)
     devDependencies:
       '@karakeep/prettier-config':
         specifier: workspace:^0.1.0
