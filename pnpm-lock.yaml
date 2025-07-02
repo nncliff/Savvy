@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  better-sqlite3: 11.10.0
+
 patchedDependencies:
   xcode@3.0.1:
     hash: kvggi4abfe6iel7wt6iiemonyq
@@ -12,10 +15,6 @@ patchedDependencies:
 importers:
 
   .:
-    dependencies:
-      liteque:
-        specifier: ^0.3.2
-        version: 0.3.2(better-sqlite3@11.10.0)
     devDependencies:
       '@karakeep/prettier-config':
         specifier: workspace:^0.1.0
@@ -616,7 +615,7 @@ importers:
         specifier: 11.0.0
         version: 11.0.0(typescript@5.8.3)
       better-sqlite3:
-        specifier: ^11.3.0
+        specifier: 11.10.0
         version: 11.10.0
       cheerio:
         specifier: ^1.0.0
@@ -1034,7 +1033,7 @@ importers:
         specifier: ^2.2.2
         version: 2.2.2
       better-sqlite3:
-        specifier: ^11.3.0
+        specifier: 11.10.0
         version: 11.10.0
       dotenv:
         specifier: ^16.4.1
@@ -7700,7 +7699,7 @@ packages:
       '@types/sql.js': '*'
       '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
-      better-sqlite3: '>=7'
+      better-sqlite3: 11.10.0
       bun-types: '*'
       expo-sqlite: '>=13.2.0'
       knex: '*'
@@ -7790,7 +7789,7 @@ packages:
       '@types/sql.js': '*'
       '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
-      better-sqlite3: '>=7'
+      better-sqlite3: 11.10.0
       bun-types: '*'
       expo-sqlite: '>=14.0.0'
       knex: '*'
@@ -10281,7 +10280,7 @@ packages:
   liteque@0.3.2:
     resolution: {integrity: sha512-adBWSpayJ+Pfl0q5/AL4uehYvrLHAaDiqMsccWNGDZo2xgZ0LaZeDomttVBoS4ZLBTDBxDXxgaYoCodD/s1AsA==}
     peerDependencies:
-      better-sqlite3: '>=7'
+      better-sqlite3: 11.10.0
 
   loader-runner@4.3.0:
     resolution: {integrity: sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==}
