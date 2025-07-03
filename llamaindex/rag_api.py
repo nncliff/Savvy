@@ -1,16 +1,21 @@
 import os
 import threading
 import time
+import logging
 from typing import List
 from fastapi import FastAPI, Query
 from pydantic import BaseModel
 from sqlalchemy import create_engine, text as sql_text
 from sqlalchemy.engine import Engine
+import psycopg2
+import psycopg2.extensions
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.schema import Document
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
 from dotenv import load_dotenv
+
+logging.basicConfig(level=logging.INFO)
 
 load_dotenv()
 
@@ -26,6 +31,22 @@ def get_engine() -> Engine:
     if db_url.startswith("postgres://"):
         db_url = db_url.replace("postgres://", "postgresql://", 1)
     return create_engine(db_url)
+
+def get_db_connection():
+    """Get raw psycopg2 connection for LISTEN/NOTIFY"""
+    db_host = os.getenv('POSTGRES_HOST', 'postgres')
+    db_port = os.getenv('POSTGRES_PORT', '5432')
+    db_name = os.getenv('POSTGRES_DB', 'karakeep')
+    db_user = os.getenv('POSTGRES_USER', 'karakeep')
+    db_password = os.getenv('POSTGRES_PASSWORD', 'karakeep_password')
+    
+    return psycopg2.connect(
+        host=db_host,
+        port=db_port,
+        database=db_name,
+        user=db_user,
+        password=db_password
+    )
 
 # In-memory store for bookmarkLinks content
 bookmarklinks_data = []
@@ -44,19 +65,58 @@ def fetch_bookmarklinks():
             docs.append(Document(text=doc_text, metadata={"id": row.id, "url": row.url}))
         return docs
 
-def update_index_periodically():
+def update_index():
+    """Update the vector index with current bookmark data"""
     global bookmarklinks_data, index
     embed_model = GoogleGenAIEmbedding(model="text-embedding-004")
-    while True:
+    
+    try:
         docs = fetch_bookmarklinks()
         with index_lock:
             bookmarklinks_data = docs
             if docs:
                 index = VectorStoreIndex.from_documents(docs, embed_model=embed_model)
-        time.sleep(300)  # 5 minutes
+                logging.info(f"Index updated with {len(docs)} documents")
+            else:
+                logging.warning("No documents found for indexing")
+    except Exception as e:
+        logging.error(f"Error updating index: {e}")
 
-# Start background thread for periodic update
-threading.Thread(target=update_index_periodically, daemon=True).start()
+def listen_for_bookmark_changes():
+    """Listen for PostgreSQL notifications about bookmark changes"""
+    while True:
+        try:
+            conn = get_db_connection()
+            conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
+            
+            with conn.cursor() as cursor:
+                # Listen for bookmark notifications
+                cursor.execute("LISTEN bookmark_changes;")
+                logging.info("Listening for bookmark changes...")
+                
+                # Initial index build
+                update_index()
+                
+                while True:
+                    # Wait for notifications with a timeout
+                    if conn.poll() == psycopg2.extensions.POLL_OK:
+                        while conn.notifies:
+                            notify = conn.notifies.pop(0)
+                            logging.info(f"Received notification: {notify.payload}")
+                            update_index()
+                    time.sleep(1)  # Small delay to prevent busy waiting
+                    
+        except Exception as e:
+            logging.error(f"Error in listener: {e}")
+            time.sleep(5)  # Wait before reconnecting
+        finally:
+            try:
+                conn.close()
+            except:
+                pass
+
+# Start background thread for listening to bookmark changes
+threading.Thread(target=listen_for_bookmark_changes, daemon=True).start()
 
 @app.get("/")
 def read_root():
