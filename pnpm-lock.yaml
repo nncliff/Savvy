@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  better-sqlite3: 11.10.0
+  better-sqlite3: 11.3.0
 
 patchedDependencies:
   xcode@3.0.1:
@@ -615,8 +615,8 @@ importers:
         specifier: 11.0.0
         version: 11.0.0(typescript@5.8.3)
       better-sqlite3:
-        specifier: 11.10.0
-        version: 11.10.0
+        specifier: 11.3.0
+        version: 11.3.0
       cheerio:
         specifier: ^1.0.0
         version: 1.1.0
@@ -640,7 +640,7 @@ importers:
         version: 1.11.13
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.4(@types/react@18.3.23)(better-sqlite3@11.10.0)(react@18.3.1)
+        version: 0.38.4(@types/react@18.3.23)(better-sqlite3@11.3.0)(react@18.3.1)
       fastest-levenshtein:
         specifier: ^1.0.16
         version: 1.0.16
@@ -821,7 +821,7 @@ importers:
         version: 16.6.1
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.10.0)(postgres@3.4.7)
+        version: 0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.3.0)(postgres@3.4.7)
       execa:
         specifier: 9.3.1
         version: 9.3.1
@@ -830,7 +830,7 @@ importers:
         version: 24.1.3
       liteque:
         specifier: ^0.3.2
-        version: 0.3.2(better-sqlite3@11.10.0)
+        version: 0.3.2(better-sqlite3@11.3.0)
       metascraper:
         specifier: ^5.46.5
         version: 5.49.1
@@ -1033,14 +1033,14 @@ importers:
         specifier: ^2.2.2
         version: 2.2.2
       better-sqlite3:
-        specifier: 11.10.0
-        version: 11.10.0
+        specifier: 11.3.0
+        version: 11.3.0
       dotenv:
         specifier: ^16.4.1
         version: 16.6.1
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.10.0)(postgres@3.4.7)
+        version: 0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.3.0)(postgres@3.4.7)
       postgres:
         specifier: ^3.4.7
         version: 3.4.7
@@ -1161,7 +1161,7 @@ importers:
         version: 1.0.20
       liteque:
         specifier: ^0.3.2
-        version: 0.3.2(better-sqlite3@11.10.0)
+        version: 0.3.2(better-sqlite3@11.3.0)
       meilisearch:
         specifier: ^0.37.0
         version: 0.37.0
@@ -1250,7 +1250,7 @@ importers:
         version: 2.2.3
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.10.0)(postgres@3.4.7)
+        version: 0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.3.0)(postgres@3.4.7)
       superjson:
         specifier: ^2.2.1
         version: 2.2.2
@@ -6556,8 +6556,8 @@ packages:
     resolution: {integrity: sha512-aVNobHnJqLiUelTaHat9DZ1qM2w0C0Eym4LPI/3JxOnSokGVdsl1T1kN7TFvsEAD8G47A6VKQ0TVHqbBnYMJlQ==}
     engines: {node: '>=12.0.0'}
 
-  better-sqlite3@11.10.0:
-    resolution: {integrity: sha512-EwhOpyXiOEL/lKzHz9AW1msWFNzGc/z+LzeB3/jnFJpxu+th2yqvzsSWas1v9jgs9+xiXJcD5A8CJxAG2TaghQ==}
+  better-sqlite3@11.3.0:
+    resolution: {integrity: sha512-iHt9j8NPYF3oKCNOO5ZI4JwThjt3Z6J6XrcwG85VNMVzv1ByqrHWv5VILEbCMFWDsoHhXvQ7oC8vgRXFAKgl9w==}
 
   big-integer@1.6.52:
     resolution: {integrity: sha512-QxD8cf2eVqJOOz63z6JIN9BzvVs/dlySa5HGSBH5xtR8dPteIRQnBxxKqkNTiT6jbDTF6jAfrd4oMcND9RGbQg==}
@@ -7699,7 +7699,7 @@ packages:
       '@types/sql.js': '*'
       '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
-      better-sqlite3: 11.10.0
+      better-sqlite3: 11.3.0
       bun-types: '*'
       expo-sqlite: '>=13.2.0'
       knex: '*'
@@ -7789,7 +7789,7 @@ packages:
       '@types/sql.js': '*'
       '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
-      better-sqlite3: 11.10.0
+      better-sqlite3: 11.3.0
       bun-types: '*'
       expo-sqlite: '>=14.0.0'
       knex: '*'
@@ -10280,7 +10280,7 @@ packages:
   liteque@0.3.2:
     resolution: {integrity: sha512-adBWSpayJ+Pfl0q5/AL4uehYvrLHAaDiqMsccWNGDZo2xgZ0LaZeDomttVBoS4ZLBTDBxDXxgaYoCodD/s1AsA==}
     peerDependencies:
-      better-sqlite3: 11.10.0
+      better-sqlite3: 11.3.0
 
   loader-runner@4.3.0:
     resolution: {integrity: sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==}
@@ -22853,7 +22853,7 @@ snapshots:
       open: 8.4.2
     dev: false
 
-  better-sqlite3@11.10.0:
+  better-sqlite3@11.3.0:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
@@ -24373,22 +24373,22 @@ snapshots:
       - supports-color
     dev: true
 
-  drizzle-orm@0.33.0(better-sqlite3@11.10.0):
+  drizzle-orm@0.33.0(better-sqlite3@11.3.0):
     dependencies:
-      better-sqlite3: 11.10.0
+      better-sqlite3: 11.3.0
     dev: false
 
-  drizzle-orm@0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.10.0)(postgres@3.4.7):
+  drizzle-orm@0.38.4(@types/better-sqlite3@7.6.13)(better-sqlite3@11.3.0)(postgres@3.4.7):
     dependencies:
       '@types/better-sqlite3': 7.6.13
-      better-sqlite3: 11.10.0
+      better-sqlite3: 11.3.0
       postgres: 3.4.7
     dev: false
 
-  drizzle-orm@0.38.4(@types/react@18.3.23)(better-sqlite3@11.10.0)(react@18.3.1):
+  drizzle-orm@0.38.4(@types/react@18.3.23)(better-sqlite3@11.3.0)(react@18.3.1):
     dependencies:
       '@types/react': 18.3.23
-      better-sqlite3: 11.10.0
+      better-sqlite3: 11.3.0
       react: 18.3.1
     dev: false
 
@@ -27752,11 +27752,11 @@ snapshots:
   liquid-json@0.3.1:
     dev: false
 
-  liteque@0.3.2(better-sqlite3@11.10.0):
+  liteque@0.3.2(better-sqlite3@11.3.0):
     dependencies:
       async-mutex: 0.4.1
-      better-sqlite3: 11.10.0
-      drizzle-orm: 0.33.0(better-sqlite3@11.10.0)
+      better-sqlite3: 11.3.0
+      drizzle-orm: 0.33.0(better-sqlite3@11.3.0)
       zod: 3.25.67
     transitivePeerDependencies:
       - '@aws-sdk/client-rds-data'
