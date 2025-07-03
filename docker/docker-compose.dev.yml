@@ -62,10 +62,27 @@ services:
     command:
       - /bin/sh
       - -c
-      - "pnpm install --frozen-lockfile && pnpm run db:migrate"
+      - |
+        pnpm install --frozen-lockfile && \
+        pnpm run db:migrate
     depends_on:
       postgres:
         condition: service_healthy
+
+  setup-trigger:
+    image: postgres:15
+    environment:
+      PGPASSWORD: karakeep_password
+    volumes:
+      - ../llamaindex/setup_bookmark_trigger.sql:/setup_bookmark_trigger.sql
+    command:
+      - /bin/sh
+      - -c
+      - |
+        psql -h postgres -U karakeep -d karakeep -f /setup_bookmark_trigger.sql
+    depends_on:
+      prep:
+        condition: service_completed_successfully
 
   postgres:
     image: postgres:15
@@ -107,7 +124,11 @@ services:
       - .env
     environment:
       DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
-      # Add other environment variables as needed
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: karakeep
+      POSTGRES_USER: karakeep
+      POSTGRES_PASSWORD: karakeep_password
     volumes:
       - ../llamaindex:/app/llamaindex
     working_dir: /app/llamaindex
@@ -116,10 +137,13 @@ services:
       - -c
       - |
         pip install --upgrade pip && \
-        pip install llama-index[postgres] fastapi uvicorn psycopg2-binary llama-index-embeddings-google-genai && \
-        uvicorn rag_api:app --host 0.0.0.0 --port 8080
+        pip install -r requirements.txt && \
+        uvicorn rag_api:app --host 0.0.0.0 --port 8080 --reload
     depends_on:
-      - web
+      setup-trigger:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
 
 volumes:
   meilisearch:
