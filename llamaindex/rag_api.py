@@ -178,8 +178,10 @@ def listen_for_bookmark_changes():
                 cursor.execute("LISTEN bookmark_changes;")
                 logging.info("Listening for bookmark changes...")
                 
-                # Initial index build
-                rebuild_index()
+                # Do NOT rebuild the index on startup to avoid full update
+                # Only update_index() will be called when notifications are received
+                # If a full rebuild is needed, use the /rebuild-index endpoint
+                # rebuild_index()  # <-- removed
                 
                 while True:
                     # Wait for notifications with a timeout
