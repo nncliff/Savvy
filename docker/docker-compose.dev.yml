@@ -145,6 +145,25 @@ services:
       postgres:
         condition: service_healthy
 
+  ngrok:
+    image: ngrok/ngrok:latest
+    #restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    command:
+      - http
+      - --domain=woodcock-gorgeous-eminently.ngrok-free.app
+      - --scheme=https
+      - --host-header=localhost:3000
+      - web:3000
+    depends_on:
+      web:
+        condition: service_started
+    ports:
+      - 80:80
+
 volumes:
   meilisearch:
   data:
