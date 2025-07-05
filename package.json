@@ -18,7 +18,9 @@
     "format:fix": "turbo --no-daemon format --continue -- --write --cache-location node_modules/.cache/.prettiercache",
     "lint": "turbo --no-daemon lint --continue -- --cache-location node_modules/.cache/.eslintcache",
     "lint:fix": "turbo --no-daemon lint --continue -- --fix --cache-location node_modules/.cache/.eslintcache",
-    "typecheck": "turbo --no-daemon typecheck"
+    "typecheck": "turbo --no-daemon typecheck",
+    "start:expo-go": "expo start --config app.dev.json --tunnel",
+    "start:dev-build": "expo start --config app.json --tunnel"
   },
   "devDependencies": {
     "@karakeep/prettier-config": "workspace:^0.1.0",
