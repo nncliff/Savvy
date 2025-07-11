@@ -9,7 +9,7 @@ from sqlalchemy import create_engine, text as sql_text
 from sqlalchemy.engine import Engine
 import psycopg2
 import psycopg2.extensions
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, StorageContext, load_index_from_storage
 from llama_index.core.schema import Document
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
@@ -54,6 +54,9 @@ def get_db_connection():
         password=db_password
     )
 
+# Storage configuration
+PERSIST_DIR = os.getenv("INDEX_PERSIST_DIR", "./storage")
+
 # In-memory store for bookmarkLinks content
 bookmarklinks_data = []
 index = None
@@ -93,6 +96,30 @@ def fetch_new_bookmarklinks():
             docs.append(Document(text=doc_text, metadata={"id": row.id, "url": row.url}))
         return docs
 
+def load_existing_index():
+    """Load existing index from storage if it exists"""
+    global index, indexed_bookmark_ids, bookmarklinks_data
+    embed_model = GoogleGenAIEmbedding(model="text-embedding-004")
+    
+    try:
+        # Check if storage directory exists and has index files
+        if os.path.exists(PERSIST_DIR) and os.path.exists(os.path.join(PERSIST_DIR, "docstore.json")):
+            # Load existing index
+            storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
+            index = load_index_from_storage(storage_context, embed_model=embed_model)
+            
+            # Rebuild indexed_bookmark_ids from existing documents
+            docs = fetch_bookmarklinks()
+            indexed_bookmark_ids = {doc.metadata["id"] for doc in docs}
+            bookmarklinks_data = docs
+            
+            logging.info(f"Loaded existing index with {len(indexed_bookmark_ids)} indexed bookmarks")
+        else:
+            logging.info("No existing index found, will create new one when documents are available")
+    except Exception as e:
+        logging.error(f"Error loading existing index: {e}")
+        logging.info("Will create fresh index")
+
 def update_index():
     """Update the vector index with current bookmark data"""
     global bookmarklinks_data, index, indexed_bookmark_ids
@@ -110,10 +137,17 @@ def update_index():
                 indexed_bookmark_ids.update(new_ids)
                 
                 if index is None:
-                    # Create initial index if it doesn't exist
-                    index = VectorStoreIndex.from_documents(new_docs, embed_model=embed_model)
+                    # Ensure storage directory exists
+                    os.makedirs(PERSIST_DIR, exist_ok=True)
+                    
+                    # Create initial index with fresh storage context
+                    storage_context = StorageContext.from_defaults()
+                    index = VectorStoreIndex.from_documents(new_docs, storage_context=storage_context, embed_model=embed_model)
+                    
+                    # Persist the created index
+                    index.storage_context.persist(persist_dir=PERSIST_DIR)
                     bookmarklinks_data = new_docs
-                    logging.info(f"Initial index created with {len(new_docs)} documents")
+                    logging.info(f"Initial index created with {len(new_docs)} documents and persisted to {PERSIST_DIR}")
                 else:
                     # Add new documents to existing index
                     for doc in new_docs:
@@ -123,8 +157,10 @@ def update_index():
                             logging.error(f"Error inserting document {doc.metadata.get('id', 'unknown')}: {e}")
                             continue
                     
+                    # Persist the updated index
+                    index.storage_context.persist(persist_dir=PERSIST_DIR)
                     bookmarklinks_data.extend(new_docs)
-                    logging.info(f"Index updated with {len(new_docs)} new documents. Total indexed IDs: {len(indexed_bookmark_ids)}")
+                    logging.info(f"Index updated with {len(new_docs)} new documents and persisted. Total indexed IDs: {len(indexed_bookmark_ids)}")
             else:
                 logging.info("No new documents to index")
                 
@@ -165,8 +201,16 @@ def rebuild_index():
             indexed_bookmark_ids = {doc.metadata["id"] for doc in docs}
             
             if docs:
-                index = VectorStoreIndex.from_documents(docs, embed_model=embed_model)
-                logging.info(f"Index rebuilt with {len(docs)} documents")
+                # Ensure storage directory exists
+                os.makedirs(PERSIST_DIR, exist_ok=True)
+                
+                # Create fresh storage context for new index (don't try to load from empty dir)
+                storage_context = StorageContext.from_defaults()
+                index = VectorStoreIndex.from_documents(docs, storage_context=storage_context, embed_model=embed_model)
+                
+                # Now persist the created index to the directory
+                index.storage_context.persist(persist_dir=PERSIST_DIR)
+                logging.info(f"Index rebuilt with {len(docs)} documents and persisted to {PERSIST_DIR}")
             else:
                 logging.warning("No documents found for indexing")
     except Exception as e:
@@ -184,10 +228,8 @@ def listen_for_bookmark_changes():
                 cursor.execute("LISTEN bookmark_changes;")
                 logging.info("Listening for bookmark changes...")
                 
-                # Do NOT rebuild the index on startup to avoid full update
-                # Only update_index() will be called when notifications are received
-                # If a full rebuild is needed, use the /rebuild-index endpoint
-                # rebuild_index()  # <-- removed
+                # Load existing index on startup, then listen for changes
+                load_existing_index()
                 
                 while True:
                     # Wait for notifications with a timeout
