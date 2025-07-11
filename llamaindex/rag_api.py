@@ -204,11 +204,37 @@ def rebuild_index():
                 # Ensure storage directory exists
                 os.makedirs(PERSIST_DIR, exist_ok=True)
                 
-                # Create fresh storage context for new index (don't try to load from empty dir)
-                storage_context = StorageContext.from_defaults()
-                index = VectorStoreIndex.from_documents(docs, storage_context=storage_context, embed_model=embed_model)
+                # Process documents in batches to avoid rate limiting
+                batch_size = 20
                 
-                # Now persist the created index to the directory
+                logging.info(f"Processing {len(docs)} documents in batches of {batch_size}")
+                
+                # Create initial index with first batch
+                first_batch = docs[:batch_size]
+                storage_context = StorageContext.from_defaults()
+                index = VectorStoreIndex.from_documents(first_batch, storage_context=storage_context, embed_model=embed_model)
+                logging.info(f"Created initial index with {len(first_batch)} documents")
+                
+                # Process remaining documents in batches
+                for i in range(batch_size, len(docs), batch_size):
+                    batch = docs[i:i+batch_size]
+                    
+                    # Wait before processing next batch
+                    if i > batch_size:  # Don't wait before the first additional batch
+                        logging.info(f"Waiting 60 seconds before processing batch {i//batch_size + 1}...")
+                        time.sleep(60)
+                    
+                    # Add documents one by one to existing index
+                    for doc in batch:
+                        try:
+                            index.insert(doc)
+                        except Exception as e:
+                            logging.error(f"Error inserting document {doc.metadata.get('id', 'unknown')}: {e}")
+                            continue
+                    
+                    logging.info(f"Processed batch {i//batch_size + 1} with {len(batch)} documents")
+                
+                # Persist the final index
                 index.storage_context.persist(persist_dir=PERSIST_DIR)
                 logging.info(f"Index rebuilt with {len(docs)} documents and persisted to {PERSIST_DIR}")
             else:
