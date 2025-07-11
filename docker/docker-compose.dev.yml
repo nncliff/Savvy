@@ -117,7 +117,7 @@ services:
     image: python:3.11
     container_name: llamaindex
     ports:
-      - 8080:8080  # Expose RAG API on port 8080
+      - "127.0.0.1:8080:8080"  # Expose RAG API on port 8080
     env_file:
       - .env
     environment:

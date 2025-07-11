@@ -11,15 +11,21 @@ import psycopg2
 import psycopg2.extensions
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.schema import Document
+from llama_index.core.tools import QueryEngineTool, ToolMetadata
+from llama_index.core.agent import ReActAgent
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
 from dotenv import load_dotenv
+import json
 
 logging.basicConfig(level=logging.INFO)
 
 load_dotenv()
 
 app = FastAPI()
+
+# Set default LLM model name
+DEFAULT_LLM_MODEL = "gpt-4o-mini"
 
 # Database connection setup
 def get_engine() -> Engine:
@@ -204,15 +210,170 @@ def listen_for_bookmark_changes():
 # Start background thread for listening to bookmark changes
 threading.Thread(target=listen_for_bookmark_changes, daemon=True).start()
 
+# Deep Research Agent Implementation
+class DeepResearchAgent:
+    def __init__(self):
+        self.llm = OpenAI(model=DEFAULT_LLM_MODEL)
+        self.search_tool = None
+        self._setup_search_tool()
+    
+    def _setup_search_tool(self):
+        """Setup the local document search tool using the existing index"""
+        global index
+        with index_lock:
+            if index is not None:
+                query_engine = index.as_query_engine(llm=self.llm)
+                self.search_tool = QueryEngineTool(
+                    query_engine=query_engine,
+                    metadata=ToolMetadata(
+                        name="local_document_search",
+                        description="Search through the local bookmark database for relevant information. "
+                                  "Use this tool to find documents, articles, and content related to your research query."
+                    )
+                )
+    
+    def _create_plan_prompt(self, research_query: str) -> str:
+        return f"""
+PHASE 1: PLAN
+You are conducting deep research on: "{research_query}"
+
+Break down this research topic into 3-5 specific questions or areas that need investigation.
+Each question should be:
+- Specific and focused
+- Searchable in a document database
+- Contributing to understanding the overall topic
+
+Respond in JSON format:
+{{
+    "research_topic": "{research_query}",
+    "plan": [
+        "Question 1: [specific question]",
+        "Question 2: [specific question]",
+        "Question 3: [specific question]"
+    ]
+}}
+"""
+
+    def _create_think_prompt(self, plan: dict, question: str) -> str:
+        return f"""
+PHASE 2: THINK
+Research Topic: {plan['research_topic']}
+Current Question: {question}
+
+Before searching, think about:
+1. What specific keywords or concepts should I search for?
+2. What type of documents would likely contain this information?
+3. What related terms or synonyms might be relevant?
+
+Create 2-3 search queries that would help answer this question.
+
+Respond in JSON format:
+{{
+    "question": "{question}",
+    "reasoning": "Your reasoning about what to search for",
+    "search_queries": [
+        "search query 1",
+        "search query 2", 
+        "search query 3"
+    ]
+}}
+"""
+
+    def _create_analyze_prompt(self, research_query: str, all_findings: list) -> str:
+        findings_text = "\n\n".join([
+            f"Question: {finding['question']}\nFindings: {finding['search_results']}"
+            for finding in all_findings
+        ])
+        
+        return f"""
+PHASE 4: ANALYZE
+Research Topic: {research_query}
+
+Based on all the findings from your search actions, provide a comprehensive analysis:
+
+FINDINGS:
+{findings_text}
+
+Provide a structured analysis including:
+1. Key insights discovered
+2. Patterns or themes identified
+3. Gaps in available information
+4. Conclusions and recommendations
+5. Areas for further research
+
+Focus on synthesizing the information rather than just summarizing individual findings.
+"""
+
+    def conduct_deep_research(self, research_query: str) -> dict:
+        """Conduct deep research using Plan → Think → Action → Analyze pattern"""
+        
+        if self.search_tool is None:
+            self._setup_search_tool()
+            if self.search_tool is None:
+                return {"error": "Search tool not available. Index may not be ready."}
+        
+        try:
+            # PHASE 1: PLAN
+            logging.info(f"Starting deep research for: {research_query}")
+            plan_prompt = self._create_plan_prompt(research_query)
+            plan_response = self.llm.complete(plan_prompt)
+            plan = json.loads(str(plan_response))
+            
+            # PHASE 2 & 3: THINK → ACTION for each question
+            all_findings = []
+            for question in plan['plan']:
+                # THINK
+                think_prompt = self._create_think_prompt(plan, question)
+                think_response = self.llm.complete(think_prompt)
+                think_data = json.loads(str(think_response))
+                
+                # ACTION - Search for each query
+                search_results = []
+                for search_query in think_data['search_queries']:
+                    try:
+                        result = self.search_tool.call(search_query)
+                        search_results.append({
+                            "query": search_query,
+                            "result": str(result)
+                        })
+                    except Exception as e:
+                        logging.error(f"Search error for '{search_query}': {e}")
+                        search_results.append({
+                            "query": search_query,
+                            "result": f"Search failed: {str(e)}"
+                        })
+                
+                all_findings.append({
+                    "question": question,
+                    "reasoning": think_data['reasoning'],
+                    "search_queries": think_data['search_queries'],
+                    "search_results": search_results
+                })
+            
+            # PHASE 4: ANALYZE
+            analyze_prompt = self._create_analyze_prompt(research_query, all_findings)
+            analysis = self.llm.complete(analyze_prompt)
+            
+            return {
+                "research_query": research_query,
+                "plan": plan,
+                "findings": all_findings,
+                "analysis": str(analysis)
+            }
+            
+        except Exception as e:
+            logging.error(f"Deep research error: {e}")
+            return {"error": f"Deep research failed: {str(e)}"}
+
+# Global deep research agent
+deep_research_agent = DeepResearchAgent()
+
 @app.get("/")
 def read_root():
     return {"message": "LlamaIndex RAG API is running"}
 
 class QueryRequest(BaseModel):
     query: str
-
-# Set default LLM model name
-DEFAULT_LLM_MODEL = "gpt-4o-mini"
 
 @app.post("/query")
 def query_llamaindex(request: QueryRequest):
@@ -313,3 +474,42 @@ def debug_index():
                 for doc in bookmarklinks_data[:3]
             ] if bookmarklinks_data else []
         }
+
+class DeepResearchRequest(BaseModel):
+    research_query: str
+
+@app.post("/deep-research")
+def conduct_deep_research_endpoint(request: DeepResearchRequest):
+    """Conduct deep research using Plan → Think → Action → Analyze pattern"""
+    global deep_research_agent
+    
+    if not request.research_query.strip():
+        return {"error": "Research query cannot be empty"}
+    
+    try:
+        # Refresh the search tool if index was updated
+        deep_research_agent._setup_search_tool()
+        
+        result = deep_research_agent.conduct_deep_research(request.research_query)
+        return result
+    except Exception as e:
+        logging.error(f"Deep research endpoint error: {e}")
+        return {"error": f"Deep research failed: {str(e)}"}
+
+@app.get("/deep-research")
+def conduct_deep_research_get(research_query: str = Query(..., description="Research query for deep analysis")):
+    """GET endpoint for deep research"""
+    global deep_research_agent
+    
+    if not research_query.strip():
+        return {"error": "Research query cannot be empty"}
+    
+    try:
+        # Refresh the search tool if index was updated
+        deep_research_agent._setup_search_tool()
+        
+        result = deep_research_agent.conduct_deep_research(research_query)
+        return result
+    except Exception as e:
+        logging.error(f"Deep research GET endpoint error: {e}")
+        return {"error": f"Deep research failed: {str(e)}"}

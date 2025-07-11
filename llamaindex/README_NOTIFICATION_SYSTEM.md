@@ -1,6 +1,6 @@
-# RAG API with Real-time Bookmark Notifications
+# RAG API with Real-time Bookmark Notifications & Deep Research
 
-This RAG API has been modified to update the LlamaIndex in real-time when new bookmark entities are added to PostgreSQL, instead of using periodic updates.
+This RAG API provides real-time bookmark indexing and advanced deep research capabilities using the Plan → Think → Action → Analyze pattern.
 
 ## Changes Made
 
@@ -13,9 +13,16 @@ This RAG API has been modified to update the LlamaIndex in real-time when new bo
 - Added `psycopg2` for PostgreSQL notifications (already in requirements.txt)
 - Added logging for better debugging and monitoring
 
-### 3. New Endpoints
+### 3. Deep Research Agent (NEW)
+- Implements Plan → Think → Action → Analyze pattern for comprehensive research
+- Uses local document search tool powered by LlamaIndex
+- Provides structured research with detailed analysis
+
+### 4. New Endpoints
 - `POST /rebuild-index` - Manually trigger index rebuild
 - `GET /health` - Health check with index status and document count
+- `POST /deep-research` - Conduct deep research using structured pattern
+- `GET /deep-research` - GET endpoint for deep research queries
 
 ## Setup Instructions
 
@@ -67,8 +74,83 @@ The application logs important events:
 - Index rebuilds and document counts
 - Any errors in the notification system
 
+## Deep Research Functionality
+
+### Overview
+The deep research feature implements a structured approach to information gathering using the **Plan → Think → Action → Analyze** pattern:
+
+1. **Plan**: Breaks down research topics into specific, focused questions
+2. **Think**: Reasons about search strategies and keywords for each question  
+3. **Action**: Executes searches using the local document index
+4. **Analyze**: Synthesizes findings into comprehensive insights
+
+### Using Deep Research
+
+#### POST Request
+```bash
+curl -X POST "http://localhost:8000/deep-research" \
+  -H "Content-Type: application/json" \
+  -d '{"research_query": "artificial intelligence trends"}'
+```
+
+#### GET Request
+```bash
+curl "http://localhost:8000/deep-research?research_query=sustainable%20technology"
+```
+
+### Response Structure
+```json
+{
+  "research_query": "your research topic",
+  "plan": {
+    "research_topic": "your research topic",
+    "plan": [
+      "Question 1: specific question",
+      "Question 2: specific question", 
+      "Question 3: specific question"
+    ]
+  },
+  "findings": [
+    {
+      "question": "Question 1: specific question",
+      "reasoning": "Search strategy explanation",
+      "search_queries": ["query1", "query2", "query3"],
+      "search_results": [
+        {
+          "query": "query1",
+          "result": "search results and analysis"
+        }
+      ]
+    }
+  ],
+  "analysis": "Comprehensive synthesis of all findings with insights, patterns, and recommendations"
+}
+```
+
+### Example Research Topics
+- "machine learning in healthcare"
+- "remote work productivity tools"
+- "sustainable energy technologies"
+- "cybersecurity best practices"
+- "blockchain applications"
+
+### Testing Deep Research
+Run the comprehensive test suite:
+```bash
+cd llamaindex
+python test_deep_research.py
+```
+
+This will test:
+- API connectivity
+- Index status
+- Basic query functionality
+- Deep research POST endpoint
+- Deep research GET endpoint
+
 ## Troubleshooting
 
 - **Index not updating**: Check PostgreSQL logs and ensure trigger is installed
 - **Connection issues**: Verify database credentials and network connectivity
 - **Performance**: Monitor index rebuild frequency and consider batch updates for high-volume scenarios
+- **Deep research errors**: Ensure OpenAI API key is configured and index is ready
