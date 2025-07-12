@@ -1,4 +1,5 @@
 import os
+import sys
 import threading
 import time
 import logging
@@ -18,7 +19,11 @@ from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
 from dotenv import load_dotenv
 import json
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    force=True
+)
 
 load_dotenv()
 
@@ -285,6 +290,38 @@ class DeepResearchAgent:
         self.search_tool = None
         self._setup_search_tool()
     
+    def _extract_json_from_response(self, response_text: str) -> dict:
+        """Extract JSON from LLM response with fallback handling"""
+        try:
+            response_text = response_text.strip()
+            
+            # Remove common prefixes that might interfere
+            prefixes_to_remove = [
+                "```json\n", "```\n", "Here is the JSON:", "JSON:", 
+                "Response:", "Here's the response:", "The answer is:"
+            ]
+            for prefix in prefixes_to_remove:
+                if response_text.startswith(prefix):
+                    response_text = response_text[len(prefix):].strip()
+            
+            # Remove common suffixes
+            suffixes_to_remove = ["\n```", "```"]
+            for suffix in suffixes_to_remove:
+                if response_text.endswith(suffix):
+                    response_text = response_text[:-len(suffix)].strip()
+            
+            # Find JSON boundaries
+            if '{' in response_text and '}' in response_text:
+                start = response_text.find('{')
+                end = response_text.rfind('}') + 1
+                json_text = response_text[start:end]
+                return json.loads(json_text)
+            else:
+                return None
+                
+        except (json.JSONDecodeError, Exception):
+            return None
+    
     def _setup_search_tool(self):
         """Setup the local document search tool using the existing index"""
         global index
@@ -311,7 +348,8 @@ Each question should be:
 - Searchable in a document database
 - Contributing to understanding the overall topic
 
-Respond in JSON format:
+IMPORTANT: You must respond with ONLY valid JSON, no other text before or after.
+
 {{
     "research_topic": "{research_query}",
     "plan": [
@@ -335,7 +373,8 @@ Before searching, think about:
 
 Create 2-3 search queries that would help answer this question.
 
-Respond in JSON format:
+IMPORTANT: You must respond with ONLY valid JSON, no other text before or after.
+
 {{
     "question": "{question}",
     "reasoning": "Your reasoning about what to search for",
@@ -381,35 +420,168 @@ Focus on synthesizing the information rather than just summarizing individual fi
                 return {"error": "Search tool not available. Index may not be ready."}
         
         try:
+            result = {
+                "research_query": research_query,
+                "process_steps": [],
+                "plan": None,
+                "findings": [],
+                "analysis": None
+            }
+            
             # PHASE 1: PLAN
-            logging.info(f"Starting deep research for: {research_query}")
+            print(f"🔍 DEEP RESEARCH STARTED: {research_query}", flush=True)
+            print("="*80, flush=True)
+            print("📋 PHASE 1: PLANNING", flush=True)
+            print(f"Topic: {research_query}", flush=True)
+            logging.info(f"🔍 DEEP RESEARCH STARTED: {research_query}")
+            logging.info("="*80)
+            logging.info("📋 PHASE 1: PLANNING")
+            logging.info(f"Topic: {research_query}")
+            sys.stdout.flush()
+            
             plan_prompt = self._create_plan_prompt(research_query)
+            print("Sending planning prompt to LLM...", flush=True)
+            logging.info("Sending planning prompt to LLM...")
+            
+            result["process_steps"].append({
+                "phase": "1_PLAN",
+                "description": f"Planning research approach for: {research_query}",
+                "prompt": plan_prompt,
+                "status": "executing"
+            })
+            
             plan_response = self.llm.complete(plan_prompt)
-            plan = json.loads(str(plan_response))
+            
+            # Parse plan response with error handling
+            plan_text = str(plan_response).strip()
+            logging.info(f"Plan response received: {plan_text[:200]}...")
+            
+            plan = self._extract_json_from_response(plan_text)
+            if plan is None:
+                # Fallback plan
+                plan = {
+                    "research_topic": research_query,
+                    "plan": [
+                        f"Question 1: What are the key aspects of {research_query}?",
+                        f"Question 2: What are the current developments in {research_query}?",
+                        f"Question 3: What are the implications and applications of {research_query}?"
+                    ]
+                }
+                logging.warning("Using fallback plan due to invalid JSON response")
+            
+            result["plan"] = plan
+            
+            print("✅ Planning completed!", flush=True)
+            print(f"Generated {len(plan['plan'])} research questions:", flush=True)
+            logging.info("✅ Planning completed!")
+            logging.info(f"Generated {len(plan['plan'])} research questions:")
+            for i, question in enumerate(plan['plan'], 1):
+                print(f"   {i}. {question}", flush=True)
+                logging.info(f"   {i}. {question}")
+            
+            result["process_steps"][-1].update({
+                "response": str(plan_response),
+                "parsed_result": plan,
+                "status": "completed"
+            })
             
             # PHASE 2 & 3: THINK → ACTION for each question
             all_findings = []
+            question_number = 1
+            
             for question in plan['plan']:
-                # THINK
-                think_prompt = self._create_think_prompt(plan, question)
-                think_response = self.llm.complete(think_prompt)
-                think_data = json.loads(str(think_response))
+                logging.info("="*80)
+                logging.info(f"🤔 PHASE 2: THINKING (Question {question_number})")
+                logging.info(f"Question: {question}")
                 
-                # ACTION - Search for each query
+                # PHASE 2: THINK
+                think_prompt = self._create_think_prompt(plan, question)
+                logging.info("Generating search strategy...")
+                
+                result["process_steps"].append({
+                    "phase": f"2_THINK_Q{question_number}",
+                    "description": f"Thinking about search strategy for: {question}",
+                    "question": question,
+                    "prompt": think_prompt,
+                    "status": "executing"
+                })
+                
+                think_response = self.llm.complete(think_prompt)
+                
+                # Parse think response with error handling
+                think_text = str(think_response).strip()
+                logging.info(f"Think response received: {think_text[:200]}...")
+                
+                think_data = self._extract_json_from_response(think_text)
+                if think_data is None:
+                    # Fallback think data
+                    think_data = {
+                        "question": question,
+                        "reasoning": f"Search for information related to {question}",
+                        "search_queries": [
+                            question.replace("Question ", "").replace(":", ""),
+                            f"{research_query} {question.split(':')[-1] if ':' in question else question}",
+                            f"information about {question.split(':')[-1] if ':' in question else question}"
+                        ]
+                    }
+                    logging.warning("Using fallback think data due to invalid JSON response")
+                
+                logging.info("✅ Strategy generated!")
+                logging.info(f"Reasoning: {think_data['reasoning']}")
+                logging.info(f"Search queries: {think_data['search_queries']}")
+                
+                result["process_steps"][-1].update({
+                    "response": str(think_response),
+                    "parsed_result": think_data,
+                    "status": "completed"
+                })
+                
+                # PHASE 3: ACTION - Search for each query
+                logging.info(f"🔎 PHASE 3: ACTION (Question {question_number})")
                 search_results = []
+                query_number = 1
+                
                 for search_query in think_data['search_queries']:
+                    logging.info(f"   Executing search {query_number}: '{search_query}'")
+                    
+                    result["process_steps"].append({
+                        "phase": f"3_ACTION_Q{question_number}_S{query_number}",
+                        "description": f"Searching for: {search_query}",
+                        "search_query": search_query,
+                        "status": "executing"
+                    })
+                    
                     try:
-                        result = self.search_tool.call(search_query)
+                        search_result = self.search_tool.call(search_query)
                         search_results.append({
                             "query": search_query,
-                            "result": str(result)
+                            "result": str(search_result)
                         })
+                        
+                        # Log result preview
+                        result_preview = str(search_result)[:200] + "..." if len(str(search_result)) > 200 else str(search_result)
+                        logging.info(f"   ✅ Search {query_number} completed: {result_preview}")
+                        
+                        result["process_steps"][-1].update({
+                            "result": str(search_result),
+                            "status": "completed"
+                        })
+                        
                     except Exception as e:
-                        logging.error(f"Search error for '{search_query}': {e}")
+                        logging.error(f"   ❌ Search {query_number} failed: {e}")
+                        error_msg = f"Search failed: {str(e)}"
                         search_results.append({
                             "query": search_query,
-                            "result": f"Search failed: {str(e)}"
+                            "result": error_msg
                         })
+                        
+                        result["process_steps"][-1].update({
+                            "result": error_msg,
+                            "status": "failed",
+                            "error": str(e)
+                        })
+                    
+                    query_number += 1
                 
                 all_findings.append({
                     "question": question,
@@ -417,17 +589,57 @@ Focus on synthesizing the information rather than just summarizing individual fi
                     "search_queries": think_data['search_queries'],
                     "search_results": search_results
                 })
+                
+                question_number += 1
+            
+            result["findings"] = all_findings
             
             # PHASE 4: ANALYZE
-            analyze_prompt = self._create_analyze_prompt(research_query, all_findings)
-            analysis = self.llm.complete(analyze_prompt)
+            logging.info("="*80)
+            logging.info("📊 PHASE 4: ANALYZING")
+            logging.info("Synthesizing all findings into comprehensive insights...")
             
-            return {
-                "research_query": research_query,
-                "plan": plan,
-                "findings": all_findings,
-                "analysis": str(analysis)
+            analyze_prompt = self._create_analyze_prompt(research_query, all_findings)
+            
+            result["process_steps"].append({
+                "phase": "4_ANALYZE",
+                "description": "Analyzing all findings and synthesizing insights",
+                "prompt": analyze_prompt,
+                "status": "executing"
+            })
+            
+            analysis = self.llm.complete(analyze_prompt)
+            result["analysis"] = str(analysis)
+            
+            logging.info("✅ Analysis completed!")
+            analysis_preview = str(analysis)[:300] + "..." if len(str(analysis)) > 300 else str(analysis)
+            logging.info(f"Analysis preview: {analysis_preview}")
+            
+            result["process_steps"][-1].update({
+                "response": str(analysis),
+                "status": "completed"
+            })
+            
+            # Add summary
+            result["summary"] = {
+                "total_steps": len(result["process_steps"]),
+                "completed_steps": len([s for s in result["process_steps"] if s["status"] == "completed"]),
+                "failed_steps": len([s for s in result["process_steps"] if s["status"] == "failed"]),
+                "questions_researched": len(plan['plan']),
+                "total_searches_performed": sum(len(f['search_queries']) for f in all_findings)
             }
+            
+            # Final summary log
+            logging.info("="*80)
+            logging.info("🏁 DEEP RESEARCH COMPLETED!")
+            logging.info(f"📈 Summary:")
+            logging.info(f"   • Questions researched: {result['summary']['questions_researched']}")
+            logging.info(f"   • Total searches: {result['summary']['total_searches_performed']}")
+            logging.info(f"   • Completed steps: {result['summary']['completed_steps']}")
+            logging.info(f"   • Failed steps: {result['summary']['failed_steps']}")
+            logging.info("="*80)
+            
+            return result
             
         except Exception as e:
             logging.error(f"Deep research error: {e}")
@@ -438,6 +650,8 @@ deep_research_agent = DeepResearchAgent()
 
 @app.get("/")
 def read_root():
+    print("🔥 ROOT ENDPOINT CALLED - TESTING LOG VISIBILITY", flush=True)
+    logging.info("🔥 ROOT ENDPOINT CALLED - TESTING LOG VISIBILITY")
     return {"message": "LlamaIndex RAG API is running"}
 
 class QueryRequest(BaseModel):
@@ -445,41 +659,145 @@ class QueryRequest(BaseModel):
 
 @app.post("/query")
 def query_llamaindex(request: QueryRequest):
-    global index
-    with index_lock:
-        if not index:
-            logging.warning("Query attempted but index not ready")
-            return {"error": "Index not ready yet. Please try again later."}
+    """Process query using deep research methodology"""
+    global deep_research_agent
+    
+    if not request.query.strip():
+        return {"error": "Query cannot be empty"}
+    
+    try:
+        print(f"🔍 QUERY PROCESSING STARTED: {request.query}", flush=True)
+        print("Using deep research methodology for comprehensive results", flush=True)
+        logging.info(f"🔍 QUERY PROCESSING STARTED: {request.query}")
+        logging.info("Using deep research methodology for comprehensive results")
         
-        try:
-            llm = OpenAI(model=DEFAULT_LLM_MODEL)
-            query_engine = index.as_query_engine(llm=llm)
-            logging.info(f"Processing query: {request.query}")
-            response = query_engine.query(request.query)
-            logging.info(f"Query processed successfully")
-            return {"response": str(response)}
-        except Exception as e:
-            logging.error(f"Error processing query: {e}")
-            return {"error": f"Query processing failed: {str(e)}"}
+        # Refresh the search tool if index was updated
+        deep_research_agent._setup_search_tool()
+        
+        result = deep_research_agent.conduct_deep_research(request.query)
+        
+        # Format response for backward compatibility while providing deep research results
+        if "error" in result:
+            return result
+        
+        # Extract the analysis as the main response for compatibility
+        main_response = result.get("analysis", "No analysis available")
+        
+        return {
+            "response": main_response,
+            "metadata": {
+                "query": request.query,
+                "model": DEFAULT_LLM_MODEL,
+                "method": "deep_research"
+            },
+            "deep_research_details": {
+                "plan": result.get("plan"),
+                "findings": result.get("findings"),
+                "summary": result.get("summary"),
+                "process_steps": result.get("process_steps")
+            }
+        }
+    except Exception as e:
+        logging.error(f"Error processing query with deep research: {e}")
+        return {"error": f"Failed to process query: {str(e)}"}
 
 @app.get("/query")
 def query_llamaindex_get(query: str = Query(..., description="Query string")):
+    """Process GET query using deep research methodology"""
+    global deep_research_agent
+    
+    if not query.strip():
+        return {"error": "Query cannot be empty"}
+    
+    try:
+        print(f"🔍 GET QUERY PROCESSING STARTED: {query}", flush=True)
+        print("Using deep research methodology for comprehensive results", flush=True)
+        logging.info(f"🔍 GET QUERY PROCESSING STARTED: {query}")
+        logging.info("Using deep research methodology for comprehensive results")
+        
+        # Refresh the search tool if index was updated
+        deep_research_agent._setup_search_tool()
+        
+        result = deep_research_agent.conduct_deep_research(query)
+        
+        # Format response for backward compatibility while providing deep research results
+        if "error" in result:
+            return result
+        
+        # Extract the analysis as the main response for compatibility
+        main_response = result.get("analysis", "No analysis available")
+        
+        return {
+            "response": main_response,
+            "metadata": {
+                "query": query,
+                "model": DEFAULT_LLM_MODEL,
+                "method": "deep_research"
+            },
+            "deep_research_details": {
+                "plan": result.get("plan"),
+                "findings": result.get("findings"),
+                "summary": result.get("summary"),
+                "process_steps": result.get("process_steps")
+            }
+        }
+    except Exception as e:
+        logging.error(f"Error processing GET query with deep research: {e}")
+        return {"error": f"Failed to process query: {str(e)}"}
+
+@app.post("/simple-query")
+def simple_query_llamaindex(request: QueryRequest):
+    """Simple query without deep research (legacy behavior)"""
     global index
     with index_lock:
         if not index:
-            logging.warning("Query attempted but index not ready")
+            logging.warning("Simple query attempted but index not ready")
             return {"error": "Index not ready yet. Please try again later."}
         
         try:
             llm = OpenAI(model=DEFAULT_LLM_MODEL)
             query_engine = index.as_query_engine(llm=llm)
-            logging.info(f"Processing GET query: {query}")
-            response = query_engine.query(query)
-            logging.info(f"GET query processed successfully")
-            return {"response": str(response)}
+            logging.info(f"Processing simple query: {request.query}")
+            response = query_engine.query(request.query)
+            logging.info(f"Simple query processed successfully")
+            return {
+                "response": str(response),
+                "metadata": {
+                    "query": request.query,
+                    "model": DEFAULT_LLM_MODEL,
+                    "method": "simple"
+                }
+            }
         except Exception as e:
-            logging.error(f"Error processing GET query: {e}")
-            return {"error": f"Query processing failed: {str(e)}"}
+            logging.error(f"Error processing simple query: {e}")
+            return {"error": f"Simple query processing failed: {str(e)}"}
+
+@app.get("/simple-query")
+def simple_query_llamaindex_get(query: str = Query(..., description="Simple query string")):
+    """Simple GET query without deep research (legacy behavior)"""
+    global index
+    with index_lock:
+        if not index:
+            logging.warning("Simple GET query attempted but index not ready")
+            return {"error": "Index not ready yet. Please try again later."}
+        
+        try:
+            llm = OpenAI(model=DEFAULT_LLM_MODEL)
+            query_engine = index.as_query_engine(llm=llm)
+            logging.info(f"Processing simple GET query: {query}")
+            response = query_engine.query(query)
+            logging.info(f"Simple GET query processed successfully")
+            return {
+                "response": str(response),
+                "metadata": {
+                    "query": query,
+                    "model": DEFAULT_LLM_MODEL,
+                    "method": "simple"
+                }
+            }
+        except Exception as e:
+            logging.error(f"Error processing simple GET query: {e}")
+            return {"error": f"Simple query processing failed: {str(e)}"}
 
 @app.get("/top3-bookmarklinks")
 def get_top3_bookmarklinks():
