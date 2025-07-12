@@ -1,0 +1,3 @@
+# Ignore all LlamaIndex storage content but keep the directory
+*
+!.gitignore

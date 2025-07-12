@@ -4,5 +4,6 @@ psycopg2-binary
 llama-index
 llama-index-embeddings-google-genai
 llama-index-llms-openai
+llama-index-core
 sqlalchemy
 python-dotenv

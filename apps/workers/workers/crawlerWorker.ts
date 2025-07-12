@@ -29,6 +29,7 @@ import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import { withTimeout } from "utils";
 import { getBookmarkDetails, updateAsset } from "workerUtils";
+import { handlePopups, waitAndHandlePopups } from "../utils/popupHandler";
 
 import type { ZCrawlLinkRequest } from "@karakeep/shared/queues";
 import { db } from "@karakeep/db";
@@ -316,6 +317,22 @@ async function crawlPage(
     ]);
 
     logger.info(`[Crawler][${jobId}] Finished waiting for the page to load.`);
+
+    // Handle any popups that might be blocking content access
+    try {
+      await waitAndHandlePopups(page, jobId, 2000);
+      logger.info(`[Crawler][${jobId}] Popup handling completed.`);
+    } catch (error) {
+      logger.warn(`[Crawler][${jobId}] Popup handling failed: ${error}`);
+    }
+
+    // Handle popups again to ensure clean content extraction
+    try {
+      await handlePopups(page, jobId);
+      logger.info(`[Crawler][${jobId}] Final popup handling before content extraction completed.`);
+    } catch (error) {
+      logger.warn(`[Crawler][${jobId}] Final popup handling failed: ${error}`);
+    }
 
     const htmlContent = await page.content();
     logger.info(`[Crawler][${jobId}] Successfully fetched the page content.`);
