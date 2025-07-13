@@ -648,6 +648,16 @@ Focus on synthesizing the information rather than just summarizing individual fi
 # Global deep research agent
 deep_research_agent = DeepResearchAgent()
 
+# Import CrewAI system
+try:
+    from crewai_deep_research import crewai_research_system
+    CREWAI_AVAILABLE = True
+    logging.info("CrewAI multi-agent system loaded successfully")
+except ImportError as e:
+    CREWAI_AVAILABLE = False
+    logging.warning(f"CrewAI system not available: {e}")
+    crewai_research_system = None
+
 @app.get("/")
 def read_root():
     print("🔥 ROOT ENDPOINT CALLED - TESTING LOG VISIBILITY", flush=True)
@@ -659,91 +669,127 @@ class QueryRequest(BaseModel):
 
 @app.post("/query")
 def query_llamaindex(request: QueryRequest):
-    """Process query using deep research methodology"""
-    global deep_research_agent
+    """Process query using CrewAI multi-agent system with advanced reasoning (GPT-4o + o1-preview)"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
     
     if not request.query.strip():
         return {"error": "Query cannot be empty"}
     
     try:
-        print(f"🔍 QUERY PROCESSING STARTED: {request.query}", flush=True)
-        print("Using deep research methodology for comprehensive results", flush=True)
-        logging.info(f"🔍 QUERY PROCESSING STARTED: {request.query}")
-        logging.info("Using deep research methodology for comprehensive results")
+        print(f"🚀 CREWAI QUERY PROCESSING STARTED: {request.query}", flush=True)
+        print("Using enhanced multi-agent system with GPT-4o + o1-preview reasoning", flush=True)
+        logging.info(f"🚀 CREWAI QUERY PROCESSING STARTED: {request.query}")
+        logging.info("Using enhanced multi-agent system with advanced reasoning")
         
-        # Refresh the search tool if index was updated
-        deep_research_agent._setup_search_tool()
+        result = crewai_research_system.conduct_research(request.query)
         
-        result = deep_research_agent.conduct_deep_research(request.query)
-        
-        # Format response for backward compatibility while providing deep research results
+        # Format response for backward compatibility while providing CrewAI results
         if "error" in result:
             return result
         
-        # Extract the analysis as the main response for compatibility
-        main_response = result.get("analysis", "No analysis available")
+        # Extract the final report as the main response for compatibility
+        main_response = result.get("final_report", "No research report available")
         
         return {
             "response": main_response,
             "metadata": {
                 "query": request.query,
-                "model": DEFAULT_LLM_MODEL,
-                "method": "deep_research"
+                "model": "CrewAI Multi-Agent (GPT-4o + o1-preview)",
+                "method": "crewai_multi_agent_research",
+                "agent_count": 8,
+                "reasoning_model": "o1-preview"
             },
-            "deep_research_details": {
-                "plan": result.get("plan"),
-                "findings": result.get("findings"),
-                "summary": result.get("summary"),
-                "process_steps": result.get("process_steps")
+            "system_info": {
+                "research_method": "CrewAI Multi-Agent System",
+                "agents_used": [
+                    "Hybrid Research Developer (SQLite + RAG + Multi-language)",
+                    "Research Supervisor (data-driven question generation)",
+                    "Elite Research Critic (≥8.5 novelty + o1-preview reasoning)",
+                    "Strategic Analyzer (methodology design)", 
+                    "Research Student (LlamaIndex search)",
+                    "Research Philosopher (strategic guidance)",
+                    "Deep Thinker (o1-preview synthesis)",
+                    "Research Reporter (final reporting)"
+                ],
+                "capabilities": [
+                    "Multi-language support (English/Chinese/Japanese)",
+                    "Hybrid analysis (SQLite + LlamaIndex RAG)",
+                    "Advanced reasoning with o1-preview",
+                    "≥8.5/10 novelty requirements",
+                    "Cross-cultural research opportunities"
+                ]
+            },
+            "crewai_details": {
+                "agent_outputs": result.get("agent_outputs", {}),
+                "metadata": result.get("metadata", {})
             }
         }
     except Exception as e:
-        logging.error(f"Error processing query with deep research: {e}")
-        return {"error": f"Failed to process query: {str(e)}"}
+        logging.error(f"Error processing query with CrewAI: {e}")
+        return {"error": f"Failed to process query with CrewAI: {str(e)}"}
 
 @app.get("/query")
 def query_llamaindex_get(query: str = Query(..., description="Query string")):
-    """Process GET query using deep research methodology"""
-    global deep_research_agent
+    """Process GET query using CrewAI multi-agent system with advanced reasoning (GPT-4o + o1-preview)"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
     
     if not query.strip():
         return {"error": "Query cannot be empty"}
     
     try:
-        print(f"🔍 GET QUERY PROCESSING STARTED: {query}", flush=True)
-        print("Using deep research methodology for comprehensive results", flush=True)
-        logging.info(f"🔍 GET QUERY PROCESSING STARTED: {query}")
-        logging.info("Using deep research methodology for comprehensive results")
+        print(f"🚀 CREWAI GET QUERY PROCESSING STARTED: {query}", flush=True)
+        print("Using enhanced multi-agent system with GPT-4o + o1-preview reasoning", flush=True)
+        logging.info(f"🚀 CREWAI GET QUERY PROCESSING STARTED: {query}")
+        logging.info("Using enhanced multi-agent system with advanced reasoning")
         
-        # Refresh the search tool if index was updated
-        deep_research_agent._setup_search_tool()
+        result = crewai_research_system.conduct_research(query)
         
-        result = deep_research_agent.conduct_deep_research(query)
-        
-        # Format response for backward compatibility while providing deep research results
+        # Format response for backward compatibility while providing CrewAI results
         if "error" in result:
             return result
         
-        # Extract the analysis as the main response for compatibility
-        main_response = result.get("analysis", "No analysis available")
+        # Extract the final report as the main response for compatibility
+        main_response = result.get("final_report", "No research report available")
         
         return {
             "response": main_response,
             "metadata": {
                 "query": query,
-                "model": DEFAULT_LLM_MODEL,
-                "method": "deep_research"
+                "model": "CrewAI Multi-Agent (GPT-4o + o1-preview)",
+                "method": "crewai_multi_agent_research",
+                "agent_count": 8,
+                "reasoning_model": "o1-preview"
             },
-            "deep_research_details": {
-                "plan": result.get("plan"),
-                "findings": result.get("findings"),
-                "summary": result.get("summary"),
-                "process_steps": result.get("process_steps")
+            "system_info": {
+                "research_method": "CrewAI Multi-Agent System",
+                "agents_used": [
+                    "Hybrid Research Developer (SQLite + RAG + Multi-language)",
+                    "Research Supervisor (data-driven question generation)",
+                    "Elite Research Critic (≥8.5 novelty + o1-preview reasoning)",
+                    "Strategic Analyzer (methodology design)", 
+                    "Research Student (LlamaIndex search)",
+                    "Research Philosopher (strategic guidance)",
+                    "Deep Thinker (o1-preview synthesis)",
+                    "Research Reporter (final reporting)"
+                ],
+                "capabilities": [
+                    "Multi-language support (English/Chinese/Japanese)",
+                    "Hybrid analysis (SQLite + LlamaIndex RAG)",
+                    "Advanced reasoning with o1-preview",
+                    "≥8.5/10 novelty requirements",
+                    "Cross-cultural research opportunities"
+                ]
+            },
+            "crewai_details": {
+                "agent_outputs": result.get("agent_outputs", {}),
+                "metadata": result.get("metadata", {})
             }
         }
     except Exception as e:
-        logging.error(f"Error processing GET query with deep research: {e}")
-        return {"error": f"Failed to process query: {str(e)}"}
+        logging.error(f"Error processing GET query with CrewAI: {e}")
+        return {"error": f"Failed to process query with CrewAI: {str(e)}"}
 
 @app.post("/simple-query")
 def simple_query_llamaindex(request: QueryRequest):
@@ -866,17 +912,25 @@ class DeepResearchRequest(BaseModel):
 
 @app.post("/deep-research")
 def conduct_deep_research_endpoint(request: DeepResearchRequest):
-    """Conduct deep research using Plan → Think → Action → Analyze pattern"""
+    """Legacy single-agent deep research (Plan → Think → Action → Analyze pattern). Use /query for enhanced CrewAI multi-agent research."""
     global deep_research_agent
     
     if not request.research_query.strip():
         return {"error": "Research query cannot be empty"}
     
     try:
+        print(f"⚠️ Using legacy deep research endpoint. Consider using /query for enhanced CrewAI multi-agent research.", flush=True)
+        logging.info(f"Legacy deep research endpoint used for: {request.research_query}")
+        
         # Refresh the search tool if index was updated
         deep_research_agent._setup_search_tool()
         
         result = deep_research_agent.conduct_deep_research(request.research_query)
+        
+        # Add note about enhanced endpoint
+        if isinstance(result, dict):
+            result["note"] = "This is legacy single-agent research. Use /query endpoint for enhanced CrewAI multi-agent research with GPT-4o + o1-preview."
+        
         return result
     except Exception as e:
         logging.error(f"Deep research endpoint error: {e}")
@@ -899,3 +953,128 @@ def conduct_deep_research_get(research_query: str = Query(..., description="Rese
     except Exception as e:
         logging.error(f"Deep research GET endpoint error: {e}")
         return {"error": f"Deep research failed: {str(e)}"}
+
+# CrewAI Multi-Agent Research Endpoints
+
+class CrewAIResearchRequest(BaseModel):
+    research_query: str
+
+@app.post("/crewai-research")
+def conduct_crewai_research(request: CrewAIResearchRequest):
+    """Conduct research using CrewAI multi-agent system with 8 specialized agents"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
+    
+    if not request.research_query.strip():
+        return {"error": "Research query cannot be empty"}
+    
+    try:
+        logging.info(f"Starting CrewAI multi-agent research for: {request.research_query}")
+        
+        result = crewai_research_system.conduct_research(request.research_query)
+        
+        # Add system information
+        result["system_info"] = {
+            "research_method": "CrewAI Multi-Agent System",
+            "agents_used": [
+                "Research Supervisor (data-driven question generation)",
+                "Strategic Analyzer (methodology design)", 
+                "Research Student (LlamaIndex search)",
+                "Research Developer (computational analysis)",
+                "Research Philosopher (strategic guidance)",
+                "Deep Thinker (synthesis)",
+                "Professional Critic (quality control)",
+                "Research Reporter (final reporting)"
+            ],
+            "agent_count": 8,
+            "workflow": "Flexible sequential with context sharing"
+        }
+        
+        return result
+        
+    except Exception as e:
+        logging.error(f"CrewAI research error: {e}")
+        return {"error": f"CrewAI research failed: {str(e)}"}
+
+@app.get("/crewai-research")
+def conduct_crewai_research_get(research_query: str = Query(..., description="Research query for CrewAI multi-agent analysis")):
+    """GET endpoint for CrewAI multi-agent research"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
+    
+    if not research_query.strip():
+        return {"error": "Research query cannot be empty"}
+    
+    try:
+        logging.info(f"Starting CrewAI multi-agent research (GET) for: {research_query}")
+        
+        result = crewai_research_system.conduct_research(research_query)
+        
+        # Add system information
+        result["system_info"] = {
+            "research_method": "CrewAI Multi-Agent System",
+            "agents_used": [
+                "Research Supervisor (data-driven question generation)",
+                "Strategic Analyzer (methodology design)", 
+                "Research Student (LlamaIndex search)",
+                "Research Developer (computational analysis)",
+                "Research Philosopher (strategic guidance)",
+                "Deep Thinker (synthesis)",
+                "Professional Critic (quality control)",
+                "Research Reporter (final reporting)"
+            ],
+            "agent_count": 8,
+            "workflow": "Flexible sequential with context sharing"
+        }
+        
+        return result
+        
+    except Exception as e:
+        logging.error(f"CrewAI research GET error: {e}")
+        return {"error": f"CrewAI research failed: {str(e)}"}
+
+@app.get("/research-methods")
+def get_available_research_methods():
+    """Get information about available research methods"""
+    methods = {
+        "simple_query": {
+            "endpoint": "/simple-query",
+            "description": "Basic LlamaIndex search without deep analysis",
+            "features": ["Single query", "Fast response", "Vector similarity search"],
+            "use_case": "Quick information lookup"
+        },
+        "deep_research": {
+            "endpoint": "/deep-research", 
+            "description": "Advanced single-agent deep research with Plan→Think→Action→Analyze pattern",
+            "features": ["Multi-phase analysis", "Iterative searching", "Comprehensive synthesis"],
+            "use_case": "Thorough research on complex topics"
+        },
+        "crewai_research": {
+            "endpoint": "/crewai-research",
+            "description": "Multi-agent collaborative research with 8 specialized agents",
+            "features": [
+                "Data-driven question generation", 
+                "Collaborative agent workflow",
+                "Professional quality control",
+                "Comprehensive methodology",
+                "Multi-perspective analysis"
+            ],
+            "use_case": "Complex research requiring multiple expertise areas",
+            "available": CREWAI_AVAILABLE,
+            "agents": [
+                "Supervisor: Generates research questions based on actual data",
+                "Analyzer: Creates research methodology", 
+                "Student: Searches LlamaIndex database",
+                "Developer: Performs computational analysis",
+                "Philosopher: Provides strategic guidance",
+                "Deep Thinker: Synthesizes findings",
+                "Critic: Quality control and evaluation", 
+                "Reporter: Creates final report"
+            ] if CREWAI_AVAILABLE else []
+        }
+    }
+    
+    return {
+        "available_methods": methods,
+        "recommendation": "Use crewai-research for comprehensive analysis, deep-research for structured investigation, simple-query for quick lookups"
+    }
