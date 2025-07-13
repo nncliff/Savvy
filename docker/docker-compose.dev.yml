@@ -13,6 +13,7 @@ services:
     environment:
       DATABASE_URL: postgres://karakeep:karakeep_password@postgres:5432/karakeep
       DATA_DIR: /data
+      MEILI_ADDR: http://meilisearch:7700
     command:
       - pnpm
       - web
@@ -110,6 +111,12 @@ services:
 
   meilisearch:
     image: getmeili/meilisearch:v1.13.3
+    env_file:
+      - .env
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+    ports:
+      - "127.0.0.1:7700:7700"
     volumes:
       - meilisearch:/meili_data
 
