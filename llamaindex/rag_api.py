@@ -5,6 +5,7 @@ import time
 import logging
 from typing import List
 from fastapi import FastAPI, Query
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from sqlalchemy import create_engine, text as sql_text
 from sqlalchemy.engine import Engine
@@ -1078,3 +1079,203 @@ def get_available_research_methods():
         "available_methods": methods,
         "recommendation": "Use crewai-research for comprehensive analysis, deep-research for structured investigation, simple-query for quick lookups"
     }
+
+@app.get("/dump-text-content")
+def dump_text_content(
+    format: str = Query("json", description="Output format: 'json' or 'text'"),
+    include_html: bool = Query(False, description="Include HTML content in response"),
+    min_length: int = Query(0, description="Minimum content length to include")
+):
+    """Dump all text content from bookmarked articles"""
+    try:
+        engine = get_engine()
+        with engine.connect() as conn:
+            # Fetch all bookmark data with text content
+            result = conn.execute(sql_text('''
+                SELECT 
+                    id,
+                    url,
+                    title,
+                    content,
+                    "htmlContent",
+                    "crawledAt"
+                FROM "bookmarkLinks" 
+                ORDER BY "crawledAt" DESC
+            '''))
+            
+            rows = result.fetchall()
+            
+            # Prepare the dump data
+            dump_data = {
+                "export_timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+                "total_bookmarks": len(rows),
+                "bookmarks": []
+            }
+            
+            for row in rows:
+                content = row.content or ""
+                
+                # Filter by minimum length
+                if len(content) < min_length:
+                    continue
+                    
+                bookmark_data = {
+                    "id": row.id,
+                    "url": row.url,
+                    "title": row.title or "",
+                    "crawled_at": row.crawledAt.isoformat() if row.crawledAt else None,
+                    "content": content,
+                    "text_length": len(content)
+                }
+                
+                # Include HTML content only if requested
+                if include_html:
+                    bookmark_data["html_content"] = row.htmlContent or ""
+                    bookmark_data["html_length"] = len(row.htmlContent or "")
+                    
+                dump_data["bookmarks"].append(bookmark_data)
+            
+            # Calculate statistics
+            total_text_chars = sum(len(b["content"]) for b in dump_data["bookmarks"])
+            bookmarks_with_content = len(dump_data["bookmarks"])
+            
+            dump_data["statistics"] = {
+                "filtered_bookmarks": bookmarks_with_content,
+                "total_available_bookmarks": len(rows),
+                "total_text_characters": total_text_chars,
+                "average_text_length": total_text_chars // bookmarks_with_content if bookmarks_with_content else 0,
+                "filter_applied": f"min_length >= {min_length}"
+            }
+            
+            if include_html:
+                total_html_chars = sum(len(b.get("html_content", "")) for b in dump_data["bookmarks"])
+                dump_data["statistics"]["total_html_characters"] = total_html_chars
+            
+            # Handle different output formats
+            if format.lower() == "text":
+                # Return plain text format
+                text_output = f"# Bookmark Text Content Dump\n"
+                text_output += f"# Generated: {dump_data['export_timestamp']}\n"
+                text_output += f"# Total bookmarks: {bookmarks_with_content}\n"
+                text_output += f"# Total characters: {total_text_chars:,}\n\n"
+                text_output += "=" * 80 + "\n\n"
+                
+                for i, bookmark in enumerate(dump_data["bookmarks"], 1):
+                    text_output += f"[{i}] {bookmark['title']}\n"
+                    text_output += f"URL: {bookmark['url']}\n"
+                    text_output += f"Crawled: {bookmark['crawled_at']}\n"
+                    text_output += f"Length: {bookmark['text_length']:,} characters\n"
+                    text_output += "-" * 40 + "\n"
+                    text_output += f"{bookmark['content']}\n"
+                    text_output += "=" * 80 + "\n\n"
+                
+                return {"content_type": "text/plain", "data": text_output}
+            
+            return dump_data
+            
+    except Exception as e:
+        logging.error(f"Error dumping text content: {e}")
+        return {"error": f"Failed to dump text content: {str(e)}"}
+
+@app.get("/download-text-content")
+def download_text_content(
+    format: str = Query("txt", description="Download format: 'txt', 'json', or 'csv'"),
+    min_length: int = Query(100, description="Minimum content length to include")
+):
+    """Download all text content from bookmarked articles as a file"""
+    import io
+    
+    try:
+        engine = get_engine()
+        with engine.connect() as conn:
+            result = conn.execute(sql_text('''
+                SELECT 
+                    id, url, title, content, "crawledAt"
+                FROM "bookmarkLinks" 
+                WHERE content IS NOT NULL AND LENGTH(content) >= :min_length
+                ORDER BY "crawledAt" DESC
+            '''), {"min_length": min_length})
+            
+            rows = result.fetchall()
+            
+            timestamp = time.strftime("%Y%m%d_%H%M%S", time.gmtime())
+            
+            if format.lower() == "json":
+                # JSON format
+                import json
+                data = {
+                    "export_timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+                    "total_bookmarks": len(rows),
+                    "bookmarks": [
+                        {
+                            "id": row.id,
+                            "url": row.url, 
+                            "title": row.title or "",
+                            "content": row.content or "",
+                            "crawled_at": row.crawledAt.isoformat() if row.crawledAt else None
+                        } for row in rows
+                    ]
+                }
+                
+                content = json.dumps(data, indent=2, ensure_ascii=False)
+                media_type = "application/json"
+                filename = f"bookmarks_content_{timestamp}.json"
+                
+            elif format.lower() == "csv":
+                # CSV format
+                import csv
+                output = io.StringIO()
+                writer = csv.writer(output)
+                writer.writerow(["ID", "URL", "Title", "Content", "Crawled At", "Content Length"])
+                
+                for row in rows:
+                    writer.writerow([
+                        row.id,
+                        row.url,
+                        row.title or "",
+                        row.content or "",
+                        row.crawledAt.isoformat() if row.crawledAt else "",
+                        len(row.content or "")
+                    ])
+                
+                content = output.getvalue()
+                media_type = "text/csv"
+                filename = f"bookmarks_content_{timestamp}.csv"
+                
+            else:  # txt format (default)
+                # Plain text format
+                content = f"Bookmark Text Content Export\n"
+                content += f"Generated: {time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}\n"
+                content += f"Total bookmarks: {len(rows)}\n"
+                content += f"Minimum content length: {min_length}\n"
+                content += "=" * 80 + "\n\n"
+                
+                for i, row in enumerate(rows, 1):
+                    content += f"[{i}] {row.title or 'Untitled'}\n"
+                    content += f"URL: {row.url}\n"
+                    content += f"Crawled: {row.crawledAt}\n"
+                    content += f"Content Length: {len(row.content or ''):,} characters\n"
+                    content += "-" * 40 + "\n"
+                    content += f"{row.content or ''}\n"
+                    content += "=" * 80 + "\n\n"
+                
+                media_type = "text/plain"
+                filename = f"bookmarks_content_{timestamp}.txt"
+            
+            # Create streaming response
+            def generate():
+                yield content.encode('utf-8')
+            
+            headers = {
+                'Content-Disposition': f'attachment; filename="{filename}"'
+            }
+            
+            return StreamingResponse(
+                generate(),
+                media_type=media_type,
+                headers=headers
+            )
+            
+    except Exception as e:
+        logging.error(f"Error downloading text content: {e}")
+        return {"error": f"Failed to download text content: {str(e)}"}
