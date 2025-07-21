@@ -1,0 +1,2970 @@
+{
+  "title": "Kimi K2- The FREE AI Model That Killed Claude Code??",
+  "description": "In this video I walk you through why Kimi K2 is taking the AI industry by storm and how you can set it up to code for FREE!\n\nFollow my X: https://x.com/AlexFinnX\nSign up for my free newsletter: https://www.alexfinn.ai/subscribe\nMy AI app: https://www.creatorbuddy.io/\n\nLinks from video:\nhttps://www.kimi.com/\n\nhttps://api.moonshot.ai/anthropic\n\nI want you to build me a 3D first person shooter game using ThreeJS. Be creative and make it fun and beautiful. put it in a single file in index so it's easy to run\n\nhttps://platform.moonshot.ai/console\n\nTimestamps:\n0:00 Intro\n0:29 Using Kimi K2\n0:50 Benchmarks\n2:08 OpenAI Panic\n3:09 Installing Kimi K2\n5:19 Building the  app\n6:50 Final results\nHow this content was made\nAuto-dubbed\nAudio tracks for some languages were automatically generated. Learn more\nChapters\nView all\nIntro\n0:00\nUsing Kimi K2\n0:29\nBenchmarks\n0:50\nOpenAI Panic\n2:08\nInstalling Kimi K2\n3:09\nBuilding the app\n5:19\nFinal results\n6:50\nTranscript\n\nFollow along using the transcript.\n\nShow transcript\nAlex Finn\n29.2K subscribers\nVideos\nAbout\nX\nShow less",
+  "key_moments": [],
+  "transcript_lines": [
+    "Intro\n\n\n\n  \n    \n      0:00\n    \n  \n  \n  Kimmy K2 has just blown up the entire AI\n  \n\n\n  \n    \n      0:03\n    \n  \n  \n  space. Not only is it the most powerful\n  \n\n\n  \n    \n      0:05\n    \n  \n  \n  model out there right now, but what if I\n  \n\n\n  \n    \n      0:07\n    \n  \n  \n  told you it's basically free and you'll\n  \n\n\n  \n    \n      0:09\n    \n  \n  \n  potentially never have to pay for AI\n  \n\n\n  \n    \n      0:10\n    \n  \n  \n  again. And oh yeah, it's completely open\n  \n\n\n  \n    \n      0:13\n    \n  \n  \n  source. In this video, I'm going to show\n  \n\n\n  \n    \n      0:14\n    \n  \n  \n  you why Kimmy K2 just shook up the\n  \n\n\n  \n    \n      0:16\n    \n  \n  \n  entire industry, why it has Sam Alman\n  \n\n\n  \n    \n      0:19\n    \n  \n  \n  changing all his plans, and how you can\n  \n\n\n  \n    \n      0:21\n    \n  \n  \n  get Kimmy K2 set up so you never have to\n  \n\n\n  \n    \n      0:24\n    \n  \n  \n  pay for AI coding again. This might be\n  \n\n\n  \n    \n      0:26\n    \n  \n  \n  the end of Claude Code. Let's lock in\n  \n\n\n  \n    \n      0:28\n    \n  \n  \n  and get into it. So, this is Kimmy K2.\n  \n\n\n  \n    \n  Using Kimi K2\n\n\n\n  \n    \n      0:30\n    \n  \n  \n  This is a brand new model out of the\n  \n\n\n  \n    \n      0:32\n    \n  \n  \n  Chinese company Moonshot. And there's so\n  \n\n\n  \n    \n      0:34\n    \n  \n  \n  many mind-blowing things about this.\n  \n\n\n  \n    \n      0:36\n    \n  \n  \n  First of all, if you go to their site\n  \n\n\n  \n    \n      0:37\n    \n  \n  \n  right now, kimmy.com, you can use their\n  \n\n\n  \n    \n      0:40\n    \n  \n  \n  chatbot completely free, unlimited,\n  \n\n\n  \n    \n      0:42\n    \n  \n  \n  completely free, and unlimited. How\n  \n\n\n  \n    \n      0:43\n    \n  \n  \n  unheard of is that? But what makes it\n  \n\n\n  \n    \n      0:45\n    \n  \n  \n  even more amazing is it's actually an\n  \n\n\n  \n    \n      0:47\n    \n  \n  \n  incredible, incredible model. Looking at\n  \n\n\n  \n    \n      0:49\n    \n  \n  \n  the benchmarks, it beats pretty much\n  \n\n\n  \n    \n  Benchmarks\n\n\n\n  \n    \n      0:51\n    \n  \n  \n  every other model out there. And what's\n  \n\n\n  \n    \n      0:53\n    \n  \n  \n  really amazing is it's comparing it to\n  \n\n\n  \n    \n      0:54\n    \n  \n  \n  every company's top model. They're\n  \n\n\n  \n    \n      0:56\n    \n  \n  \n  comparing it to Claude 4 Opus and this\n  \n\n\n  \n    \n      0:59\n    \n  \n  \n  isn't even a thinking model and it's\n  \n\n\n  \n    \n      1:01\n    \n  \n  \n  beating pretty much all of them. The\n  \n\n\n  \n    \n      1:03\n    \n  \n  \n  only model that seems to come\n  \n\n\n  \n    \n      1:04\n    \n  \n  \n  consistently close is Claude for Opus,\n  \n\n\n  \n    \n      1:06\n    \n  \n  \n  but they're pretty much neck to neck in\n  \n\n\n  \n    \n      1:08\n    \n  \n  \n  almost every single benchmark. What's\n  \n\n\n  \n    \n      1:10\n    \n  \n  \n  crazy, it's not even a thinking model,\n  \n\n\n  \n    \n      1:11\n    \n  \n  \n  so the results you're going to get are\n  \n\n\n  \n    \n      1:13\n    \n  \n  \n  going to be super quick. So, it's free.\n  \n\n\n  \n    \n      1:15\n    \n  \n  \n  It's just as good as all the other top\n  \n\n\n  \n    \n      1:17\n    \n  \n  \n  models out there. And it's open source,\n  \n\n\n  \n    \n      1:20\n    \n  \n  \n  which means you can download it, run it\n  \n\n\n  \n    \n      1:22\n    \n  \n  \n  locally, and tinker with it any way you\n  \n\n\n  \n    \n      1:24\n    \n  \n  \n  want. It has an unbelievable 1 trillion\n  \n\n\n  \n    \n      1:28\n    \n  \n  \n  total parameters. I'm telling you, I\n  \n\n\n  \n    \n      1:30\n    \n  \n  \n  don't know what's in the water in China,\n  \n\n\n  \n    \n      1:31\n    \n  \n  \n  but they're making some unbelievable AI\n  \n\n\n  \n    \n      1:33\n    \n  \n  \n  model. Now, why do I say it's basically\n  \n\n\n  \n    \n      1:35\n    \n  \n  \n  free? Well, one thing, if you're using\n  \n\n\n  \n    \n      1:36\n    \n  \n  \n  the chatbot on kimmy.com, it is\n  \n\n\n  \n    \n      1:38\n    \n  \n  \n  literally free. You can do as much\n  \n\n\n  \n    \n      1:40\n    \n  \n  \n  research, as much searching, as much\n  \n\n\n  \n    \n      1:42\n    \n  \n  \n  anything you want. Completely for free.\n  \n\n\n  \n    \n      1:44\n    \n  \n  \n  No charges at all. The only time you'll\n  \n\n\n  \n    \n      1:46\n    \n  \n  \n  run into payments is if you're using the\n  \n\n\n  \n    \n      1:48\n    \n  \n  \n  API, but even then with the API, it is a\n  \n\n\n  \n    \n      1:51\n    \n  \n  \n  quarter of the price of Claude Opus.\n  \n\n\n  \n    \n      1:53\n    \n  \n  \n  These are some unbelievable prices here.\n  \n\n\n  \n    \n      1:55\n    \n  \n  \n  And what's even more amazing is actually\n  \n\n\n  \n    \n      1:57\n    \n  \n  \n  a free tier. So when you start using it,\n  \n\n\n  \n    \n      1:59\n    \n  \n  \n  it will be free up to a certain point.\n  \n\n\n  \n    \n      2:01\n    \n  \n  \n  You get something like 1 million tokens\n  \n\n\n  \n    \n      2:03\n    \n  \n  \n  a day, completely free, which is a good\n  \n\n\n  \n    \n      2:05\n    \n  \n  \n  amount. I mean, this has shaken up the\n  \n\n\n  \n    \n      2:06\n    \n  \n  \n  entire industry. Just this week, Open AI\n  \n\n\n  \n    \n  OpenAI Panic\n\n\n\n  \n    \n      2:10\n    \n  \n  \n  was supposed to release their own open-\n  \n\n\n  \n    \n      2:12\n    \n  \n  \n  source model, their first open-source\n  \n\n\n  \n    \n      2:14\n    \n  \n  \n  model ever. But right when they were\n  \n\n\n  \n    \n      2:16\n    \n  \n  \n  supposed to do it, Kimmy K2 comes out\n  \n\n\n  \n    \n      2:18\n    \n  \n  \n  and it blows away all the competition.\n  \n\n\n  \n    \n      2:20\n    \n  \n  \n  So what happens? Well, it looks like\n  \n\n\n  \n    \n      2:22\n    \n  \n  \n  OpenAI delayed their open source model\n  \n\n\n  \n    \n      2:25\n    \n  \n  \n  because of this. So Sam Alman just\n  \n\n\n  \n    \n      2:27\n    \n  \n  \n  tweeted less than 24 hours ago, \"We plan\n  \n\n\n  \n    \n      2:29\n    \n  \n  \n  to launch our openweight model next\n  \n\n\n  \n    \n      2:31\n    \n  \n  \n  week. We are delaying it. We need time\n  \n\n\n  \n    \n      2:32\n    \n  \n  \n  to run additional safety tests and\n  \n\n\n  \n    \n      2:34\n    \n  \n  \n  review high-risk areas.\" Now listen, did\n  \n\n\n  \n    \n      2:37\n    \n  \n  \n  he say they're delaying because of Kimmy\n  \n\n\n  \n    \n      2:39\n    \n  \n  \n  K2? No. But this is pretty convenient\n  \n\n\n  \n    \n      2:42\n    \n  \n  \n  timing. If you're open AI and you're\n  \n\n\n  \n    \n      2:44\n    \n  \n  \n  looked at as the king of AI, you can't\n  \n\n\n  \n    \n      2:46\n    \n  \n  \n  release an open-source model that's\n  \n\n\n  \n    \n      2:48\n    \n  \n  \n  weaker than a Chinese model that just\n  \n\n\n  \n    \n      2:50\n    \n  \n  \n  came out. So they have to go back to the\n  \n\n\n  \n    \n      2:52\n    \n  \n  \n  drawing board and make sure it beats\n  \n\n\n  \n    \n      2:53\n    \n  \n  \n  this competition. So let's do this. I\n  \n\n\n  \n    \n      2:55\n    \n  \n  \n  want to show you how you can use the\n  \n\n\n  \n    \n      2:56\n    \n  \n  \n  model as a coding agent. I'm going to\n  \n\n\n  \n    \n      2:58\n    \n  \n  \n  show you how you can install it into\n  \n\n\n  \n    \n      3:00\n    \n  \n  \n  cursor so you can start using it and you\n  \n\n\n  \n    \n      3:02\n    \n  \n  \n  don't have to pay for anything until you\n  \n\n\n  \n    \n      3:04\n    \n  \n  \n  hit the limits. And then even when you\n  \n\n\n  \n    \n      3:05\n    \n  \n  \n  do hit the limits, it's going to be way\n  \n\n\n  \n    \n      3:07\n    \n  \n  \n  cheaper than any other model you use. So\n  \n\n\n  \n    \n  Installing Kimi K2\n\n\n\n  \n    \n      3:09\n    \n  \n  \n  here's what you need to do. Open up the\n  \n\n\n  \n    \n      3:10\n    \n  \n  \n  development environment of your choice.\n  \n\n\n  \n    \n      3:12\n    \n  \n  \n  I'm going to go with cursor for this.\n  \n\n\n  \n    \n      3:14\n    \n  \n  \n  Once you have that downloaded and opened\n  \n\n\n  \n    \n      3:16\n    \n  \n  \n  up, what you're going to do is you're\n  \n\n\n  \n    \n      3:17\n    \n  \n  \n  going to go over to the extension\n  \n\n\n  \n    \n      3:19\n    \n  \n  \n  section over here. So, you hit the\n  \n\n\n  \n    \n      3:21\n    \n  \n  \n  extensions button over on the left hand\n  \n\n\n  \n    \n      3:22\n    \n  \n  \n  side. Then, what you're going to do is\n  \n\n\n  \n    \n      3:24\n    \n  \n  \n  type in Klein. Klein is an open-source\n  \n\n\n  \n    \n      3:27\n    \n  \n  \n  AI agent that we can plug any API key\n  \n\n\n  \n    \n      3:30\n    \n  \n  \n  into. So, what we're going to do is\n  \n\n\n  \n    \n      3:32\n    \n  \n  \n  we're going to download Klein. We're\n  \n\n\n  \n    \n      3:34\n    \n  \n  \n  going to plug the Kimmy K2 API key into\n  \n\n\n  \n    \n      3:37\n    \n  \n  \n  it and then we're going to start to be\n  \n\n\n  \n    \n      3:38\n    \n  \n  \n  able to code with Kimmy K2. So once you\n  \n\n\n  \n    \n      3:41\n    \n  \n  \n  have client downloaded into cursor or\n  \n\n\n  \n    \n      3:43\n    \n  \n  \n  whatever development environment you're\n  \n\n\n  \n    \n      3:44\n    \n  \n  \n  using, we need to get our API key. So if\n  \n\n\n  \n    \n      3:46\n    \n  \n  \n  you go to platform.moonshot.ai/conole,\n  \n\n\n  \n    \n      3:50\n    \n  \n  \n  I'll put the link down below. Make sure\n  \n\n\n  \n    \n      3:52\n    \n  \n  \n  you sign up for an account there. Once\n  \n\n\n  \n    \n      3:54\n    \n  \n  \n  you're in there, we're going to go to\n  \n\n\n  \n    \n      3:55\n    \n  \n  \n  API keys. And from here, we're going to\n  \n\n\n  \n    \n      3:57\n    \n  \n  \n  create an API. We're going to give it a\n  \n\n\n  \n    \n      3:59\n    \n  \n  \n  name. I'm going to call it Kimmy. We'll\n  \n\n\n  \n    \n      4:00\n    \n  \n  \n  put it in the default project. And I'll\n  \n\n\n  \n    \n      4:02\n    \n  \n  \n  hit enter on that. Will spit out an API\n  \n\n\n  \n    \n      4:04\n    \n  \n  \n  key for you. We're going to copy that.\n  \n\n\n  \n    \n      4:06\n    \n  \n  \n  Okay. So, we're going to take this API\n  \n\n\n  \n    \n      4:07\n    \n  \n  \n  key and put it into client so we can\n  \n\n\n  \n    \n      4:09\n    \n  \n  \n  start coding for free. So, what we're\n  \n\n\n  \n    \n      4:11\n    \n  \n  \n  going to do in here is make sure you hit\n  \n\n\n  \n    \n      4:12\n    \n  \n  \n  settings. You're going to click this\n  \n\n\n  \n    \n      4:13\n    \n  \n  \n  dropown. We're going to choose Anthropic\n  \n\n\n  \n    \n      4:15\n    \n  \n  \n  as our API provider. They run the API\n  \n\n\n  \n    \n      4:18\n    \n  \n  \n  through Anthropic. So, this is standard.\n  \n\n\n  \n    \n      4:20\n    \n  \n  \n  We click on that. Take your API key you\n  \n\n\n  \n    \n      4:22\n    \n  \n  \n  just got in Kimmy and paste that into\n  \n\n\n  \n    \n      4:24\n    \n  \n  \n  Anthropic API key here. For the model,\n  \n\n\n  \n    \n      4:27\n    \n  \n  \n  just leave that be. Doesn't matter which\n  \n\n\n  \n    \n      4:28\n    \n  \n  \n  model you choose. Since you put in your\n  \n\n\n  \n    \n      4:30\n    \n  \n  \n  Kimmy API key, it'll use the latest\n  \n\n\n  \n    \n      4:31\n    \n  \n  \n  Kimmy model. You're going to want to\n  \n\n\n  \n    \n      4:33\n    \n  \n  \n  make sure you click on use custom base\n  \n\n\n  \n    \n      4:35\n    \n  \n  \n  URL. For the custom base URL, you're\n  \n\n\n  \n    \n      4:37\n    \n  \n  \n  going to use api.moonshot.ai/anthropic.\n  \n\n\n  \n    \n      4:41\n    \n  \n  \n  I'll put the link down below so you can\n  \n\n\n  \n    \n      4:42\n    \n  \n  \n  just copy and paste that. Make sure you\n  \n\n\n  \n    \n      4:44\n    \n  \n  \n  get it perfect. Feel free to pause here\n  \n\n\n  \n    \n      4:45\n    \n  \n  \n  to grab that. From there, any model is\n  \n\n\n  \n    \n      4:47\n    \n  \n  \n  fine. So, you can leave that be on set\n  \n\n\n  \n    \n      4:49\n    \n  \n  \n  or whatever it did for you. And then you\n  \n\n\n  \n    \n      4:50\n    \n  \n  \n  can click done. One thing you need to\n  \n\n\n  \n    \n      4:51\n    \n  \n  \n  know before you start using the free\n  \n\n\n  \n    \n      4:53\n    \n  \n  \n  tier, you do need to put a couple\n  \n\n\n  \n    \n      4:55\n    \n  \n  \n  dollars of credit on there to unlock the\n  \n\n\n  \n    \n      4:57\n    \n  \n  \n  free tier. So, I'm just going to pay $10\n  \n\n\n  \n    \n      4:59\n    \n  \n  \n  and then you can use the free tier every\n  \n\n\n  \n    \n      5:01\n    \n  \n  \n  day and it won't take away from those\n  \n\n\n  \n    \n      5:02\n    \n  \n  \n  $10. And then if you do go over, it will\n  \n\n\n  \n    \n      5:05\n    \n  \n  \n  take that. But with any other model,\n  \n\n\n  \n    \n      5:06\n    \n  \n  \n  you're spending $10 in like an hour. So,\n  \n\n\n  \n    \n      5:08\n    \n  \n  \n  this is still a very good deal. So, now\n  \n\n\n  \n    \n      5:10\n    \n  \n  \n  you're all set up. You have Kimmy K2 all\n  \n\n\n  \n    \n      5:13\n    \n  \n  \n  set up. You basically can code now for\n  \n\n\n  \n    \n      5:15\n    \n  \n  \n  way cheaper than you were before and you\n  \n\n\n  \n    \n      5:17\n    \n  \n  \n  can save a ton of money. So, let's get\n  \n\n\n  \n    \n  Building the app\n\n\n\n  \n    \n      5:19\n    \n  \n  \n  this going. Let's test this out. My\n  \n\n\n  \n    \n      5:21\n    \n  \n  \n  favorite test to do with any new AI\n  \n\n\n  \n    \n      5:23\n    \n  \n  \n  model is just have it build out a 3D\n  \n\n\n  \n    \n      5:25\n    \n  \n  \n  firstperson shooting game. I don't give\n  \n\n\n  \n    \n      5:26\n    \n  \n  \n  it many instructions. Say, \"Hey, build\n  \n\n\n  \n    \n      5:28\n    \n  \n  \n  this game out.\" So, we can see what kind\n  \n\n\n  \n    \n      5:30\n    \n  \n  \n  of taste it has. Will it come up with\n  \n\n\n  \n    \n      5:32\n    \n  \n  \n  creative ways to build the game out, put\n  \n\n\n  \n    \n      5:34\n    \n  \n  \n  in assets? So, let's see. I'll put this\n  \n\n\n  \n    \n      5:36\n    \n  \n  \n  prompt down below. Feel free to copy and\n  \n\n\n  \n    \n      5:38\n    \n  \n  \n  paste it and put it into Kimmy and let's\n  \n\n\n  \n    \n      5:39\n    \n  \n  \n  see what it can come up with. So, I\n  \n\n\n  \n    \n      5:40\n    \n  \n  \n  said, I want you to build a 3D\n  \n\n\n  \n    \n      5:42\n    \n  \n  \n  firstperson shooter using 3JS. Make this\n  \n\n\n  \n    \n      5:44\n    \n  \n  \n  a single file game in index so I can run\n  \n\n\n  \n    \n      5:47\n    \n  \n  \n  it easily. Make it creative and fun with\n  \n\n\n  \n    \n      5:49\n    \n  \n  \n  beautiful graphics. So, we're giving it\n  \n\n\n  \n    \n      5:51\n    \n  \n  \n  a lot of room for interpretation so we\n  \n\n\n  \n    \n      5:53\n    \n  \n  \n  can see how well it does. I'm going to\n  \n\n\n  \n    \n      5:54\n    \n  \n  \n  hit enter on that. All right. So, now\n  \n\n\n  \n    \n      5:56\n    \n  \n  \n  it's going. There we go. It's building\n  \n\n\n  \n    \n      5:58\n    \n  \n  \n  out the game for us. And again, this is\n  \n\n\n  \n    \n      6:00\n    \n  \n  \n  on the free tier. So, it's not using up\n  \n\n\n  \n    \n      6:02\n    \n  \n  \n  any of our credits. It's just building\n  \n\n\n  \n    \n      6:04\n    \n  \n  \n  this out. So, it is building for us a\n  \n\n\n  \n    \n      6:06\n    \n  \n  \n  full 3D firsterson shooter. This is with\n  \n\n\n  \n    \n      6:10\n    \n  \n  \n  3JS. For those who don't know, 3JS is\n  \n\n\n  \n    \n      6:12\n    \n  \n  \n  the easiest to use library for 3D games\n  \n\n\n  \n    \n      6:14\n    \n  \n  \n  and experiences. So, I always have my\n  \n\n\n  \n    \n      6:16\n    \n  \n  \n  models use 3JS if I'm building any sort\n  \n\n\n  \n    \n      6:18\n    \n  \n  \n  of game out. It's building it out for\n  \n\n\n  \n    \n      6:20\n    \n  \n  \n  us. From a speed perspective, it seems\n  \n\n\n  \n    \n      6:22\n    \n  \n  \n  all right. Maybe it's because we're\n  \n\n\n  \n    \n      6:24\n    \n  \n  \n  doing this through client. It's going a\n  \n\n\n  \n    \n      6:26\n    \n  \n  \n  little bit slower because we're doing it\n  \n\n\n  \n    \n      6:27\n    \n  \n  \n  through the API and it isn't native. But\n  \n\n\n  \n    \n      6:29\n    \n  \n  \n  that's fine. It's still building us out\n  \n\n\n  \n    \n      6:31\n    \n  \n  \n  and it's doing it for free. If you're\n  \n\n\n  \n    \n      6:33\n    \n  \n  \n  using any other provider for this, you'd\n  \n\n\n  \n    \n      6:34\n    \n  \n  \n  probably be paying a decent amount for\n  \n\n\n  \n    \n      6:36\n    \n  \n  \n  every prompt you do. So, if you're on a\n  \n\n\n  \n    \n      6:37\n    \n  \n  \n  budget, this is a great way to do it. As\n  \n\n\n  \n    \n      6:39\n    \n  \n  \n  you can see, as it's building out all\n  \n\n\n  \n    \n      6:41\n    \n  \n  \n  the code, it's building out the walls.\n  \n\n\n  \n    \n      6:42\n    \n  \n  \n  It's building out the maze-like\n  \n\n\n  \n    \n      6:44\n    \n  \n  \n  structures. This is actually getting\n  \n\n\n  \n    \n      6:45\n    \n  \n  \n  pretty creative. So, this is going to be\n  \n\n\n  \n    \n      6:46\n    \n  \n  \n  interesting to see. All right, looks\n  \n\n\n  \n    \n      6:48\n    \n  \n  \n  like it's all set. Let's see how we did\n  \n\n\n  \n    \n      6:49\n    \n  \n  \n  here. Let's open this up and see how it\n  \n\n\n  \n    \n  Final results\n\n\n\n  \n    \n      6:51\n    \n  \n  \n  runs. So, if you're following along with\n  \n\n\n  \n    \n      6:52\n    \n  \n  \n  me at home, all you need to do is find\n  \n\n\n  \n    \n      6:53\n    \n  \n  \n  index.html\n  \n\n\n  \n    \n      6:55\n    \n  \n  \n  in the folder you set up cursor in. Pop\n  \n\n\n  \n    \n      6:57\n    \n  \n  \n  that open and let's see how we did here.\n  \n\n\n  \n    \n      6:59\n    \n  \n  \n  Oh, look at this. Here we go. So, it's a\n  \n\n\n  \n    \n      7:01\n    \n  \n  \n  neon sty. Oh, if I shoot, okay, I can\n  \n\n\n  \n    \n      7:03\n    \n  \n  \n  kill the enemies. I think the problem is\n  \n\n\n  \n    \n      7:05\n    \n  \n  \n  I'm running backwards into the enemies,\n  \n\n\n  \n    \n      7:07\n    \n  \n  \n  but what you can see is it did do kind\n  \n\n\n  \n    \n      7:09\n    \n  \n  \n  of a stylistic 3D neon game. Uh, I do\n  \n\n\n  \n    \n      7:13\n    \n  \n  \n  like the taste. Now, do the enemies look\n  \n\n\n  \n    \n      7:16\n    \n  \n  \n  that advanced? No, they are just pink.\n  \n\n\n  \n    \n      7:19\n    \n  \n  \n  Uh they are just pink squares but at the\n  \n\n\n  \n    \n      7:22\n    \n  \n  \n  same time it did oneshot the game and I\n  \n\n\n  \n    \n      7:25\n    \n  \n  \n  do like the color scheme. I mean it does\n  \n\n\n  \n    \n      7:27\n    \n  \n  \n  kind of look like puke but but like they\n  \n\n\n  \n    \n      7:29\n    \n  \n  \n  did go for a stylish a stylistic effect\n  \n\n\n  \n    \n      7:32\n    \n  \n  \n  right and now if I were to go through\n  \n\n\n  \n    \n      7:34\n    \n  \n  \n  here and add a few more prompts say hey\n  \n\n\n  \n    \n      7:36\n    \n  \n  \n  build out an opponent build out health\n  \n\n\n  \n    \n      7:38\n    \n  \n  \n  packs build out powerups. I'd be able to\n  \n\n\n  \n    \n      7:40\n    \n  \n  \n  do that but it built out a pretty solid\n  \n\n\n  \n    \n      7:43\n    \n  \n  \n  game for one shot and not to mention\n  \n\n\n  \n    \n      7:45\n    \n  \n  \n  completely free. So that's Kimmy K 2.\n  \n\n\n  \n    \n      7:47\n    \n  \n  \n  That is the model that is changing the\n  \n\n\n  \n    \n      7:49\n    \n  \n  \n  industry. Now listen, am I going to get\n  \n\n\n  \n    \n      7:51\n    \n  \n  \n  off of Claude Code now because of this?\n  \n\n\n  \n    \n      7:53\n    \n  \n  \n  Probably not. I'm paying the $200 a\n  \n\n\n  \n    \n      7:55\n    \n  \n  \n  month. I've been able to build really\n  \n\n\n  \n    \n      7:57\n    \n  \n  \n  awesome applications with it. I'm very\n  \n\n\n  \n    \n      7:59\n    \n  \n  \n  used to the workflow. But if I'm someone\n  \n\n\n  \n    \n      8:01\n    \n  \n  \n  who's a little bit more price conscious,\n  \n\n\n  \n    \n      8:03\n    \n  \n  \n  who hasn't gotten into Clawude Code yet,\n  \n\n\n  \n    \n      8:05\n    \n  \n  \n  who's not used to those types of\n  \n\n\n  \n    \n      8:06\n    \n  \n  \n  workflows, I'd start here. This is\n  \n\n\n  \n    \n      8:08\n    \n  \n  \n  completely free and really powerful. You\n  \n\n\n  \n    \n      8:11\n    \n  \n  \n  could probably get a good amount done on\n  \n\n\n  \n    \n      8:13\n    \n  \n  \n  this free tier. And even if you went\n  \n\n\n  \n    \n      8:14\n    \n  \n  \n  over the limits, it's so cheap. you're\n  \n\n\n  \n    \n      8:17\n    \n  \n  \n  probably just spending a couple bucks a\n  \n\n\n  \n    \n      8:18\n    \n  \n  \n  month. It's definitely worth playing\n  \n\n\n  \n    \n      8:20\n    \n  \n  \n  around with. I'll have all the links\n  \n\n\n  \n    \n      8:22\n    \n  \n  \n  below so that you can try out the\n  \n\n\n  \n    \n      8:23\n    \n  \n  \n  chatbot if you want to see how powerful\n  \n\n\n  \n    \n      8:25\n    \n  \n  \n  this model is. And I'll also have the\n  \n\n\n  \n    \n      8:27\n    \n  \n  \n  links to Klein and everything you need\n  \n\n\n  \n    \n      8:29\n    \n  \n  \n  to get set up with coding so that you\n  \n\n\n  \n    \n      8:31\n    \n  \n  \n  can start building apps today for free\n  \n\n\n  \n    \n      8:33\n    \n  \n  \n  if you want to save a couple bucks. If\n  \n\n\n  \n    \n      8:35\n    \n  \n  \n  you learned anything at all, make sure\n  \n\n\n  \n    \n      8:36\n    \n  \n  \n  to leave a like. Make sure to subscribe\n  \n\n\n  \n    \n      8:38\n    \n  \n  \n  and turn on notifications. All I do is\n  \n\n\n  \n    \n      8:40\n    \n  \n  \n  film amazing videos on building cool\n  \n\n\n  \n    \n      8:42\n    \n  \n  \n  stuff with AI. I'll see you in the next\n  \n\n\n  \n    \n      8:43\n    \n  \n  \n  video.",
+    "0:00\n    \n  \n  \n  Kimmy K2 has just blown up the entire AI",
+    "0:00\n    \n  \n  \n  Kimmy K2 has just blown up the entire AI",
+    "Kimmy K2 has just blown up the entire AI",
+    "0:03\n    \n  \n  \n  space. Not only is it the most powerful",
+    "0:03\n    \n  \n  \n  space. Not only is it the most powerful",
+    "space. Not only is it the most powerful",
+    "0:05\n    \n  \n  \n  model out there right now, but what if I",
+    "0:05\n    \n  \n  \n  model out there right now, but what if I",
+    "model out there right now, but what if I",
+    "0:07\n    \n  \n  \n  told you it's basically free and you'll",
+    "0:07\n    \n  \n  \n  told you it's basically free and you'll",
+    "told you it's basically free and you'll",
+    "0:09\n    \n  \n  \n  potentially never have to pay for AI",
+    "0:09\n    \n  \n  \n  potentially never have to pay for AI",
+    "potentially never have to pay for AI",
+    "0:10\n    \n  \n  \n  again. And oh yeah, it's completely open",
+    "0:10\n    \n  \n  \n  again. And oh yeah, it's completely open",
+    "again. And oh yeah, it's completely open",
+    "0:13\n    \n  \n  \n  source. In this video, I'm going to show",
+    "0:13\n    \n  \n  \n  source. In this video, I'm going to show",
+    "source. In this video, I'm going to show",
+    "0:14\n    \n  \n  \n  you why Kimmy K2 just shook up the",
+    "0:14\n    \n  \n  \n  you why Kimmy K2 just shook up the",
+    "you why Kimmy K2 just shook up the",
+    "0:16\n    \n  \n  \n  entire industry, why it has Sam Alman",
+    "0:16\n    \n  \n  \n  entire industry, why it has Sam Alman",
+    "entire industry, why it has Sam Alman",
+    "0:19\n    \n  \n  \n  changing all his plans, and how you can",
+    "0:19\n    \n  \n  \n  changing all his plans, and how you can",
+    "changing all his plans, and how you can",
+    "0:21\n    \n  \n  \n  get Kimmy K2 set up so you never have to",
+    "0:21\n    \n  \n  \n  get Kimmy K2 set up so you never have to",
+    "get Kimmy K2 set up so you never have to",
+    "0:24\n    \n  \n  \n  pay for AI coding again. This might be",
+    "0:24\n    \n  \n  \n  pay for AI coding again. This might be",
+    "pay for AI coding again. This might be",
+    "0:26\n    \n  \n  \n  the end of Claude Code. Let's lock in",
+    "0:26\n    \n  \n  \n  the end of Claude Code. Let's lock in",
+    "the end of Claude Code. Let's lock in",
+    "0:28\n    \n  \n  \n  and get into it. So, this is Kimmy K2.",
+    "0:28\n    \n  \n  \n  and get into it. So, this is Kimmy K2.",
+    "and get into it. So, this is Kimmy K2.",
+    "Using Kimi K2",
+    "0:30\n    \n  \n  \n  This is a brand new model out of the",
+    "0:30\n    \n  \n  \n  This is a brand new model out of the",
+    "This is a brand new model out of the",
+    "0:32\n    \n  \n  \n  Chinese company Moonshot. And there's so",
+    "0:32\n    \n  \n  \n  Chinese company Moonshot. And there's so",
+    "Chinese company Moonshot. And there's so",
+    "0:34\n    \n  \n  \n  many mind-blowing things about this.",
+    "0:34\n    \n  \n  \n  many mind-blowing things about this.",
+    "many mind-blowing things about this.",
+    "0:36\n    \n  \n  \n  First of all, if you go to their site",
+    "0:36\n    \n  \n  \n  First of all, if you go to their site",
+    "First of all, if you go to their site",
+    "0:37\n    \n  \n  \n  right now, kimmy.com, you can use their",
+    "0:37\n    \n  \n  \n  right now, kimmy.com, you can use their",
+    "right now, kimmy.com, you can use their",
+    "0:40\n    \n  \n  \n  chatbot completely free, unlimited,",
+    "0:40\n    \n  \n  \n  chatbot completely free, unlimited,",
+    "chatbot completely free, unlimited,",
+    "0:42\n    \n  \n  \n  completely free, and unlimited. How",
+    "0:42\n    \n  \n  \n  completely free, and unlimited. How",
+    "completely free, and unlimited. How",
+    "0:43\n    \n  \n  \n  unheard of is that? But what makes it",
+    "0:43\n    \n  \n  \n  unheard of is that? But what makes it",
+    "unheard of is that? But what makes it",
+    "0:45\n    \n  \n  \n  even more amazing is it's actually an",
+    "0:45\n    \n  \n  \n  even more amazing is it's actually an",
+    "even more amazing is it's actually an",
+    "0:47\n    \n  \n  \n  incredible, incredible model. Looking at",
+    "0:47\n    \n  \n  \n  incredible, incredible model. Looking at",
+    "incredible, incredible model. Looking at",
+    "0:49\n    \n  \n  \n  the benchmarks, it beats pretty much",
+    "0:49\n    \n  \n  \n  the benchmarks, it beats pretty much",
+    "the benchmarks, it beats pretty much",
+    "Benchmarks",
+    "0:51\n    \n  \n  \n  every other model out there. And what's",
+    "0:51\n    \n  \n  \n  every other model out there. And what's",
+    "every other model out there. And what's",
+    "0:53\n    \n  \n  \n  really amazing is it's comparing it to",
+    "0:53\n    \n  \n  \n  really amazing is it's comparing it to",
+    "really amazing is it's comparing it to",
+    "0:54\n    \n  \n  \n  every company's top model. They're",
+    "0:54\n    \n  \n  \n  every company's top model. They're",
+    "every company's top model. They're",
+    "0:56\n    \n  \n  \n  comparing it to Claude 4 Opus and this",
+    "0:56\n    \n  \n  \n  comparing it to Claude 4 Opus and this",
+    "comparing it to Claude 4 Opus and this",
+    "0:59\n    \n  \n  \n  isn't even a thinking model and it's",
+    "0:59\n    \n  \n  \n  isn't even a thinking model and it's",
+    "isn't even a thinking model and it's",
+    "1:01\n    \n  \n  \n  beating pretty much all of them. The",
+    "1:01\n    \n  \n  \n  beating pretty much all of them. The",
+    "beating pretty much all of them. The",
+    "1:03\n    \n  \n  \n  only model that seems to come",
+    "1:03\n    \n  \n  \n  only model that seems to come",
+    "only model that seems to come",
+    "1:04\n    \n  \n  \n  consistently close is Claude for Opus,",
+    "1:04\n    \n  \n  \n  consistently close is Claude for Opus,",
+    "consistently close is Claude for Opus,",
+    "1:06\n    \n  \n  \n  but they're pretty much neck to neck in",
+    "1:06\n    \n  \n  \n  but they're pretty much neck to neck in",
+    "but they're pretty much neck to neck in",
+    "1:08\n    \n  \n  \n  almost every single benchmark. What's",
+    "1:08\n    \n  \n  \n  almost every single benchmark. What's",
+    "almost every single benchmark. What's",
+    "1:10\n    \n  \n  \n  crazy, it's not even a thinking model,",
+    "1:10\n    \n  \n  \n  crazy, it's not even a thinking model,",
+    "crazy, it's not even a thinking model,",
+    "1:11\n    \n  \n  \n  so the results you're going to get are",
+    "1:11\n    \n  \n  \n  so the results you're going to get are",
+    "so the results you're going to get are",
+    "1:13\n    \n  \n  \n  going to be super quick. So, it's free.",
+    "1:13\n    \n  \n  \n  going to be super quick. So, it's free.",
+    "going to be super quick. So, it's free.",
+    "1:15\n    \n  \n  \n  It's just as good as all the other top",
+    "1:15\n    \n  \n  \n  It's just as good as all the other top",
+    "It's just as good as all the other top",
+    "1:17\n    \n  \n  \n  models out there. And it's open source,",
+    "1:17\n    \n  \n  \n  models out there. And it's open source,",
+    "models out there. And it's open source,",
+    "1:20\n    \n  \n  \n  which means you can download it, run it",
+    "1:20\n    \n  \n  \n  which means you can download it, run it",
+    "which means you can download it, run it",
+    "1:22\n    \n  \n  \n  locally, and tinker with it any way you",
+    "1:22\n    \n  \n  \n  locally, and tinker with it any way you",
+    "locally, and tinker with it any way you",
+    "1:24\n    \n  \n  \n  want. It has an unbelievable 1 trillion",
+    "1:24\n    \n  \n  \n  want. It has an unbelievable 1 trillion",
+    "want. It has an unbelievable 1 trillion",
+    "1:28\n    \n  \n  \n  total parameters. I'm telling you, I",
+    "1:28\n    \n  \n  \n  total parameters. I'm telling you, I",
+    "total parameters. I'm telling you, I",
+    "1:30\n    \n  \n  \n  don't know what's in the water in China,",
+    "1:30\n    \n  \n  \n  don't know what's in the water in China,",
+    "don't know what's in the water in China,",
+    "1:31\n    \n  \n  \n  but they're making some unbelievable AI",
+    "1:31\n    \n  \n  \n  but they're making some unbelievable AI",
+    "but they're making some unbelievable AI",
+    "1:33\n    \n  \n  \n  model. Now, why do I say it's basically",
+    "1:33\n    \n  \n  \n  model. Now, why do I say it's basically",
+    "model. Now, why do I say it's basically",
+    "1:35\n    \n  \n  \n  free? Well, one thing, if you're using",
+    "1:35\n    \n  \n  \n  free? Well, one thing, if you're using",
+    "free? Well, one thing, if you're using",
+    "1:36\n    \n  \n  \n  the chatbot on kimmy.com, it is",
+    "1:36\n    \n  \n  \n  the chatbot on kimmy.com, it is",
+    "the chatbot on kimmy.com, it is",
+    "1:38\n    \n  \n  \n  literally free. You can do as much",
+    "1:38\n    \n  \n  \n  literally free. You can do as much",
+    "literally free. You can do as much",
+    "1:40\n    \n  \n  \n  research, as much searching, as much",
+    "1:40\n    \n  \n  \n  research, as much searching, as much",
+    "research, as much searching, as much",
+    "1:42\n    \n  \n  \n  anything you want. Completely for free.",
+    "1:42\n    \n  \n  \n  anything you want. Completely for free.",
+    "anything you want. Completely for free.",
+    "1:44\n    \n  \n  \n  No charges at all. The only time you'll",
+    "1:44\n    \n  \n  \n  No charges at all. The only time you'll",
+    "No charges at all. The only time you'll",
+    "1:46\n    \n  \n  \n  run into payments is if you're using the",
+    "1:46\n    \n  \n  \n  run into payments is if you're using the",
+    "run into payments is if you're using the",
+    "1:48\n    \n  \n  \n  API, but even then with the API, it is a",
+    "1:48\n    \n  \n  \n  API, but even then with the API, it is a",
+    "API, but even then with the API, it is a",
+    "1:51\n    \n  \n  \n  quarter of the price of Claude Opus.",
+    "1:51\n    \n  \n  \n  quarter of the price of Claude Opus.",
+    "quarter of the price of Claude Opus.",
+    "1:53\n    \n  \n  \n  These are some unbelievable prices here.",
+    "1:53\n    \n  \n  \n  These are some unbelievable prices here.",
+    "These are some unbelievable prices here.",
+    "1:55\n    \n  \n  \n  And what's even more amazing is actually",
+    "1:55\n    \n  \n  \n  And what's even more amazing is actually",
+    "And what's even more amazing is actually",
+    "1:57\n    \n  \n  \n  a free tier. So when you start using it,",
+    "1:57\n    \n  \n  \n  a free tier. So when you start using it,",
+    "a free tier. So when you start using it,",
+    "1:59\n    \n  \n  \n  it will be free up to a certain point.",
+    "1:59\n    \n  \n  \n  it will be free up to a certain point.",
+    "it will be free up to a certain point.",
+    "2:01\n    \n  \n  \n  You get something like 1 million tokens",
+    "2:01\n    \n  \n  \n  You get something like 1 million tokens",
+    "You get something like 1 million tokens",
+    "2:03\n    \n  \n  \n  a day, completely free, which is a good",
+    "2:03\n    \n  \n  \n  a day, completely free, which is a good",
+    "a day, completely free, which is a good",
+    "2:05\n    \n  \n  \n  amount. I mean, this has shaken up the",
+    "2:05\n    \n  \n  \n  amount. I mean, this has shaken up the",
+    "amount. I mean, this has shaken up the",
+    "2:06\n    \n  \n  \n  entire industry. Just this week, Open AI",
+    "2:06\n    \n  \n  \n  entire industry. Just this week, Open AI",
+    "entire industry. Just this week, Open AI",
+    "OpenAI Panic",
+    "2:10\n    \n  \n  \n  was supposed to release their own open-",
+    "2:10\n    \n  \n  \n  was supposed to release their own open-",
+    "was supposed to release their own open-",
+    "2:12\n    \n  \n  \n  source model, their first open-source",
+    "2:12\n    \n  \n  \n  source model, their first open-source",
+    "source model, their first open-source",
+    "2:14\n    \n  \n  \n  model ever. But right when they were",
+    "2:14\n    \n  \n  \n  model ever. But right when they were",
+    "model ever. But right when they were",
+    "2:16\n    \n  \n  \n  supposed to do it, Kimmy K2 comes out",
+    "2:16\n    \n  \n  \n  supposed to do it, Kimmy K2 comes out",
+    "supposed to do it, Kimmy K2 comes out",
+    "2:18\n    \n  \n  \n  and it blows away all the competition.",
+    "2:18\n    \n  \n  \n  and it blows away all the competition.",
+    "and it blows away all the competition.",
+    "2:20\n    \n  \n  \n  So what happens? Well, it looks like",
+    "2:20\n    \n  \n  \n  So what happens? Well, it looks like",
+    "So what happens? Well, it looks like",
+    "2:22\n    \n  \n  \n  OpenAI delayed their open source model",
+    "2:22\n    \n  \n  \n  OpenAI delayed their open source model",
+    "OpenAI delayed their open source model",
+    "2:25\n    \n  \n  \n  because of this. So Sam Alman just",
+    "2:25\n    \n  \n  \n  because of this. So Sam Alman just",
+    "because of this. So Sam Alman just",
+    "2:27\n    \n  \n  \n  tweeted less than 24 hours ago, \"We plan",
+    "2:27\n    \n  \n  \n  tweeted less than 24 hours ago, \"We plan",
+    "tweeted less than 24 hours ago, \"We plan",
+    "2:29\n    \n  \n  \n  to launch our openweight model next",
+    "2:29\n    \n  \n  \n  to launch our openweight model next",
+    "to launch our openweight model next",
+    "2:31\n    \n  \n  \n  week. We are delaying it. We need time",
+    "2:31\n    \n  \n  \n  week. We are delaying it. We need time",
+    "week. We are delaying it. We need time",
+    "2:32\n    \n  \n  \n  to run additional safety tests and",
+    "2:32\n    \n  \n  \n  to run additional safety tests and",
+    "to run additional safety tests and",
+    "2:34\n    \n  \n  \n  review high-risk areas.\" Now listen, did",
+    "2:34\n    \n  \n  \n  review high-risk areas.\" Now listen, did",
+    "review high-risk areas.\" Now listen, did",
+    "2:37\n    \n  \n  \n  he say they're delaying because of Kimmy",
+    "2:37\n    \n  \n  \n  he say they're delaying because of Kimmy",
+    "he say they're delaying because of Kimmy",
+    "2:39\n    \n  \n  \n  K2? No. But this is pretty convenient",
+    "2:39\n    \n  \n  \n  K2? No. But this is pretty convenient",
+    "K2? No. But this is pretty convenient",
+    "2:42\n    \n  \n  \n  timing. If you're open AI and you're",
+    "2:42\n    \n  \n  \n  timing. If you're open AI and you're",
+    "timing. If you're open AI and you're",
+    "2:44\n    \n  \n  \n  looked at as the king of AI, you can't",
+    "2:44\n    \n  \n  \n  looked at as the king of AI, you can't",
+    "looked at as the king of AI, you can't",
+    "2:46\n    \n  \n  \n  release an open-source model that's",
+    "2:46\n    \n  \n  \n  release an open-source model that's",
+    "release an open-source model that's",
+    "2:48\n    \n  \n  \n  weaker than a Chinese model that just",
+    "2:48\n    \n  \n  \n  weaker than a Chinese model that just",
+    "weaker than a Chinese model that just",
+    "2:50\n    \n  \n  \n  came out. So they have to go back to the",
+    "2:50\n    \n  \n  \n  came out. So they have to go back to the",
+    "came out. So they have to go back to the",
+    "2:52\n    \n  \n  \n  drawing board and make sure it beats",
+    "2:52\n    \n  \n  \n  drawing board and make sure it beats",
+    "drawing board and make sure it beats",
+    "2:53\n    \n  \n  \n  this competition. So let's do this. I",
+    "2:53\n    \n  \n  \n  this competition. So let's do this. I",
+    "this competition. So let's do this. I",
+    "2:55\n    \n  \n  \n  want to show you how you can use the",
+    "2:55\n    \n  \n  \n  want to show you how you can use the",
+    "want to show you how you can use the",
+    "2:56\n    \n  \n  \n  model as a coding agent. I'm going to",
+    "2:56\n    \n  \n  \n  model as a coding agent. I'm going to",
+    "model as a coding agent. I'm going to",
+    "2:58\n    \n  \n  \n  show you how you can install it into",
+    "2:58\n    \n  \n  \n  show you how you can install it into",
+    "show you how you can install it into",
+    "3:00\n    \n  \n  \n  cursor so you can start using it and you",
+    "3:00\n    \n  \n  \n  cursor so you can start using it and you",
+    "cursor so you can start using it and you",
+    "3:02\n    \n  \n  \n  don't have to pay for anything until you",
+    "3:02\n    \n  \n  \n  don't have to pay for anything until you",
+    "don't have to pay for anything until you",
+    "3:04\n    \n  \n  \n  hit the limits. And then even when you",
+    "3:04\n    \n  \n  \n  hit the limits. And then even when you",
+    "hit the limits. And then even when you",
+    "3:05\n    \n  \n  \n  do hit the limits, it's going to be way",
+    "3:05\n    \n  \n  \n  do hit the limits, it's going to be way",
+    "do hit the limits, it's going to be way",
+    "3:07\n    \n  \n  \n  cheaper than any other model you use. So",
+    "3:07\n    \n  \n  \n  cheaper than any other model you use. So",
+    "cheaper than any other model you use. So",
+    "Installing Kimi K2",
+    "3:09\n    \n  \n  \n  here's what you need to do. Open up the",
+    "3:09\n    \n  \n  \n  here's what you need to do. Open up the",
+    "here's what you need to do. Open up the",
+    "3:10\n    \n  \n  \n  development environment of your choice.",
+    "3:10\n    \n  \n  \n  development environment of your choice.",
+    "development environment of your choice.",
+    "3:12\n    \n  \n  \n  I'm going to go with cursor for this.",
+    "3:12\n    \n  \n  \n  I'm going to go with cursor for this.",
+    "I'm going to go with cursor for this.",
+    "3:14\n    \n  \n  \n  Once you have that downloaded and opened",
+    "3:14\n    \n  \n  \n  Once you have that downloaded and opened",
+    "Once you have that downloaded and opened",
+    "3:16\n    \n  \n  \n  up, what you're going to do is you're",
+    "3:16\n    \n  \n  \n  up, what you're going to do is you're",
+    "up, what you're going to do is you're",
+    "3:17\n    \n  \n  \n  going to go over to the extension",
+    "3:17\n    \n  \n  \n  going to go over to the extension",
+    "going to go over to the extension",
+    "3:19\n    \n  \n  \n  section over here. So, you hit the",
+    "3:19\n    \n  \n  \n  section over here. So, you hit the",
+    "section over here. So, you hit the",
+    "3:21\n    \n  \n  \n  extensions button over on the left hand",
+    "3:21\n    \n  \n  \n  extensions button over on the left hand",
+    "extensions button over on the left hand",
+    "3:22\n    \n  \n  \n  side. Then, what you're going to do is",
+    "3:22\n    \n  \n  \n  side. Then, what you're going to do is",
+    "side. Then, what you're going to do is",
+    "3:24\n    \n  \n  \n  type in Klein. Klein is an open-source",
+    "3:24\n    \n  \n  \n  type in Klein. Klein is an open-source",
+    "type in Klein. Klein is an open-source",
+    "3:27\n    \n  \n  \n  AI agent that we can plug any API key",
+    "3:27\n    \n  \n  \n  AI agent that we can plug any API key",
+    "AI agent that we can plug any API key",
+    "3:30\n    \n  \n  \n  into. So, what we're going to do is",
+    "3:30\n    \n  \n  \n  into. So, what we're going to do is",
+    "into. So, what we're going to do is",
+    "3:32\n    \n  \n  \n  we're going to download Klein. We're",
+    "3:32\n    \n  \n  \n  we're going to download Klein. We're",
+    "we're going to download Klein. We're",
+    "3:34\n    \n  \n  \n  going to plug the Kimmy K2 API key into",
+    "3:34\n    \n  \n  \n  going to plug the Kimmy K2 API key into",
+    "going to plug the Kimmy K2 API key into",
+    "3:37\n    \n  \n  \n  it and then we're going to start to be",
+    "3:37\n    \n  \n  \n  it and then we're going to start to be",
+    "it and then we're going to start to be",
+    "3:38\n    \n  \n  \n  able to code with Kimmy K2. So once you",
+    "3:38\n    \n  \n  \n  able to code with Kimmy K2. So once you",
+    "able to code with Kimmy K2. So once you",
+    "3:41\n    \n  \n  \n  have client downloaded into cursor or",
+    "3:41\n    \n  \n  \n  have client downloaded into cursor or",
+    "have client downloaded into cursor or",
+    "3:43\n    \n  \n  \n  whatever development environment you're",
+    "3:43\n    \n  \n  \n  whatever development environment you're",
+    "whatever development environment you're",
+    "3:44\n    \n  \n  \n  using, we need to get our API key. So if",
+    "3:44\n    \n  \n  \n  using, we need to get our API key. So if",
+    "using, we need to get our API key. So if",
+    "3:46\n    \n  \n  \n  you go to platform.moonshot.ai/conole,",
+    "3:46\n    \n  \n  \n  you go to platform.moonshot.ai/conole,",
+    "you go to platform.moonshot.ai/conole,",
+    "3:50\n    \n  \n  \n  I'll put the link down below. Make sure",
+    "3:50\n    \n  \n  \n  I'll put the link down below. Make sure",
+    "I'll put the link down below. Make sure",
+    "3:52\n    \n  \n  \n  you sign up for an account there. Once",
+    "3:52\n    \n  \n  \n  you sign up for an account there. Once",
+    "you sign up for an account there. Once",
+    "3:54\n    \n  \n  \n  you're in there, we're going to go to",
+    "3:54\n    \n  \n  \n  you're in there, we're going to go to",
+    "you're in there, we're going to go to",
+    "3:55\n    \n  \n  \n  API keys. And from here, we're going to",
+    "3:55\n    \n  \n  \n  API keys. And from here, we're going to",
+    "API keys. And from here, we're going to",
+    "3:57\n    \n  \n  \n  create an API. We're going to give it a",
+    "3:57\n    \n  \n  \n  create an API. We're going to give it a",
+    "create an API. We're going to give it a",
+    "3:59\n    \n  \n  \n  name. I'm going to call it Kimmy. We'll",
+    "3:59\n    \n  \n  \n  name. I'm going to call it Kimmy. We'll",
+    "name. I'm going to call it Kimmy. We'll",
+    "4:00\n    \n  \n  \n  put it in the default project. And I'll",
+    "4:00\n    \n  \n  \n  put it in the default project. And I'll",
+    "put it in the default project. And I'll",
+    "4:02\n    \n  \n  \n  hit enter on that. Will spit out an API",
+    "4:02\n    \n  \n  \n  hit enter on that. Will spit out an API",
+    "hit enter on that. Will spit out an API",
+    "4:04\n    \n  \n  \n  key for you. We're going to copy that.",
+    "4:04\n    \n  \n  \n  key for you. We're going to copy that.",
+    "key for you. We're going to copy that.",
+    "4:06\n    \n  \n  \n  Okay. So, we're going to take this API",
+    "4:06\n    \n  \n  \n  Okay. So, we're going to take this API",
+    "Okay. So, we're going to take this API",
+    "4:07\n    \n  \n  \n  key and put it into client so we can",
+    "4:07\n    \n  \n  \n  key and put it into client so we can",
+    "key and put it into client so we can",
+    "4:09\n    \n  \n  \n  start coding for free. So, what we're",
+    "4:09\n    \n  \n  \n  start coding for free. So, what we're",
+    "start coding for free. So, what we're",
+    "4:11\n    \n  \n  \n  going to do in here is make sure you hit",
+    "4:11\n    \n  \n  \n  going to do in here is make sure you hit",
+    "going to do in here is make sure you hit",
+    "4:12\n    \n  \n  \n  settings. You're going to click this",
+    "4:12\n    \n  \n  \n  settings. You're going to click this",
+    "settings. You're going to click this",
+    "4:13\n    \n  \n  \n  dropown. We're going to choose Anthropic",
+    "4:13\n    \n  \n  \n  dropown. We're going to choose Anthropic",
+    "dropown. We're going to choose Anthropic",
+    "4:15\n    \n  \n  \n  as our API provider. They run the API",
+    "4:15\n    \n  \n  \n  as our API provider. They run the API",
+    "as our API provider. They run the API",
+    "4:18\n    \n  \n  \n  through Anthropic. So, this is standard.",
+    "4:18\n    \n  \n  \n  through Anthropic. So, this is standard.",
+    "through Anthropic. So, this is standard.",
+    "4:20\n    \n  \n  \n  We click on that. Take your API key you",
+    "4:20\n    \n  \n  \n  We click on that. Take your API key you",
+    "We click on that. Take your API key you",
+    "4:22\n    \n  \n  \n  just got in Kimmy and paste that into",
+    "4:22\n    \n  \n  \n  just got in Kimmy and paste that into",
+    "just got in Kimmy and paste that into",
+    "4:24\n    \n  \n  \n  Anthropic API key here. For the model,",
+    "4:24\n    \n  \n  \n  Anthropic API key here. For the model,",
+    "Anthropic API key here. For the model,",
+    "4:27\n    \n  \n  \n  just leave that be. Doesn't matter which",
+    "4:27\n    \n  \n  \n  just leave that be. Doesn't matter which",
+    "just leave that be. Doesn't matter which",
+    "4:28\n    \n  \n  \n  model you choose. Since you put in your",
+    "4:28\n    \n  \n  \n  model you choose. Since you put in your",
+    "model you choose. Since you put in your",
+    "4:30\n    \n  \n  \n  Kimmy API key, it'll use the latest",
+    "4:30\n    \n  \n  \n  Kimmy API key, it'll use the latest",
+    "Kimmy API key, it'll use the latest",
+    "4:31\n    \n  \n  \n  Kimmy model. You're going to want to",
+    "4:31\n    \n  \n  \n  Kimmy model. You're going to want to",
+    "Kimmy model. You're going to want to",
+    "4:33\n    \n  \n  \n  make sure you click on use custom base",
+    "4:33\n    \n  \n  \n  make sure you click on use custom base",
+    "make sure you click on use custom base",
+    "4:35\n    \n  \n  \n  URL. For the custom base URL, you're",
+    "4:35\n    \n  \n  \n  URL. For the custom base URL, you're",
+    "URL. For the custom base URL, you're",
+    "4:37\n    \n  \n  \n  going to use api.moonshot.ai/anthropic.",
+    "4:37\n    \n  \n  \n  going to use api.moonshot.ai/anthropic.",
+    "going to use api.moonshot.ai/anthropic.",
+    "4:41\n    \n  \n  \n  I'll put the link down below so you can",
+    "4:41\n    \n  \n  \n  I'll put the link down below so you can",
+    "I'll put the link down below so you can",
+    "4:42\n    \n  \n  \n  just copy and paste that. Make sure you",
+    "4:42\n    \n  \n  \n  just copy and paste that. Make sure you",
+    "just copy and paste that. Make sure you",
+    "4:44\n    \n  \n  \n  get it perfect. Feel free to pause here",
+    "4:44\n    \n  \n  \n  get it perfect. Feel free to pause here",
+    "get it perfect. Feel free to pause here",
+    "4:45\n    \n  \n  \n  to grab that. From there, any model is",
+    "4:45\n    \n  \n  \n  to grab that. From there, any model is",
+    "to grab that. From there, any model is",
+    "4:47\n    \n  \n  \n  fine. So, you can leave that be on set",
+    "4:47\n    \n  \n  \n  fine. So, you can leave that be on set",
+    "fine. So, you can leave that be on set",
+    "4:49\n    \n  \n  \n  or whatever it did for you. And then you",
+    "4:49\n    \n  \n  \n  or whatever it did for you. And then you",
+    "or whatever it did for you. And then you",
+    "4:50\n    \n  \n  \n  can click done. One thing you need to",
+    "4:50\n    \n  \n  \n  can click done. One thing you need to",
+    "can click done. One thing you need to",
+    "4:51\n    \n  \n  \n  know before you start using the free",
+    "4:51\n    \n  \n  \n  know before you start using the free",
+    "know before you start using the free",
+    "4:53\n    \n  \n  \n  tier, you do need to put a couple",
+    "4:53\n    \n  \n  \n  tier, you do need to put a couple",
+    "tier, you do need to put a couple",
+    "4:55\n    \n  \n  \n  dollars of credit on there to unlock the",
+    "4:55\n    \n  \n  \n  dollars of credit on there to unlock the",
+    "dollars of credit on there to unlock the",
+    "4:57\n    \n  \n  \n  free tier. So, I'm just going to pay $10",
+    "4:57\n    \n  \n  \n  free tier. So, I'm just going to pay $10",
+    "free tier. So, I'm just going to pay $10",
+    "4:59\n    \n  \n  \n  and then you can use the free tier every",
+    "4:59\n    \n  \n  \n  and then you can use the free tier every",
+    "and then you can use the free tier every",
+    "5:01\n    \n  \n  \n  day and it won't take away from those",
+    "5:01\n    \n  \n  \n  day and it won't take away from those",
+    "day and it won't take away from those",
+    "5:02\n    \n  \n  \n  $10. And then if you do go over, it will",
+    "5:02\n    \n  \n  \n  $10. And then if you do go over, it will",
+    "$10. And then if you do go over, it will",
+    "5:05\n    \n  \n  \n  take that. But with any other model,",
+    "5:05\n    \n  \n  \n  take that. But with any other model,",
+    "take that. But with any other model,",
+    "5:06\n    \n  \n  \n  you're spending $10 in like an hour. So,",
+    "5:06\n    \n  \n  \n  you're spending $10 in like an hour. So,",
+    "you're spending $10 in like an hour. So,",
+    "5:08\n    \n  \n  \n  this is still a very good deal. So, now",
+    "5:08\n    \n  \n  \n  this is still a very good deal. So, now",
+    "this is still a very good deal. So, now",
+    "5:10\n    \n  \n  \n  you're all set up. You have Kimmy K2 all",
+    "5:10\n    \n  \n  \n  you're all set up. You have Kimmy K2 all",
+    "you're all set up. You have Kimmy K2 all",
+    "5:13\n    \n  \n  \n  set up. You basically can code now for",
+    "5:13\n    \n  \n  \n  set up. You basically can code now for",
+    "set up. You basically can code now for",
+    "5:15\n    \n  \n  \n  way cheaper than you were before and you",
+    "5:15\n    \n  \n  \n  way cheaper than you were before and you",
+    "way cheaper than you were before and you",
+    "5:17\n    \n  \n  \n  can save a ton of money. So, let's get",
+    "5:17\n    \n  \n  \n  can save a ton of money. So, let's get",
+    "can save a ton of money. So, let's get",
+    "Building the app",
+    "5:19\n    \n  \n  \n  this going. Let's test this out. My",
+    "5:19\n    \n  \n  \n  this going. Let's test this out. My",
+    "this going. Let's test this out. My",
+    "5:21\n    \n  \n  \n  favorite test to do with any new AI",
+    "5:21\n    \n  \n  \n  favorite test to do with any new AI",
+    "favorite test to do with any new AI",
+    "5:23\n    \n  \n  \n  model is just have it build out a 3D",
+    "5:23\n    \n  \n  \n  model is just have it build out a 3D",
+    "model is just have it build out a 3D",
+    "5:25\n    \n  \n  \n  firstperson shooting game. I don't give",
+    "5:25\n    \n  \n  \n  firstperson shooting game. I don't give",
+    "firstperson shooting game. I don't give",
+    "5:26\n    \n  \n  \n  it many instructions. Say, \"Hey, build",
+    "5:26\n    \n  \n  \n  it many instructions. Say, \"Hey, build",
+    "it many instructions. Say, \"Hey, build",
+    "5:28\n    \n  \n  \n  this game out.\" So, we can see what kind",
+    "5:28\n    \n  \n  \n  this game out.\" So, we can see what kind",
+    "this game out.\" So, we can see what kind",
+    "5:30\n    \n  \n  \n  of taste it has. Will it come up with",
+    "5:30\n    \n  \n  \n  of taste it has. Will it come up with",
+    "of taste it has. Will it come up with",
+    "5:32\n    \n  \n  \n  creative ways to build the game out, put",
+    "5:32\n    \n  \n  \n  creative ways to build the game out, put",
+    "creative ways to build the game out, put",
+    "5:34\n    \n  \n  \n  in assets? So, let's see. I'll put this",
+    "5:34\n    \n  \n  \n  in assets? So, let's see. I'll put this",
+    "in assets? So, let's see. I'll put this",
+    "5:36\n    \n  \n  \n  prompt down below. Feel free to copy and",
+    "5:36\n    \n  \n  \n  prompt down below. Feel free to copy and",
+    "prompt down below. Feel free to copy and",
+    "5:38\n    \n  \n  \n  paste it and put it into Kimmy and let's",
+    "5:38\n    \n  \n  \n  paste it and put it into Kimmy and let's",
+    "paste it and put it into Kimmy and let's",
+    "5:39\n    \n  \n  \n  see what it can come up with. So, I",
+    "5:39\n    \n  \n  \n  see what it can come up with. So, I",
+    "see what it can come up with. So, I",
+    "5:40\n    \n  \n  \n  said, I want you to build a 3D",
+    "5:40\n    \n  \n  \n  said, I want you to build a 3D",
+    "said, I want you to build a 3D",
+    "5:42\n    \n  \n  \n  firstperson shooter using 3JS. Make this",
+    "5:42\n    \n  \n  \n  firstperson shooter using 3JS. Make this",
+    "firstperson shooter using 3JS. Make this",
+    "5:44\n    \n  \n  \n  a single file game in index so I can run",
+    "5:44\n    \n  \n  \n  a single file game in index so I can run",
+    "a single file game in index so I can run",
+    "5:47\n    \n  \n  \n  it easily. Make it creative and fun with",
+    "5:47\n    \n  \n  \n  it easily. Make it creative and fun with",
+    "it easily. Make it creative and fun with",
+    "5:49\n    \n  \n  \n  beautiful graphics. So, we're giving it",
+    "5:49\n    \n  \n  \n  beautiful graphics. So, we're giving it",
+    "beautiful graphics. So, we're giving it",
+    "5:51\n    \n  \n  \n  a lot of room for interpretation so we",
+    "5:51\n    \n  \n  \n  a lot of room for interpretation so we",
+    "a lot of room for interpretation so we",
+    "5:53\n    \n  \n  \n  can see how well it does. I'm going to",
+    "5:53\n    \n  \n  \n  can see how well it does. I'm going to",
+    "can see how well it does. I'm going to",
+    "5:54\n    \n  \n  \n  hit enter on that. All right. So, now",
+    "5:54\n    \n  \n  \n  hit enter on that. All right. So, now",
+    "hit enter on that. All right. So, now",
+    "5:56\n    \n  \n  \n  it's going. There we go. It's building",
+    "5:56\n    \n  \n  \n  it's going. There we go. It's building",
+    "it's going. There we go. It's building",
+    "5:58\n    \n  \n  \n  out the game for us. And again, this is",
+    "5:58\n    \n  \n  \n  out the game for us. And again, this is",
+    "out the game for us. And again, this is",
+    "6:00\n    \n  \n  \n  on the free tier. So, it's not using up",
+    "6:00\n    \n  \n  \n  on the free tier. So, it's not using up",
+    "on the free tier. So, it's not using up",
+    "6:02\n    \n  \n  \n  any of our credits. It's just building",
+    "6:02\n    \n  \n  \n  any of our credits. It's just building",
+    "any of our credits. It's just building",
+    "6:04\n    \n  \n  \n  this out. So, it is building for us a",
+    "6:04\n    \n  \n  \n  this out. So, it is building for us a",
+    "this out. So, it is building for us a",
+    "6:06\n    \n  \n  \n  full 3D firsterson shooter. This is with",
+    "6:06\n    \n  \n  \n  full 3D firsterson shooter. This is with",
+    "full 3D firsterson shooter. This is with",
+    "6:10\n    \n  \n  \n  3JS. For those who don't know, 3JS is",
+    "6:10\n    \n  \n  \n  3JS. For those who don't know, 3JS is",
+    "3JS. For those who don't know, 3JS is",
+    "6:12\n    \n  \n  \n  the easiest to use library for 3D games",
+    "6:12\n    \n  \n  \n  the easiest to use library for 3D games",
+    "the easiest to use library for 3D games",
+    "6:14\n    \n  \n  \n  and experiences. So, I always have my",
+    "6:14\n    \n  \n  \n  and experiences. So, I always have my",
+    "and experiences. So, I always have my",
+    "6:16\n    \n  \n  \n  models use 3JS if I'm building any sort",
+    "6:16\n    \n  \n  \n  models use 3JS if I'm building any sort",
+    "models use 3JS if I'm building any sort",
+    "6:18\n    \n  \n  \n  of game out. It's building it out for",
+    "6:18\n    \n  \n  \n  of game out. It's building it out for",
+    "of game out. It's building it out for",
+    "6:20\n    \n  \n  \n  us. From a speed perspective, it seems",
+    "6:20\n    \n  \n  \n  us. From a speed perspective, it seems",
+    "us. From a speed perspective, it seems",
+    "6:22\n    \n  \n  \n  all right. Maybe it's because we're",
+    "6:22\n    \n  \n  \n  all right. Maybe it's because we're",
+    "all right. Maybe it's because we're",
+    "6:24\n    \n  \n  \n  doing this through client. It's going a",
+    "6:24\n    \n  \n  \n  doing this through client. It's going a",
+    "doing this through client. It's going a",
+    "6:26\n    \n  \n  \n  little bit slower because we're doing it",
+    "6:26\n    \n  \n  \n  little bit slower because we're doing it",
+    "little bit slower because we're doing it",
+    "6:27\n    \n  \n  \n  through the API and it isn't native. But",
+    "6:27\n    \n  \n  \n  through the API and it isn't native. But",
+    "through the API and it isn't native. But",
+    "6:29\n    \n  \n  \n  that's fine. It's still building us out",
+    "6:29\n    \n  \n  \n  that's fine. It's still building us out",
+    "that's fine. It's still building us out",
+    "6:31\n    \n  \n  \n  and it's doing it for free. If you're",
+    "6:31\n    \n  \n  \n  and it's doing it for free. If you're",
+    "and it's doing it for free. If you're",
+    "6:33\n    \n  \n  \n  using any other provider for this, you'd",
+    "6:33\n    \n  \n  \n  using any other provider for this, you'd",
+    "using any other provider for this, you'd",
+    "6:34\n    \n  \n  \n  probably be paying a decent amount for",
+    "6:34\n    \n  \n  \n  probably be paying a decent amount for",
+    "probably be paying a decent amount for",
+    "6:36\n    \n  \n  \n  every prompt you do. So, if you're on a",
+    "6:36\n    \n  \n  \n  every prompt you do. So, if you're on a",
+    "every prompt you do. So, if you're on a",
+    "6:37\n    \n  \n  \n  budget, this is a great way to do it. As",
+    "6:37\n    \n  \n  \n  budget, this is a great way to do it. As",
+    "budget, this is a great way to do it. As",
+    "6:39\n    \n  \n  \n  you can see, as it's building out all",
+    "6:39\n    \n  \n  \n  you can see, as it's building out all",
+    "you can see, as it's building out all",
+    "6:41\n    \n  \n  \n  the code, it's building out the walls.",
+    "6:41\n    \n  \n  \n  the code, it's building out the walls.",
+    "the code, it's building out the walls.",
+    "6:42\n    \n  \n  \n  It's building out the maze-like",
+    "6:42\n    \n  \n  \n  It's building out the maze-like",
+    "It's building out the maze-like",
+    "6:44\n    \n  \n  \n  structures. This is actually getting",
+    "6:44\n    \n  \n  \n  structures. This is actually getting",
+    "structures. This is actually getting",
+    "6:45\n    \n  \n  \n  pretty creative. So, this is going to be",
+    "6:45\n    \n  \n  \n  pretty creative. So, this is going to be",
+    "pretty creative. So, this is going to be",
+    "6:46\n    \n  \n  \n  interesting to see. All right, looks",
+    "6:46\n    \n  \n  \n  interesting to see. All right, looks",
+    "interesting to see. All right, looks",
+    "6:48\n    \n  \n  \n  like it's all set. Let's see how we did",
+    "6:48\n    \n  \n  \n  like it's all set. Let's see how we did",
+    "like it's all set. Let's see how we did",
+    "6:49\n    \n  \n  \n  here. Let's open this up and see how it",
+    "6:49\n    \n  \n  \n  here. Let's open this up and see how it",
+    "here. Let's open this up and see how it",
+    "Final results",
+    "6:51\n    \n  \n  \n  runs. So, if you're following along with",
+    "6:51\n    \n  \n  \n  runs. So, if you're following along with",
+    "runs. So, if you're following along with",
+    "6:52\n    \n  \n  \n  me at home, all you need to do is find",
+    "6:52\n    \n  \n  \n  me at home, all you need to do is find",
+    "me at home, all you need to do is find",
+    "6:53\n    \n  \n  \n  index.html",
+    "6:53\n    \n  \n  \n  index.html",
+    "index.html",
+    "6:55\n    \n  \n  \n  in the folder you set up cursor in. Pop",
+    "6:55\n    \n  \n  \n  in the folder you set up cursor in. Pop",
+    "in the folder you set up cursor in. Pop",
+    "6:57\n    \n  \n  \n  that open and let's see how we did here.",
+    "6:57\n    \n  \n  \n  that open and let's see how we did here.",
+    "that open and let's see how we did here.",
+    "6:59\n    \n  \n  \n  Oh, look at this. Here we go. So, it's a",
+    "6:59\n    \n  \n  \n  Oh, look at this. Here we go. So, it's a",
+    "Oh, look at this. Here we go. So, it's a",
+    "7:01\n    \n  \n  \n  neon sty. Oh, if I shoot, okay, I can",
+    "7:01\n    \n  \n  \n  neon sty. Oh, if I shoot, okay, I can",
+    "neon sty. Oh, if I shoot, okay, I can",
+    "7:03\n    \n  \n  \n  kill the enemies. I think the problem is",
+    "7:03\n    \n  \n  \n  kill the enemies. I think the problem is",
+    "kill the enemies. I think the problem is",
+    "7:05\n    \n  \n  \n  I'm running backwards into the enemies,",
+    "7:05\n    \n  \n  \n  I'm running backwards into the enemies,",
+    "I'm running backwards into the enemies,",
+    "7:07\n    \n  \n  \n  but what you can see is it did do kind",
+    "7:07\n    \n  \n  \n  but what you can see is it did do kind",
+    "but what you can see is it did do kind",
+    "7:09\n    \n  \n  \n  of a stylistic 3D neon game. Uh, I do",
+    "7:09\n    \n  \n  \n  of a stylistic 3D neon game. Uh, I do",
+    "of a stylistic 3D neon game. Uh, I do",
+    "7:13\n    \n  \n  \n  like the taste. Now, do the enemies look",
+    "7:13\n    \n  \n  \n  like the taste. Now, do the enemies look",
+    "like the taste. Now, do the enemies look",
+    "7:16\n    \n  \n  \n  that advanced? No, they are just pink.",
+    "7:16\n    \n  \n  \n  that advanced? No, they are just pink.",
+    "that advanced? No, they are just pink.",
+    "7:19\n    \n  \n  \n  Uh they are just pink squares but at the",
+    "7:19\n    \n  \n  \n  Uh they are just pink squares but at the",
+    "Uh they are just pink squares but at the",
+    "7:22\n    \n  \n  \n  same time it did oneshot the game and I",
+    "7:22\n    \n  \n  \n  same time it did oneshot the game and I",
+    "same time it did oneshot the game and I",
+    "7:25\n    \n  \n  \n  do like the color scheme. I mean it does",
+    "7:25\n    \n  \n  \n  do like the color scheme. I mean it does",
+    "do like the color scheme. I mean it does",
+    "7:27\n    \n  \n  \n  kind of look like puke but but like they",
+    "7:27\n    \n  \n  \n  kind of look like puke but but like they",
+    "kind of look like puke but but like they",
+    "7:29\n    \n  \n  \n  did go for a stylish a stylistic effect",
+    "7:29\n    \n  \n  \n  did go for a stylish a stylistic effect",
+    "did go for a stylish a stylistic effect",
+    "7:32\n    \n  \n  \n  right and now if I were to go through",
+    "7:32\n    \n  \n  \n  right and now if I were to go through",
+    "right and now if I were to go through",
+    "7:34\n    \n  \n  \n  here and add a few more prompts say hey",
+    "7:34\n    \n  \n  \n  here and add a few more prompts say hey",
+    "here and add a few more prompts say hey",
+    "7:36\n    \n  \n  \n  build out an opponent build out health",
+    "7:36\n    \n  \n  \n  build out an opponent build out health",
+    "build out an opponent build out health",
+    "7:38\n    \n  \n  \n  packs build out powerups. I'd be able to",
+    "7:38\n    \n  \n  \n  packs build out powerups. I'd be able to",
+    "packs build out powerups. I'd be able to",
+    "7:40\n    \n  \n  \n  do that but it built out a pretty solid",
+    "7:40\n    \n  \n  \n  do that but it built out a pretty solid",
+    "do that but it built out a pretty solid",
+    "7:43\n    \n  \n  \n  game for one shot and not to mention",
+    "7:43\n    \n  \n  \n  game for one shot and not to mention",
+    "game for one shot and not to mention",
+    "7:45\n    \n  \n  \n  completely free. So that's Kimmy K 2.",
+    "7:45\n    \n  \n  \n  completely free. So that's Kimmy K 2.",
+    "completely free. So that's Kimmy K 2.",
+    "7:47\n    \n  \n  \n  That is the model that is changing the",
+    "7:47\n    \n  \n  \n  That is the model that is changing the",
+    "That is the model that is changing the",
+    "7:49\n    \n  \n  \n  industry. Now listen, am I going to get",
+    "7:49\n    \n  \n  \n  industry. Now listen, am I going to get",
+    "industry. Now listen, am I going to get",
+    "7:51\n    \n  \n  \n  off of Claude Code now because of this?",
+    "7:51\n    \n  \n  \n  off of Claude Code now because of this?",
+    "off of Claude Code now because of this?",
+    "7:53\n    \n  \n  \n  Probably not. I'm paying the $200 a",
+    "7:53\n    \n  \n  \n  Probably not. I'm paying the $200 a",
+    "Probably not. I'm paying the $200 a",
+    "7:55\n    \n  \n  \n  month. I've been able to build really",
+    "7:55\n    \n  \n  \n  month. I've been able to build really",
+    "month. I've been able to build really",
+    "7:57\n    \n  \n  \n  awesome applications with it. I'm very",
+    "7:57\n    \n  \n  \n  awesome applications with it. I'm very",
+    "awesome applications with it. I'm very",
+    "7:59\n    \n  \n  \n  used to the workflow. But if I'm someone",
+    "7:59\n    \n  \n  \n  used to the workflow. But if I'm someone",
+    "used to the workflow. But if I'm someone",
+    "8:01\n    \n  \n  \n  who's a little bit more price conscious,",
+    "8:01\n    \n  \n  \n  who's a little bit more price conscious,",
+    "who's a little bit more price conscious,",
+    "8:03\n    \n  \n  \n  who hasn't gotten into Clawude Code yet,",
+    "8:03\n    \n  \n  \n  who hasn't gotten into Clawude Code yet,",
+    "who hasn't gotten into Clawude Code yet,",
+    "8:05\n    \n  \n  \n  who's not used to those types of",
+    "8:05\n    \n  \n  \n  who's not used to those types of",
+    "who's not used to those types of",
+    "8:06\n    \n  \n  \n  workflows, I'd start here. This is",
+    "8:06\n    \n  \n  \n  workflows, I'd start here. This is",
+    "workflows, I'd start here. This is",
+    "8:08\n    \n  \n  \n  completely free and really powerful. You",
+    "8:08\n    \n  \n  \n  completely free and really powerful. You",
+    "completely free and really powerful. You",
+    "8:11\n    \n  \n  \n  could probably get a good amount done on",
+    "8:11\n    \n  \n  \n  could probably get a good amount done on",
+    "could probably get a good amount done on",
+    "8:13\n    \n  \n  \n  this free tier. And even if you went",
+    "8:13\n    \n  \n  \n  this free tier. And even if you went",
+    "this free tier. And even if you went",
+    "8:14\n    \n  \n  \n  over the limits, it's so cheap. you're",
+    "8:14\n    \n  \n  \n  over the limits, it's so cheap. you're",
+    "over the limits, it's so cheap. you're",
+    "8:17\n    \n  \n  \n  probably just spending a couple bucks a",
+    "8:17\n    \n  \n  \n  probably just spending a couple bucks a",
+    "probably just spending a couple bucks a",
+    "8:18\n    \n  \n  \n  month. It's definitely worth playing",
+    "8:18\n    \n  \n  \n  month. It's definitely worth playing",
+    "month. It's definitely worth playing",
+    "8:20\n    \n  \n  \n  around with. I'll have all the links",
+    "8:20\n    \n  \n  \n  around with. I'll have all the links",
+    "around with. I'll have all the links",
+    "8:22\n    \n  \n  \n  below so that you can try out the",
+    "8:22\n    \n  \n  \n  below so that you can try out the",
+    "below so that you can try out the",
+    "8:23\n    \n  \n  \n  chatbot if you want to see how powerful",
+    "8:23\n    \n  \n  \n  chatbot if you want to see how powerful",
+    "chatbot if you want to see how powerful",
+    "8:25\n    \n  \n  \n  this model is. And I'll also have the",
+    "8:25\n    \n  \n  \n  this model is. And I'll also have the",
+    "this model is. And I'll also have the",
+    "8:27\n    \n  \n  \n  links to Klein and everything you need",
+    "8:27\n    \n  \n  \n  links to Klein and everything you need",
+    "links to Klein and everything you need",
+    "8:29\n    \n  \n  \n  to get set up with coding so that you",
+    "8:29\n    \n  \n  \n  to get set up with coding so that you",
+    "to get set up with coding so that you",
+    "8:31\n    \n  \n  \n  can start building apps today for free",
+    "8:31\n    \n  \n  \n  can start building apps today for free",
+    "can start building apps today for free",
+    "8:33\n    \n  \n  \n  if you want to save a couple bucks. If",
+    "8:33\n    \n  \n  \n  if you want to save a couple bucks. If",
+    "if you want to save a couple bucks. If",
+    "8:35\n    \n  \n  \n  you learned anything at all, make sure",
+    "8:35\n    \n  \n  \n  you learned anything at all, make sure",
+    "you learned anything at all, make sure",
+    "8:36\n    \n  \n  \n  to leave a like. Make sure to subscribe",
+    "8:36\n    \n  \n  \n  to leave a like. Make sure to subscribe",
+    "to leave a like. Make sure to subscribe",
+    "8:38\n    \n  \n  \n  and turn on notifications. All I do is",
+    "8:38\n    \n  \n  \n  and turn on notifications. All I do is",
+    "and turn on notifications. All I do is",
+    "8:40\n    \n  \n  \n  film amazing videos on building cool",
+    "8:40\n    \n  \n  \n  film amazing videos on building cool",
+    "film amazing videos on building cool",
+    "8:42\n    \n  \n  \n  stuff with AI. I'll see you in the next",
+    "8:42\n    \n  \n  \n  stuff with AI. I'll see you in the next",
+    "stuff with AI. I'll see you in the next",
+    "8:43\n    \n  \n  \n  video.",
+    "8:43\n    \n  \n  \n  video.",
+    "video.",
+    "No results found",
+    "No results found"
+  ],
+  "transcript_with_timestamps": [
+    {
+      "timestamp": "0:00",
+      "text": "Kimmy K2 has just blown up the entire AI"
+    },
+    {
+      "timestamp": "0:00",
+      "text": "Kimmy K2 has just blown up the entire AI"
+    },
+    {
+      "timestamp": "0:00",
+      "text": "Kimmy K2 has just blown up the entire AI"
+    },
+    {
+      "timestamp": "0:03",
+      "text": "space. Not only is it the most powerful"
+    },
+    {
+      "timestamp": "0:03",
+      "text": "space. Not only is it the most powerful"
+    },
+    {
+      "timestamp": "0:05",
+      "text": "model out there right now, but what if I"
+    },
+    {
+      "timestamp": "0:05",
+      "text": "model out there right now, but what if I"
+    },
+    {
+      "timestamp": "0:07",
+      "text": "told you it's basically free and you'll"
+    },
+    {
+      "timestamp": "0:07",
+      "text": "told you it's basically free and you'll"
+    },
+    {
+      "timestamp": "0:09",
+      "text": "potentially never have to pay for AI"
+    },
+    {
+      "timestamp": "0:09",
+      "text": "potentially never have to pay for AI"
+    },
+    {
+      "timestamp": "0:10",
+      "text": "again. And oh yeah, it's completely open"
+    },
+    {
+      "timestamp": "0:10",
+      "text": "again. And oh yeah, it's completely open"
+    },
+    {
+      "timestamp": "0:13",
+      "text": "source. In this video, I'm going to show"
+    },
+    {
+      "timestamp": "0:13",
+      "text": "source. In this video, I'm going to show"
+    },
+    {
+      "timestamp": "0:14",
+      "text": "you why Kimmy K2 just shook up the"
+    },
+    {
+      "timestamp": "0:14",
+      "text": "you why Kimmy K2 just shook up the"
+    },
+    {
+      "timestamp": "0:16",
+      "text": "entire industry, why it has Sam Alman"
+    },
+    {
+      "timestamp": "0:16",
+      "text": "entire industry, why it has Sam Alman"
+    },
+    {
+      "timestamp": "0:19",
+      "text": "changing all his plans, and how you can"
+    },
+    {
+      "timestamp": "0:19",
+      "text": "changing all his plans, and how you can"
+    },
+    {
+      "timestamp": "0:21",
+      "text": "get Kimmy K2 set up so you never have to"
+    },
+    {
+      "timestamp": "0:21",
+      "text": "get Kimmy K2 set up so you never have to"
+    },
+    {
+      "timestamp": "0:24",
+      "text": "pay for AI coding again. This might be"
+    },
+    {
+      "timestamp": "0:24",
+      "text": "pay for AI coding again. This might be"
+    },
+    {
+      "timestamp": "0:26",
+      "text": "the end of Claude Code. Let's lock in"
+    },
+    {
+      "timestamp": "0:26",
+      "text": "the end of Claude Code. Let's lock in"
+    },
+    {
+      "timestamp": "0:28",
+      "text": "and get into it. So, this is Kimmy K2."
+    },
+    {
+      "timestamp": "0:28",
+      "text": "and get into it. So, this is Kimmy K2."
+    },
+    {
+      "timestamp": "0:30",
+      "text": "This is a brand new model out of the"
+    },
+    {
+      "timestamp": "0:30",
+      "text": "This is a brand new model out of the"
+    },
+    {
+      "timestamp": "0:32",
+      "text": "Chinese company Moonshot. And there's so"
+    },
+    {
+      "timestamp": "0:32",
+      "text": "Chinese company Moonshot. And there's so"
+    },
+    {
+      "timestamp": "0:34",
+      "text": "many mind-blowing things about this."
+    },
+    {
+      "timestamp": "0:34",
+      "text": "many mind-blowing things about this."
+    },
+    {
+      "timestamp": "0:36",
+      "text": "First of all, if you go to their site"
+    },
+    {
+      "timestamp": "0:36",
+      "text": "First of all, if you go to their site"
+    },
+    {
+      "timestamp": "0:37",
+      "text": "right now, kimmy.com, you can use their"
+    },
+    {
+      "timestamp": "0:37",
+      "text": "right now, kimmy.com, you can use their"
+    },
+    {
+      "timestamp": "0:40",
+      "text": "chatbot completely free, unlimited,"
+    },
+    {
+      "timestamp": "0:40",
+      "text": "chatbot completely free, unlimited,"
+    },
+    {
+      "timestamp": "0:42",
+      "text": "completely free, and unlimited. How"
+    },
+    {
+      "timestamp": "0:42",
+      "text": "completely free, and unlimited. How"
+    },
+    {
+      "timestamp": "0:43",
+      "text": "unheard of is that? But what makes it"
+    },
+    {
+      "timestamp": "0:43",
+      "text": "unheard of is that? But what makes it"
+    },
+    {
+      "timestamp": "0:45",
+      "text": "even more amazing is it's actually an"
+    },
+    {
+      "timestamp": "0:45",
+      "text": "even more amazing is it's actually an"
+    },
+    {
+      "timestamp": "0:47",
+      "text": "incredible, incredible model. Looking at"
+    },
+    {
+      "timestamp": "0:47",
+      "text": "incredible, incredible model. Looking at"
+    },
+    {
+      "timestamp": "0:49",
+      "text": "the benchmarks, it beats pretty much"
+    },
+    {
+      "timestamp": "0:49",
+      "text": "the benchmarks, it beats pretty much"
+    },
+    {
+      "timestamp": "0:51",
+      "text": "every other model out there. And what's"
+    },
+    {
+      "timestamp": "0:51",
+      "text": "every other model out there. And what's"
+    },
+    {
+      "timestamp": "0:53",
+      "text": "really amazing is it's comparing it to"
+    },
+    {
+      "timestamp": "0:53",
+      "text": "really amazing is it's comparing it to"
+    },
+    {
+      "timestamp": "0:54",
+      "text": "every company's top model. They're"
+    },
+    {
+      "timestamp": "0:54",
+      "text": "every company's top model. They're"
+    },
+    {
+      "timestamp": "0:56",
+      "text": "comparing it to Claude 4 Opus and this"
+    },
+    {
+      "timestamp": "0:56",
+      "text": "comparing it to Claude 4 Opus and this"
+    },
+    {
+      "timestamp": "0:59",
+      "text": "isn't even a thinking model and it's"
+    },
+    {
+      "timestamp": "0:59",
+      "text": "isn't even a thinking model and it's"
+    },
+    {
+      "timestamp": "1:01",
+      "text": "beating pretty much all of them. The"
+    },
+    {
+      "timestamp": "1:01",
+      "text": "beating pretty much all of them. The"
+    },
+    {
+      "timestamp": "1:03",
+      "text": "only model that seems to come"
+    },
+    {
+      "timestamp": "1:03",
+      "text": "only model that seems to come"
+    },
+    {
+      "timestamp": "1:04",
+      "text": "consistently close is Claude for Opus,"
+    },
+    {
+      "timestamp": "1:04",
+      "text": "consistently close is Claude for Opus,"
+    },
+    {
+      "timestamp": "1:06",
+      "text": "but they're pretty much neck to neck in"
+    },
+    {
+      "timestamp": "1:06",
+      "text": "but they're pretty much neck to neck in"
+    },
+    {
+      "timestamp": "1:08",
+      "text": "almost every single benchmark. What's"
+    },
+    {
+      "timestamp": "1:08",
+      "text": "almost every single benchmark. What's"
+    },
+    {
+      "timestamp": "1:10",
+      "text": "crazy, it's not even a thinking model,"
+    },
+    {
+      "timestamp": "1:10",
+      "text": "crazy, it's not even a thinking model,"
+    },
+    {
+      "timestamp": "1:11",
+      "text": "so the results you're going to get are"
+    },
+    {
+      "timestamp": "1:11",
+      "text": "so the results you're going to get are"
+    },
+    {
+      "timestamp": "1:13",
+      "text": "going to be super quick. So, it's free."
+    },
+    {
+      "timestamp": "1:13",
+      "text": "going to be super quick. So, it's free."
+    },
+    {
+      "timestamp": "1:15",
+      "text": "It's just as good as all the other top"
+    },
+    {
+      "timestamp": "1:15",
+      "text": "It's just as good as all the other top"
+    },
+    {
+      "timestamp": "1:17",
+      "text": "models out there. And it's open source,"
+    },
+    {
+      "timestamp": "1:17",
+      "text": "models out there. And it's open source,"
+    },
+    {
+      "timestamp": "1:20",
+      "text": "which means you can download it, run it"
+    },
+    {
+      "timestamp": "1:20",
+      "text": "which means you can download it, run it"
+    },
+    {
+      "timestamp": "1:22",
+      "text": "locally, and tinker with it any way you"
+    },
+    {
+      "timestamp": "1:22",
+      "text": "locally, and tinker with it any way you"
+    },
+    {
+      "timestamp": "1:24",
+      "text": "want. It has an unbelievable 1 trillion"
+    },
+    {
+      "timestamp": "1:24",
+      "text": "want. It has an unbelievable 1 trillion"
+    },
+    {
+      "timestamp": "1:28",
+      "text": "total parameters. I'm telling you, I"
+    },
+    {
+      "timestamp": "1:28",
+      "text": "total parameters. I'm telling you, I"
+    },
+    {
+      "timestamp": "1:30",
+      "text": "don't know what's in the water in China,"
+    },
+    {
+      "timestamp": "1:30",
+      "text": "don't know what's in the water in China,"
+    },
+    {
+      "timestamp": "1:31",
+      "text": "but they're making some unbelievable AI"
+    },
+    {
+      "timestamp": "1:31",
+      "text": "but they're making some unbelievable AI"
+    },
+    {
+      "timestamp": "1:33",
+      "text": "model. Now, why do I say it's basically"
+    },
+    {
+      "timestamp": "1:33",
+      "text": "model. Now, why do I say it's basically"
+    },
+    {
+      "timestamp": "1:35",
+      "text": "free? Well, one thing, if you're using"
+    },
+    {
+      "timestamp": "1:35",
+      "text": "free? Well, one thing, if you're using"
+    },
+    {
+      "timestamp": "1:36",
+      "text": "the chatbot on kimmy.com, it is"
+    },
+    {
+      "timestamp": "1:36",
+      "text": "the chatbot on kimmy.com, it is"
+    },
+    {
+      "timestamp": "1:38",
+      "text": "literally free. You can do as much"
+    },
+    {
+      "timestamp": "1:38",
+      "text": "literally free. You can do as much"
+    },
+    {
+      "timestamp": "1:40",
+      "text": "research, as much searching, as much"
+    },
+    {
+      "timestamp": "1:40",
+      "text": "research, as much searching, as much"
+    },
+    {
+      "timestamp": "1:42",
+      "text": "anything you want. Completely for free."
+    },
+    {
+      "timestamp": "1:42",
+      "text": "anything you want. Completely for free."
+    },
+    {
+      "timestamp": "1:44",
+      "text": "No charges at all. The only time you'll"
+    },
+    {
+      "timestamp": "1:44",
+      "text": "No charges at all. The only time you'll"
+    },
+    {
+      "timestamp": "1:46",
+      "text": "run into payments is if you're using the"
+    },
+    {
+      "timestamp": "1:46",
+      "text": "run into payments is if you're using the"
+    },
+    {
+      "timestamp": "1:48",
+      "text": "API, but even then with the API, it is a"
+    },
+    {
+      "timestamp": "1:48",
+      "text": "API, but even then with the API, it is a"
+    },
+    {
+      "timestamp": "1:51",
+      "text": "quarter of the price of Claude Opus."
+    },
+    {
+      "timestamp": "1:51",
+      "text": "quarter of the price of Claude Opus."
+    },
+    {
+      "timestamp": "1:53",
+      "text": "These are some unbelievable prices here."
+    },
+    {
+      "timestamp": "1:53",
+      "text": "These are some unbelievable prices here."
+    },
+    {
+      "timestamp": "1:55",
+      "text": "And what's even more amazing is actually"
+    },
+    {
+      "timestamp": "1:55",
+      "text": "And what's even more amazing is actually"
+    },
+    {
+      "timestamp": "1:57",
+      "text": "a free tier. So when you start using it,"
+    },
+    {
+      "timestamp": "1:57",
+      "text": "a free tier. So when you start using it,"
+    },
+    {
+      "timestamp": "1:59",
+      "text": "it will be free up to a certain point."
+    },
+    {
+      "timestamp": "1:59",
+      "text": "it will be free up to a certain point."
+    },
+    {
+      "timestamp": "2:01",
+      "text": "You get something like 1 million tokens"
+    },
+    {
+      "timestamp": "2:01",
+      "text": "You get something like 1 million tokens"
+    },
+    {
+      "timestamp": "2:03",
+      "text": "a day, completely free, which is a good"
+    },
+    {
+      "timestamp": "2:03",
+      "text": "a day, completely free, which is a good"
+    },
+    {
+      "timestamp": "2:05",
+      "text": "amount. I mean, this has shaken up the"
+    },
+    {
+      "timestamp": "2:05",
+      "text": "amount. I mean, this has shaken up the"
+    },
+    {
+      "timestamp": "2:06",
+      "text": "entire industry. Just this week, Open AI"
+    },
+    {
+      "timestamp": "2:06",
+      "text": "entire industry. Just this week, Open AI"
+    },
+    {
+      "timestamp": "2:10",
+      "text": "was supposed to release their own open-"
+    },
+    {
+      "timestamp": "2:10",
+      "text": "was supposed to release their own open-"
+    },
+    {
+      "timestamp": "2:12",
+      "text": "source model, their first open-source"
+    },
+    {
+      "timestamp": "2:12",
+      "text": "source model, their first open-source"
+    },
+    {
+      "timestamp": "2:14",
+      "text": "model ever. But right when they were"
+    },
+    {
+      "timestamp": "2:14",
+      "text": "model ever. But right when they were"
+    },
+    {
+      "timestamp": "2:16",
+      "text": "supposed to do it, Kimmy K2 comes out"
+    },
+    {
+      "timestamp": "2:16",
+      "text": "supposed to do it, Kimmy K2 comes out"
+    },
+    {
+      "timestamp": "2:18",
+      "text": "and it blows away all the competition."
+    },
+    {
+      "timestamp": "2:18",
+      "text": "and it blows away all the competition."
+    },
+    {
+      "timestamp": "2:20",
+      "text": "So what happens? Well, it looks like"
+    },
+    {
+      "timestamp": "2:20",
+      "text": "So what happens? Well, it looks like"
+    },
+    {
+      "timestamp": "2:22",
+      "text": "OpenAI delayed their open source model"
+    },
+    {
+      "timestamp": "2:22",
+      "text": "OpenAI delayed their open source model"
+    },
+    {
+      "timestamp": "2:25",
+      "text": "because of this. So Sam Alman just"
+    },
+    {
+      "timestamp": "2:25",
+      "text": "because of this. So Sam Alman just"
+    },
+    {
+      "timestamp": "2:27",
+      "text": "tweeted less than 24 hours ago, \"We plan"
+    },
+    {
+      "timestamp": "2:27",
+      "text": "tweeted less than 24 hours ago, \"We plan"
+    },
+    {
+      "timestamp": "2:29",
+      "text": "to launch our openweight model next"
+    },
+    {
+      "timestamp": "2:29",
+      "text": "to launch our openweight model next"
+    },
+    {
+      "timestamp": "2:31",
+      "text": "week. We are delaying it. We need time"
+    },
+    {
+      "timestamp": "2:31",
+      "text": "week. We are delaying it. We need time"
+    },
+    {
+      "timestamp": "2:32",
+      "text": "to run additional safety tests and"
+    },
+    {
+      "timestamp": "2:32",
+      "text": "to run additional safety tests and"
+    },
+    {
+      "timestamp": "2:34",
+      "text": "review high-risk areas.\" Now listen, did"
+    },
+    {
+      "timestamp": "2:34",
+      "text": "review high-risk areas.\" Now listen, did"
+    },
+    {
+      "timestamp": "2:37",
+      "text": "he say they're delaying because of Kimmy"
+    },
+    {
+      "timestamp": "2:37",
+      "text": "he say they're delaying because of Kimmy"
+    },
+    {
+      "timestamp": "2:39",
+      "text": "K2? No. But this is pretty convenient"
+    },
+    {
+      "timestamp": "2:39",
+      "text": "K2? No. But this is pretty convenient"
+    },
+    {
+      "timestamp": "2:42",
+      "text": "timing. If you're open AI and you're"
+    },
+    {
+      "timestamp": "2:42",
+      "text": "timing. If you're open AI and you're"
+    },
+    {
+      "timestamp": "2:44",
+      "text": "looked at as the king of AI, you can't"
+    },
+    {
+      "timestamp": "2:44",
+      "text": "looked at as the king of AI, you can't"
+    },
+    {
+      "timestamp": "2:46",
+      "text": "release an open-source model that's"
+    },
+    {
+      "timestamp": "2:46",
+      "text": "release an open-source model that's"
+    },
+    {
+      "timestamp": "2:48",
+      "text": "weaker than a Chinese model that just"
+    },
+    {
+      "timestamp": "2:48",
+      "text": "weaker than a Chinese model that just"
+    },
+    {
+      "timestamp": "2:50",
+      "text": "came out. So they have to go back to the"
+    },
+    {
+      "timestamp": "2:50",
+      "text": "came out. So they have to go back to the"
+    },
+    {
+      "timestamp": "2:52",
+      "text": "drawing board and make sure it beats"
+    },
+    {
+      "timestamp": "2:52",
+      "text": "drawing board and make sure it beats"
+    },
+    {
+      "timestamp": "2:53",
+      "text": "this competition. So let's do this. I"
+    },
+    {
+      "timestamp": "2:53",
+      "text": "this competition. So let's do this. I"
+    },
+    {
+      "timestamp": "2:55",
+      "text": "want to show you how you can use the"
+    },
+    {
+      "timestamp": "2:55",
+      "text": "want to show you how you can use the"
+    },
+    {
+      "timestamp": "2:56",
+      "text": "model as a coding agent. I'm going to"
+    },
+    {
+      "timestamp": "2:56",
+      "text": "model as a coding agent. I'm going to"
+    },
+    {
+      "timestamp": "2:58",
+      "text": "show you how you can install it into"
+    },
+    {
+      "timestamp": "2:58",
+      "text": "show you how you can install it into"
+    },
+    {
+      "timestamp": "3:00",
+      "text": "cursor so you can start using it and you"
+    },
+    {
+      "timestamp": "3:00",
+      "text": "cursor so you can start using it and you"
+    },
+    {
+      "timestamp": "3:02",
+      "text": "don't have to pay for anything until you"
+    },
+    {
+      "timestamp": "3:02",
+      "text": "don't have to pay for anything until you"
+    },
+    {
+      "timestamp": "3:04",
+      "text": "hit the limits. And then even when you"
+    },
+    {
+      "timestamp": "3:04",
+      "text": "hit the limits. And then even when you"
+    },
+    {
+      "timestamp": "3:05",
+      "text": "do hit the limits, it's going to be way"
+    },
+    {
+      "timestamp": "3:05",
+      "text": "do hit the limits, it's going to be way"
+    },
+    {
+      "timestamp": "3:07",
+      "text": "cheaper than any other model you use. So"
+    },
+    {
+      "timestamp": "3:07",
+      "text": "cheaper than any other model you use. So"
+    },
+    {
+      "timestamp": "3:09",
+      "text": "here's what you need to do. Open up the"
+    },
+    {
+      "timestamp": "3:09",
+      "text": "here's what you need to do. Open up the"
+    },
+    {
+      "timestamp": "3:10",
+      "text": "development environment of your choice."
+    },
+    {
+      "timestamp": "3:10",
+      "text": "development environment of your choice."
+    },
+    {
+      "timestamp": "3:12",
+      "text": "I'm going to go with cursor for this."
+    },
+    {
+      "timestamp": "3:12",
+      "text": "I'm going to go with cursor for this."
+    },
+    {
+      "timestamp": "3:14",
+      "text": "Once you have that downloaded and opened"
+    },
+    {
+      "timestamp": "3:14",
+      "text": "Once you have that downloaded and opened"
+    },
+    {
+      "timestamp": "3:16",
+      "text": "up, what you're going to do is you're"
+    },
+    {
+      "timestamp": "3:16",
+      "text": "up, what you're going to do is you're"
+    },
+    {
+      "timestamp": "3:17",
+      "text": "going to go over to the extension"
+    },
+    {
+      "timestamp": "3:17",
+      "text": "going to go over to the extension"
+    },
+    {
+      "timestamp": "3:19",
+      "text": "section over here. So, you hit the"
+    },
+    {
+      "timestamp": "3:19",
+      "text": "section over here. So, you hit the"
+    },
+    {
+      "timestamp": "3:21",
+      "text": "extensions button over on the left hand"
+    },
+    {
+      "timestamp": "3:21",
+      "text": "extensions button over on the left hand"
+    },
+    {
+      "timestamp": "3:22",
+      "text": "side. Then, what you're going to do is"
+    },
+    {
+      "timestamp": "3:22",
+      "text": "side. Then, what you're going to do is"
+    },
+    {
+      "timestamp": "3:24",
+      "text": "type in Klein. Klein is an open-source"
+    },
+    {
+      "timestamp": "3:24",
+      "text": "type in Klein. Klein is an open-source"
+    },
+    {
+      "timestamp": "3:27",
+      "text": "AI agent that we can plug any API key"
+    },
+    {
+      "timestamp": "3:27",
+      "text": "AI agent that we can plug any API key"
+    },
+    {
+      "timestamp": "3:30",
+      "text": "into. So, what we're going to do is"
+    },
+    {
+      "timestamp": "3:30",
+      "text": "into. So, what we're going to do is"
+    },
+    {
+      "timestamp": "3:32",
+      "text": "we're going to download Klein. We're"
+    },
+    {
+      "timestamp": "3:32",
+      "text": "we're going to download Klein. We're"
+    },
+    {
+      "timestamp": "3:34",
+      "text": "going to plug the Kimmy K2 API key into"
+    },
+    {
+      "timestamp": "3:34",
+      "text": "going to plug the Kimmy K2 API key into"
+    },
+    {
+      "timestamp": "3:37",
+      "text": "it and then we're going to start to be"
+    },
+    {
+      "timestamp": "3:37",
+      "text": "it and then we're going to start to be"
+    },
+    {
+      "timestamp": "3:38",
+      "text": "able to code with Kimmy K2. So once you"
+    },
+    {
+      "timestamp": "3:38",
+      "text": "able to code with Kimmy K2. So once you"
+    },
+    {
+      "timestamp": "3:41",
+      "text": "have client downloaded into cursor or"
+    },
+    {
+      "timestamp": "3:41",
+      "text": "have client downloaded into cursor or"
+    },
+    {
+      "timestamp": "3:43",
+      "text": "whatever development environment you're"
+    },
+    {
+      "timestamp": "3:43",
+      "text": "whatever development environment you're"
+    },
+    {
+      "timestamp": "3:44",
+      "text": "using, we need to get our API key. So if"
+    },
+    {
+      "timestamp": "3:44",
+      "text": "using, we need to get our API key. So if"
+    },
+    {
+      "timestamp": "3:46",
+      "text": "you go to platform.moonshot.ai/conole,"
+    },
+    {
+      "timestamp": "3:46",
+      "text": "you go to platform.moonshot.ai/conole,"
+    },
+    {
+      "timestamp": "3:50",
+      "text": "I'll put the link down below. Make sure"
+    },
+    {
+      "timestamp": "3:50",
+      "text": "I'll put the link down below. Make sure"
+    },
+    {
+      "timestamp": "3:52",
+      "text": "you sign up for an account there. Once"
+    },
+    {
+      "timestamp": "3:52",
+      "text": "you sign up for an account there. Once"
+    },
+    {
+      "timestamp": "3:54",
+      "text": "you're in there, we're going to go to"
+    },
+    {
+      "timestamp": "3:54",
+      "text": "you're in there, we're going to go to"
+    },
+    {
+      "timestamp": "3:55",
+      "text": "API keys. And from here, we're going to"
+    },
+    {
+      "timestamp": "3:55",
+      "text": "API keys. And from here, we're going to"
+    },
+    {
+      "timestamp": "3:57",
+      "text": "create an API. We're going to give it a"
+    },
+    {
+      "timestamp": "3:57",
+      "text": "create an API. We're going to give it a"
+    },
+    {
+      "timestamp": "3:59",
+      "text": "name. I'm going to call it Kimmy. We'll"
+    },
+    {
+      "timestamp": "3:59",
+      "text": "name. I'm going to call it Kimmy. We'll"
+    },
+    {
+      "timestamp": "4:00",
+      "text": "put it in the default project. And I'll"
+    },
+    {
+      "timestamp": "4:00",
+      "text": "put it in the default project. And I'll"
+    },
+    {
+      "timestamp": "4:02",
+      "text": "hit enter on that. Will spit out an API"
+    },
+    {
+      "timestamp": "4:02",
+      "text": "hit enter on that. Will spit out an API"
+    },
+    {
+      "timestamp": "4:04",
+      "text": "key for you. We're going to copy that."
+    },
+    {
+      "timestamp": "4:04",
+      "text": "key for you. We're going to copy that."
+    },
+    {
+      "timestamp": "4:06",
+      "text": "Okay. So, we're going to take this API"
+    },
+    {
+      "timestamp": "4:06",
+      "text": "Okay. So, we're going to take this API"
+    },
+    {
+      "timestamp": "4:07",
+      "text": "key and put it into client so we can"
+    },
+    {
+      "timestamp": "4:07",
+      "text": "key and put it into client so we can"
+    },
+    {
+      "timestamp": "4:09",
+      "text": "start coding for free. So, what we're"
+    },
+    {
+      "timestamp": "4:09",
+      "text": "start coding for free. So, what we're"
+    },
+    {
+      "timestamp": "4:11",
+      "text": "going to do in here is make sure you hit"
+    },
+    {
+      "timestamp": "4:11",
+      "text": "going to do in here is make sure you hit"
+    },
+    {
+      "timestamp": "4:12",
+      "text": "settings. You're going to click this"
+    },
+    {
+      "timestamp": "4:12",
+      "text": "settings. You're going to click this"
+    },
+    {
+      "timestamp": "4:13",
+      "text": "dropown. We're going to choose Anthropic"
+    },
+    {
+      "timestamp": "4:13",
+      "text": "dropown. We're going to choose Anthropic"
+    },
+    {
+      "timestamp": "4:15",
+      "text": "as our API provider. They run the API"
+    },
+    {
+      "timestamp": "4:15",
+      "text": "as our API provider. They run the API"
+    },
+    {
+      "timestamp": "4:18",
+      "text": "through Anthropic. So, this is standard."
+    },
+    {
+      "timestamp": "4:18",
+      "text": "through Anthropic. So, this is standard."
+    },
+    {
+      "timestamp": "4:20",
+      "text": "We click on that. Take your API key you"
+    },
+    {
+      "timestamp": "4:20",
+      "text": "We click on that. Take your API key you"
+    },
+    {
+      "timestamp": "4:22",
+      "text": "just got in Kimmy and paste that into"
+    },
+    {
+      "timestamp": "4:22",
+      "text": "just got in Kimmy and paste that into"
+    },
+    {
+      "timestamp": "4:24",
+      "text": "Anthropic API key here. For the model,"
+    },
+    {
+      "timestamp": "4:24",
+      "text": "Anthropic API key here. For the model,"
+    },
+    {
+      "timestamp": "4:27",
+      "text": "just leave that be. Doesn't matter which"
+    },
+    {
+      "timestamp": "4:27",
+      "text": "just leave that be. Doesn't matter which"
+    },
+    {
+      "timestamp": "4:28",
+      "text": "model you choose. Since you put in your"
+    },
+    {
+      "timestamp": "4:28",
+      "text": "model you choose. Since you put in your"
+    },
+    {
+      "timestamp": "4:30",
+      "text": "Kimmy API key, it'll use the latest"
+    },
+    {
+      "timestamp": "4:30",
+      "text": "Kimmy API key, it'll use the latest"
+    },
+    {
+      "timestamp": "4:31",
+      "text": "Kimmy model. You're going to want to"
+    },
+    {
+      "timestamp": "4:31",
+      "text": "Kimmy model. You're going to want to"
+    },
+    {
+      "timestamp": "4:33",
+      "text": "make sure you click on use custom base"
+    },
+    {
+      "timestamp": "4:33",
+      "text": "make sure you click on use custom base"
+    },
+    {
+      "timestamp": "4:35",
+      "text": "URL. For the custom base URL, you're"
+    },
+    {
+      "timestamp": "4:35",
+      "text": "URL. For the custom base URL, you're"
+    },
+    {
+      "timestamp": "4:37",
+      "text": "going to use api.moonshot.ai/anthropic."
+    },
+    {
+      "timestamp": "4:37",
+      "text": "going to use api.moonshot.ai/anthropic."
+    },
+    {
+      "timestamp": "4:41",
+      "text": "I'll put the link down below so you can"
+    },
+    {
+      "timestamp": "4:41",
+      "text": "I'll put the link down below so you can"
+    },
+    {
+      "timestamp": "4:42",
+      "text": "just copy and paste that. Make sure you"
+    },
+    {
+      "timestamp": "4:42",
+      "text": "just copy and paste that. Make sure you"
+    },
+    {
+      "timestamp": "4:44",
+      "text": "get it perfect. Feel free to pause here"
+    },
+    {
+      "timestamp": "4:44",
+      "text": "get it perfect. Feel free to pause here"
+    },
+    {
+      "timestamp": "4:45",
+      "text": "to grab that. From there, any model is"
+    },
+    {
+      "timestamp": "4:45",
+      "text": "to grab that. From there, any model is"
+    },
+    {
+      "timestamp": "4:47",
+      "text": "fine. So, you can leave that be on set"
+    },
+    {
+      "timestamp": "4:47",
+      "text": "fine. So, you can leave that be on set"
+    },
+    {
+      "timestamp": "4:49",
+      "text": "or whatever it did for you. And then you"
+    },
+    {
+      "timestamp": "4:49",
+      "text": "or whatever it did for you. And then you"
+    },
+    {
+      "timestamp": "4:50",
+      "text": "can click done. One thing you need to"
+    },
+    {
+      "timestamp": "4:50",
+      "text": "can click done. One thing you need to"
+    },
+    {
+      "timestamp": "4:51",
+      "text": "know before you start using the free"
+    },
+    {
+      "timestamp": "4:51",
+      "text": "know before you start using the free"
+    },
+    {
+      "timestamp": "4:53",
+      "text": "tier, you do need to put a couple"
+    },
+    {
+      "timestamp": "4:53",
+      "text": "tier, you do need to put a couple"
+    },
+    {
+      "timestamp": "4:55",
+      "text": "dollars of credit on there to unlock the"
+    },
+    {
+      "timestamp": "4:55",
+      "text": "dollars of credit on there to unlock the"
+    },
+    {
+      "timestamp": "4:57",
+      "text": "free tier. So, I'm just going to pay $10"
+    },
+    {
+      "timestamp": "4:57",
+      "text": "free tier. So, I'm just going to pay $10"
+    },
+    {
+      "timestamp": "4:59",
+      "text": "and then you can use the free tier every"
+    },
+    {
+      "timestamp": "4:59",
+      "text": "and then you can use the free tier every"
+    },
+    {
+      "timestamp": "5:01",
+      "text": "day and it won't take away from those"
+    },
+    {
+      "timestamp": "5:01",
+      "text": "day and it won't take away from those"
+    },
+    {
+      "timestamp": "5:02",
+      "text": "$10. And then if you do go over, it will"
+    },
+    {
+      "timestamp": "5:02",
+      "text": "$10. And then if you do go over, it will"
+    },
+    {
+      "timestamp": "5:05",
+      "text": "take that. But with any other model,"
+    },
+    {
+      "timestamp": "5:05",
+      "text": "take that. But with any other model,"
+    },
+    {
+      "timestamp": "5:06",
+      "text": "you're spending $10 in like an hour. So,"
+    },
+    {
+      "timestamp": "5:06",
+      "text": "you're spending $10 in like an hour. So,"
+    },
+    {
+      "timestamp": "5:08",
+      "text": "this is still a very good deal. So, now"
+    },
+    {
+      "timestamp": "5:08",
+      "text": "this is still a very good deal. So, now"
+    },
+    {
+      "timestamp": "5:10",
+      "text": "you're all set up. You have Kimmy K2 all"
+    },
+    {
+      "timestamp": "5:10",
+      "text": "you're all set up. You have Kimmy K2 all"
+    },
+    {
+      "timestamp": "5:13",
+      "text": "set up. You basically can code now for"
+    },
+    {
+      "timestamp": "5:13",
+      "text": "set up. You basically can code now for"
+    },
+    {
+      "timestamp": "5:15",
+      "text": "way cheaper than you were before and you"
+    },
+    {
+      "timestamp": "5:15",
+      "text": "way cheaper than you were before and you"
+    },
+    {
+      "timestamp": "5:17",
+      "text": "can save a ton of money. So, let's get"
+    },
+    {
+      "timestamp": "5:17",
+      "text": "can save a ton of money. So, let's get"
+    },
+    {
+      "timestamp": "5:19",
+      "text": "this going. Let's test this out. My"
+    },
+    {
+      "timestamp": "5:19",
+      "text": "this going. Let's test this out. My"
+    },
+    {
+      "timestamp": "5:21",
+      "text": "favorite test to do with any new AI"
+    },
+    {
+      "timestamp": "5:21",
+      "text": "favorite test to do with any new AI"
+    },
+    {
+      "timestamp": "5:23",
+      "text": "model is just have it build out a 3D"
+    },
+    {
+      "timestamp": "5:23",
+      "text": "model is just have it build out a 3D"
+    },
+    {
+      "timestamp": "5:25",
+      "text": "firstperson shooting game. I don't give"
+    },
+    {
+      "timestamp": "5:25",
+      "text": "firstperson shooting game. I don't give"
+    },
+    {
+      "timestamp": "5:26",
+      "text": "it many instructions. Say, \"Hey, build"
+    },
+    {
+      "timestamp": "5:26",
+      "text": "it many instructions. Say, \"Hey, build"
+    },
+    {
+      "timestamp": "5:28",
+      "text": "this game out.\" So, we can see what kind"
+    },
+    {
+      "timestamp": "5:28",
+      "text": "this game out.\" So, we can see what kind"
+    },
+    {
+      "timestamp": "5:30",
+      "text": "of taste it has. Will it come up with"
+    },
+    {
+      "timestamp": "5:30",
+      "text": "of taste it has. Will it come up with"
+    },
+    {
+      "timestamp": "5:32",
+      "text": "creative ways to build the game out, put"
+    },
+    {
+      "timestamp": "5:32",
+      "text": "creative ways to build the game out, put"
+    },
+    {
+      "timestamp": "5:34",
+      "text": "in assets? So, let's see. I'll put this"
+    },
+    {
+      "timestamp": "5:34",
+      "text": "in assets? So, let's see. I'll put this"
+    },
+    {
+      "timestamp": "5:36",
+      "text": "prompt down below. Feel free to copy and"
+    },
+    {
+      "timestamp": "5:36",
+      "text": "prompt down below. Feel free to copy and"
+    },
+    {
+      "timestamp": "5:38",
+      "text": "paste it and put it into Kimmy and let's"
+    },
+    {
+      "timestamp": "5:38",
+      "text": "paste it and put it into Kimmy and let's"
+    },
+    {
+      "timestamp": "5:39",
+      "text": "see what it can come up with. So, I"
+    },
+    {
+      "timestamp": "5:39",
+      "text": "see what it can come up with. So, I"
+    },
+    {
+      "timestamp": "5:40",
+      "text": "said, I want you to build a 3D"
+    },
+    {
+      "timestamp": "5:40",
+      "text": "said, I want you to build a 3D"
+    },
+    {
+      "timestamp": "5:42",
+      "text": "firstperson shooter using 3JS. Make this"
+    },
+    {
+      "timestamp": "5:42",
+      "text": "firstperson shooter using 3JS. Make this"
+    },
+    {
+      "timestamp": "5:44",
+      "text": "a single file game in index so I can run"
+    },
+    {
+      "timestamp": "5:44",
+      "text": "a single file game in index so I can run"
+    },
+    {
+      "timestamp": "5:47",
+      "text": "it easily. Make it creative and fun with"
+    },
+    {
+      "timestamp": "5:47",
+      "text": "it easily. Make it creative and fun with"
+    },
+    {
+      "timestamp": "5:49",
+      "text": "beautiful graphics. So, we're giving it"
+    },
+    {
+      "timestamp": "5:49",
+      "text": "beautiful graphics. So, we're giving it"
+    },
+    {
+      "timestamp": "5:51",
+      "text": "a lot of room for interpretation so we"
+    },
+    {
+      "timestamp": "5:51",
+      "text": "a lot of room for interpretation so we"
+    },
+    {
+      "timestamp": "5:53",
+      "text": "can see how well it does. I'm going to"
+    },
+    {
+      "timestamp": "5:53",
+      "text": "can see how well it does. I'm going to"
+    },
+    {
+      "timestamp": "5:54",
+      "text": "hit enter on that. All right. So, now"
+    },
+    {
+      "timestamp": "5:54",
+      "text": "hit enter on that. All right. So, now"
+    },
+    {
+      "timestamp": "5:56",
+      "text": "it's going. There we go. It's building"
+    },
+    {
+      "timestamp": "5:56",
+      "text": "it's going. There we go. It's building"
+    },
+    {
+      "timestamp": "5:58",
+      "text": "out the game for us. And again, this is"
+    },
+    {
+      "timestamp": "5:58",
+      "text": "out the game for us. And again, this is"
+    },
+    {
+      "timestamp": "6:00",
+      "text": "on the free tier. So, it's not using up"
+    },
+    {
+      "timestamp": "6:00",
+      "text": "on the free tier. So, it's not using up"
+    },
+    {
+      "timestamp": "6:02",
+      "text": "any of our credits. It's just building"
+    },
+    {
+      "timestamp": "6:02",
+      "text": "any of our credits. It's just building"
+    },
+    {
+      "timestamp": "6:04",
+      "text": "this out. So, it is building for us a"
+    },
+    {
+      "timestamp": "6:04",
+      "text": "this out. So, it is building for us a"
+    },
+    {
+      "timestamp": "6:06",
+      "text": "full 3D firsterson shooter. This is with"
+    },
+    {
+      "timestamp": "6:06",
+      "text": "full 3D firsterson shooter. This is with"
+    },
+    {
+      "timestamp": "6:10",
+      "text": "3JS. For those who don't know, 3JS is"
+    },
+    {
+      "timestamp": "6:10",
+      "text": "3JS. For those who don't know, 3JS is"
+    },
+    {
+      "timestamp": "6:12",
+      "text": "the easiest to use library for 3D games"
+    },
+    {
+      "timestamp": "6:12",
+      "text": "the easiest to use library for 3D games"
+    },
+    {
+      "timestamp": "6:14",
+      "text": "and experiences. So, I always have my"
+    },
+    {
+      "timestamp": "6:14",
+      "text": "and experiences. So, I always have my"
+    },
+    {
+      "timestamp": "6:16",
+      "text": "models use 3JS if I'm building any sort"
+    },
+    {
+      "timestamp": "6:16",
+      "text": "models use 3JS if I'm building any sort"
+    },
+    {
+      "timestamp": "6:18",
+      "text": "of game out. It's building it out for"
+    },
+    {
+      "timestamp": "6:18",
+      "text": "of game out. It's building it out for"
+    },
+    {
+      "timestamp": "6:20",
+      "text": "us. From a speed perspective, it seems"
+    },
+    {
+      "timestamp": "6:20",
+      "text": "us. From a speed perspective, it seems"
+    },
+    {
+      "timestamp": "6:22",
+      "text": "all right. Maybe it's because we're"
+    },
+    {
+      "timestamp": "6:22",
+      "text": "all right. Maybe it's because we're"
+    },
+    {
+      "timestamp": "6:24",
+      "text": "doing this through client. It's going a"
+    },
+    {
+      "timestamp": "6:24",
+      "text": "doing this through client. It's going a"
+    },
+    {
+      "timestamp": "6:26",
+      "text": "little bit slower because we're doing it"
+    },
+    {
+      "timestamp": "6:26",
+      "text": "little bit slower because we're doing it"
+    },
+    {
+      "timestamp": "6:27",
+      "text": "through the API and it isn't native. But"
+    },
+    {
+      "timestamp": "6:27",
+      "text": "through the API and it isn't native. But"
+    },
+    {
+      "timestamp": "6:29",
+      "text": "that's fine. It's still building us out"
+    },
+    {
+      "timestamp": "6:29",
+      "text": "that's fine. It's still building us out"
+    },
+    {
+      "timestamp": "6:31",
+      "text": "and it's doing it for free. If you're"
+    },
+    {
+      "timestamp": "6:31",
+      "text": "and it's doing it for free. If you're"
+    },
+    {
+      "timestamp": "6:33",
+      "text": "using any other provider for this, you'd"
+    },
+    {
+      "timestamp": "6:33",
+      "text": "using any other provider for this, you'd"
+    },
+    {
+      "timestamp": "6:34",
+      "text": "probably be paying a decent amount for"
+    },
+    {
+      "timestamp": "6:34",
+      "text": "probably be paying a decent amount for"
+    },
+    {
+      "timestamp": "6:36",
+      "text": "every prompt you do. So, if you're on a"
+    },
+    {
+      "timestamp": "6:36",
+      "text": "every prompt you do. So, if you're on a"
+    },
+    {
+      "timestamp": "6:37",
+      "text": "budget, this is a great way to do it. As"
+    },
+    {
+      "timestamp": "6:37",
+      "text": "budget, this is a great way to do it. As"
+    },
+    {
+      "timestamp": "6:39",
+      "text": "you can see, as it's building out all"
+    },
+    {
+      "timestamp": "6:39",
+      "text": "you can see, as it's building out all"
+    },
+    {
+      "timestamp": "6:41",
+      "text": "the code, it's building out the walls."
+    },
+    {
+      "timestamp": "6:41",
+      "text": "the code, it's building out the walls."
+    },
+    {
+      "timestamp": "6:42",
+      "text": "It's building out the maze-like"
+    },
+    {
+      "timestamp": "6:42",
+      "text": "It's building out the maze-like"
+    },
+    {
+      "timestamp": "6:44",
+      "text": "structures. This is actually getting"
+    },
+    {
+      "timestamp": "6:44",
+      "text": "structures. This is actually getting"
+    },
+    {
+      "timestamp": "6:45",
+      "text": "pretty creative. So, this is going to be"
+    },
+    {
+      "timestamp": "6:45",
+      "text": "pretty creative. So, this is going to be"
+    },
+    {
+      "timestamp": "6:46",
+      "text": "interesting to see. All right, looks"
+    },
+    {
+      "timestamp": "6:46",
+      "text": "interesting to see. All right, looks"
+    },
+    {
+      "timestamp": "6:48",
+      "text": "like it's all set. Let's see how we did"
+    },
+    {
+      "timestamp": "6:48",
+      "text": "like it's all set. Let's see how we did"
+    },
+    {
+      "timestamp": "6:49",
+      "text": "here. Let's open this up and see how it"
+    },
+    {
+      "timestamp": "6:49",
+      "text": "here. Let's open this up and see how it"
+    },
+    {
+      "timestamp": "6:51",
+      "text": "runs. So, if you're following along with"
+    },
+    {
+      "timestamp": "6:51",
+      "text": "runs. So, if you're following along with"
+    },
+    {
+      "timestamp": "6:52",
+      "text": "me at home, all you need to do is find"
+    },
+    {
+      "timestamp": "6:52",
+      "text": "me at home, all you need to do is find"
+    },
+    {
+      "timestamp": "6:53",
+      "text": "index.html"
+    },
+    {
+      "timestamp": "6:53",
+      "text": "index.html"
+    },
+    {
+      "timestamp": "6:55",
+      "text": "in the folder you set up cursor in. Pop"
+    },
+    {
+      "timestamp": "6:55",
+      "text": "in the folder you set up cursor in. Pop"
+    },
+    {
+      "timestamp": "6:57",
+      "text": "that open and let's see how we did here."
+    },
+    {
+      "timestamp": "6:57",
+      "text": "that open and let's see how we did here."
+    },
+    {
+      "timestamp": "6:59",
+      "text": "Oh, look at this. Here we go. So, it's a"
+    },
+    {
+      "timestamp": "6:59",
+      "text": "Oh, look at this. Here we go. So, it's a"
+    },
+    {
+      "timestamp": "7:01",
+      "text": "neon sty. Oh, if I shoot, okay, I can"
+    },
+    {
+      "timestamp": "7:01",
+      "text": "neon sty. Oh, if I shoot, okay, I can"
+    },
+    {
+      "timestamp": "7:03",
+      "text": "kill the enemies. I think the problem is"
+    },
+    {
+      "timestamp": "7:03",
+      "text": "kill the enemies. I think the problem is"
+    },
+    {
+      "timestamp": "7:05",
+      "text": "I'm running backwards into the enemies,"
+    },
+    {
+      "timestamp": "7:05",
+      "text": "I'm running backwards into the enemies,"
+    },
+    {
+      "timestamp": "7:07",
+      "text": "but what you can see is it did do kind"
+    },
+    {
+      "timestamp": "7:07",
+      "text": "but what you can see is it did do kind"
+    },
+    {
+      "timestamp": "7:09",
+      "text": "of a stylistic 3D neon game. Uh, I do"
+    },
+    {
+      "timestamp": "7:09",
+      "text": "of a stylistic 3D neon game. Uh, I do"
+    },
+    {
+      "timestamp": "7:13",
+      "text": "like the taste. Now, do the enemies look"
+    },
+    {
+      "timestamp": "7:13",
+      "text": "like the taste. Now, do the enemies look"
+    },
+    {
+      "timestamp": "7:16",
+      "text": "that advanced? No, they are just pink."
+    },
+    {
+      "timestamp": "7:16",
+      "text": "that advanced? No, they are just pink."
+    },
+    {
+      "timestamp": "7:19",
+      "text": "Uh they are just pink squares but at the"
+    },
+    {
+      "timestamp": "7:19",
+      "text": "Uh they are just pink squares but at the"
+    },
+    {
+      "timestamp": "7:22",
+      "text": "same time it did oneshot the game and I"
+    },
+    {
+      "timestamp": "7:22",
+      "text": "same time it did oneshot the game and I"
+    },
+    {
+      "timestamp": "7:25",
+      "text": "do like the color scheme. I mean it does"
+    },
+    {
+      "timestamp": "7:25",
+      "text": "do like the color scheme. I mean it does"
+    },
+    {
+      "timestamp": "7:27",
+      "text": "kind of look like puke but but like they"
+    },
+    {
+      "timestamp": "7:27",
+      "text": "kind of look like puke but but like they"
+    },
+    {
+      "timestamp": "7:29",
+      "text": "did go for a stylish a stylistic effect"
+    },
+    {
+      "timestamp": "7:29",
+      "text": "did go for a stylish a stylistic effect"
+    },
+    {
+      "timestamp": "7:32",
+      "text": "right and now if I were to go through"
+    },
+    {
+      "timestamp": "7:32",
+      "text": "right and now if I were to go through"
+    },
+    {
+      "timestamp": "7:34",
+      "text": "here and add a few more prompts say hey"
+    },
+    {
+      "timestamp": "7:34",
+      "text": "here and add a few more prompts say hey"
+    },
+    {
+      "timestamp": "7:36",
+      "text": "build out an opponent build out health"
+    },
+    {
+      "timestamp": "7:36",
+      "text": "build out an opponent build out health"
+    },
+    {
+      "timestamp": "7:38",
+      "text": "packs build out powerups. I'd be able to"
+    },
+    {
+      "timestamp": "7:38",
+      "text": "packs build out powerups. I'd be able to"
+    },
+    {
+      "timestamp": "7:40",
+      "text": "do that but it built out a pretty solid"
+    },
+    {
+      "timestamp": "7:40",
+      "text": "do that but it built out a pretty solid"
+    },
+    {
+      "timestamp": "7:43",
+      "text": "game for one shot and not to mention"
+    },
+    {
+      "timestamp": "7:43",
+      "text": "game for one shot and not to mention"
+    },
+    {
+      "timestamp": "7:45",
+      "text": "completely free. So that's Kimmy K 2."
+    },
+    {
+      "timestamp": "7:45",
+      "text": "completely free. So that's Kimmy K 2."
+    },
+    {
+      "timestamp": "7:47",
+      "text": "That is the model that is changing the"
+    },
+    {
+      "timestamp": "7:47",
+      "text": "That is the model that is changing the"
+    },
+    {
+      "timestamp": "7:49",
+      "text": "industry. Now listen, am I going to get"
+    },
+    {
+      "timestamp": "7:49",
+      "text": "industry. Now listen, am I going to get"
+    },
+    {
+      "timestamp": "7:51",
+      "text": "off of Claude Code now because of this?"
+    },
+    {
+      "timestamp": "7:51",
+      "text": "off of Claude Code now because of this?"
+    },
+    {
+      "timestamp": "7:53",
+      "text": "Probably not. I'm paying the $200 a"
+    },
+    {
+      "timestamp": "7:53",
+      "text": "Probably not. I'm paying the $200 a"
+    },
+    {
+      "timestamp": "7:55",
+      "text": "month. I've been able to build really"
+    },
+    {
+      "timestamp": "7:55",
+      "text": "month. I've been able to build really"
+    },
+    {
+      "timestamp": "7:57",
+      "text": "awesome applications with it. I'm very"
+    },
+    {
+      "timestamp": "7:57",
+      "text": "awesome applications with it. I'm very"
+    },
+    {
+      "timestamp": "7:59",
+      "text": "used to the workflow. But if I'm someone"
+    },
+    {
+      "timestamp": "7:59",
+      "text": "used to the workflow. But if I'm someone"
+    },
+    {
+      "timestamp": "8:01",
+      "text": "who's a little bit more price conscious,"
+    },
+    {
+      "timestamp": "8:01",
+      "text": "who's a little bit more price conscious,"
+    },
+    {
+      "timestamp": "8:03",
+      "text": "who hasn't gotten into Clawude Code yet,"
+    },
+    {
+      "timestamp": "8:03",
+      "text": "who hasn't gotten into Clawude Code yet,"
+    },
+    {
+      "timestamp": "8:05",
+      "text": "who's not used to those types of"
+    },
+    {
+      "timestamp": "8:05",
+      "text": "who's not used to those types of"
+    },
+    {
+      "timestamp": "8:06",
+      "text": "workflows, I'd start here. This is"
+    },
+    {
+      "timestamp": "8:06",
+      "text": "workflows, I'd start here. This is"
+    },
+    {
+      "timestamp": "8:08",
+      "text": "completely free and really powerful. You"
+    },
+    {
+      "timestamp": "8:08",
+      "text": "completely free and really powerful. You"
+    },
+    {
+      "timestamp": "8:11",
+      "text": "could probably get a good amount done on"
+    },
+    {
+      "timestamp": "8:11",
+      "text": "could probably get a good amount done on"
+    },
+    {
+      "timestamp": "8:13",
+      "text": "this free tier. And even if you went"
+    },
+    {
+      "timestamp": "8:13",
+      "text": "this free tier. And even if you went"
+    },
+    {
+      "timestamp": "8:14",
+      "text": "over the limits, it's so cheap. you're"
+    },
+    {
+      "timestamp": "8:14",
+      "text": "over the limits, it's so cheap. you're"
+    },
+    {
+      "timestamp": "8:17",
+      "text": "probably just spending a couple bucks a"
+    },
+    {
+      "timestamp": "8:17",
+      "text": "probably just spending a couple bucks a"
+    },
+    {
+      "timestamp": "8:18",
+      "text": "month. It's definitely worth playing"
+    },
+    {
+      "timestamp": "8:18",
+      "text": "month. It's definitely worth playing"
+    },
+    {
+      "timestamp": "8:20",
+      "text": "around with. I'll have all the links"
+    },
+    {
+      "timestamp": "8:20",
+      "text": "around with. I'll have all the links"
+    },
+    {
+      "timestamp": "8:22",
+      "text": "below so that you can try out the"
+    },
+    {
+      "timestamp": "8:22",
+      "text": "below so that you can try out the"
+    },
+    {
+      "timestamp": "8:23",
+      "text": "chatbot if you want to see how powerful"
+    },
+    {
+      "timestamp": "8:23",
+      "text": "chatbot if you want to see how powerful"
+    },
+    {
+      "timestamp": "8:25",
+      "text": "this model is. And I'll also have the"
+    },
+    {
+      "timestamp": "8:25",
+      "text": "this model is. And I'll also have the"
+    },
+    {
+      "timestamp": "8:27",
+      "text": "links to Klein and everything you need"
+    },
+    {
+      "timestamp": "8:27",
+      "text": "links to Klein and everything you need"
+    },
+    {
+      "timestamp": "8:29",
+      "text": "to get set up with coding so that you"
+    },
+    {
+      "timestamp": "8:29",
+      "text": "to get set up with coding so that you"
+    },
+    {
+      "timestamp": "8:31",
+      "text": "can start building apps today for free"
+    },
+    {
+      "timestamp": "8:31",
+      "text": "can start building apps today for free"
+    },
+    {
+      "timestamp": "8:33",
+      "text": "if you want to save a couple bucks. If"
+    },
+    {
+      "timestamp": "8:33",
+      "text": "if you want to save a couple bucks. If"
+    },
+    {
+      "timestamp": "8:35",
+      "text": "you learned anything at all, make sure"
+    },
+    {
+      "timestamp": "8:35",
+      "text": "you learned anything at all, make sure"
+    },
+    {
+      "timestamp": "8:36",
+      "text": "to leave a like. Make sure to subscribe"
+    },
+    {
+      "timestamp": "8:36",
+      "text": "to leave a like. Make sure to subscribe"
+    },
+    {
+      "timestamp": "8:38",
+      "text": "and turn on notifications. All I do is"
+    },
+    {
+      "timestamp": "8:38",
+      "text": "and turn on notifications. All I do is"
+    },
+    {
+      "timestamp": "8:40",
+      "text": "film amazing videos on building cool"
+    },
+    {
+      "timestamp": "8:40",
+      "text": "film amazing videos on building cool"
+    },
+    {
+      "timestamp": "8:42",
+      "text": "stuff with AI. I'll see you in the next"
+    },
+    {
+      "timestamp": "8:42",
+      "text": "stuff with AI. I'll see you in the next"
+    },
+    {
+      "timestamp": "8:43",
+      "text": "video."
+    },
+    {
+      "timestamp": "8:43",
+      "text": "video."
+    }
+  ]
+}
