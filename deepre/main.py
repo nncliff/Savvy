@@ -3,9 +3,14 @@ from pydantic import BaseModel
 import subprocess
 import random
 import smtplib
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = FastAPI(title="GraphRAG Query Service")
 
@@ -15,7 +20,11 @@ async def send_email(subject: str, body: str, query: str):
         # Email configuration
         sender_email = "zhan.chen@gmail.com"
         receiver_email = "zhan.chen@gmail.com"
-        app_password = "izqazbdigfyzstwq"
+        app_password = os.getenv("GMAIL_APP_PASSWORD")
+        
+        if not app_password:
+            print("GMAIL_APP_PASSWORD environment variable not set. Skipping email.")
+            return False
         
         # Create message
         message = MIMEMultipart()

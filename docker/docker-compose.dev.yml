@@ -151,6 +151,30 @@ services:
       postgres:
         condition: service_healthy
 
+  deepre:
+    build:
+      context: ../deepre
+      dockerfile: Dockerfile
+    container_name: deepre-graphrag
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - .env
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
+      TZ: Asia/Tokyo
+    volumes:
+      - ../deepre:/app
+      - deepre_logs:/app/logs
+      - deepre_cache:/app/cache
+      - deepre_output:/app/output
+    working_dir: /app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   ngrok:
     image: ngrok/ngrok:latest
     env_file:
@@ -174,3 +198,6 @@ volumes:
   data:
   postgres_data:
   llamaindex_storage:
+  deepre_logs:
+  deepre_cache:
+  deepre_output:
