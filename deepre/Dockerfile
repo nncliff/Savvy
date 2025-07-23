@@ -14,13 +14,12 @@ WORKDIR /app
 #COPY pyproject.toml* poetry.lock* ./
 #RUN if [ -f pyproject.toml ]; then poetry install --no-root; fi
 
-# requirements.txtをコピーして依存関係をインストール
-#COPY requirements.txt ./
-#RUN pip install -r requirements.txt
-
-# GraphRAGを確実にインストール（最新版）
+# pipをアップグレード
 RUN pip install --upgrade pip
-RUN pip install graphrag --no-cache-dir
+
+# requirements.txtをコピーして依存関係をインストール
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
 
 # GraphRAG CLIが利用可能か確認
 RUN python -m graphrag --help || echo "GraphRAG module installed but CLI might not be available"
@@ -29,4 +28,4 @@ RUN python -m graphrag --help || echo "GraphRAG module installed but CLI might n
 COPY . .
 
 # FastAPIアプリケーションを起動
-#CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
