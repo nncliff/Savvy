@@ -137,6 +137,7 @@ services:
     volumes:
       - ../llamaindex:/app/llamaindex
       - llamaindex_storage:/app/llamaindex/storage
+      - deepre_user_storage:/app/user_storage
     working_dir: /app/llamaindex
     command:
       - /bin/sh
@@ -166,9 +167,7 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - ../deepre:/app
-      - deepre_logs:/app/logs
-      - deepre_cache:/app/cache
-      - deepre_output:/app/output
+      - deepre_user_storage:/app/user_storage
     working_dir: /app
     restart: unless-stopped
     depends_on:
@@ -198,6 +197,4 @@ volumes:
   data:
   postgres_data:
   llamaindex_storage:
-  deepre_logs:
-  deepre_cache:
-  deepre_output:
+  deepre_user_storage:

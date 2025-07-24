@@ -9,7 +9,7 @@ echo "[$TIMESTAMP] Starting random query request..." >> "$LOG_FILE"
 
 curl -X POST "http://localhost:8000/random-query" \
      -H "Content-Type: application/json" \
-     -d '{"method": "global", "root": "./"}' \
+     -d '{"method": "global", "root": "./user_storage/zhan.chen_gmail.com/"}' \
      -w "\nHTTP Status: %{http_code}\nTotal Time: %{time_total}s\n" \
      >> "$LOG_FILE" 2>&1
 
