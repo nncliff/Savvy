@@ -1084,24 +1084,48 @@ def get_available_research_methods():
 def dump_text_content(
     format: str = Query("json", description="Output format: 'json' or 'text'"),
     include_html: bool = Query(False, description="Include HTML content in response"),
-    min_length: int = Query(0, description="Minimum content length to include")
+    min_length: int = Query(0, description="Minimum content length to include"),
+    user_account: str = Query(None, description="User account (email) to filter content for specific user"),
+    days_back: int = Query(1, description="Number of days back to include content (default: 1 day)")
 ):
-    """Dump all text content from bookmarked articles"""
+    """Dump text content from bookmarked articles from the last N days, optionally filtered by user account"""
     try:
         engine = get_engine()
         with engine.connect() as conn:
-            # Fetch all bookmark data with text content
-            result = conn.execute(sql_text('''
-                SELECT 
-                    id,
-                    url,
-                    title,
-                    content,
-                    "htmlContent",
-                    "crawledAt"
-                FROM "bookmarkLinks" 
-                ORDER BY "crawledAt" DESC
-            '''))
+            # Fetch bookmark data with text content, optionally filtered by user and time range
+            if user_account:
+                # Join bookmarkLinks with bookmarks and user tables to filter by user email and date
+                result = conn.execute(sql_text('''
+                    SELECT 
+                        bl.id,
+                        bl.url,
+                        bl.title,
+                        bl.content,
+                        bl."htmlContent",
+                        bl."crawledAt"
+                    FROM "bookmarkLinks" bl
+                    INNER JOIN "bookmarks" b ON bl.id = b.id
+                    INNER JOIN "user" u ON b."userId" = u.id
+                    WHERE u.email = :user_email
+                      AND bl."crawledAt" >= NOW() - :days_back * INTERVAL '1 day'
+                      AND bl."crawledAt" IS NOT NULL
+                    ORDER BY bl."crawledAt" DESC
+                '''), {"user_email": user_account, "days_back": days_back})
+            else:
+                # Fetch all bookmark data with text content from the last N days
+                result = conn.execute(sql_text('''
+                    SELECT 
+                        id,
+                        url,
+                        title,
+                        content,
+                        "htmlContent",
+                        "crawledAt"
+                    FROM "bookmarkLinks" 
+                    WHERE "crawledAt" >= NOW() - :days_back * INTERVAL '1 day'
+                      AND "crawledAt" IS NOT NULL
+                    ORDER BY "crawledAt" DESC
+                '''), {"days_back": days_back})
             
             rows = result.fetchall()
             
@@ -1109,6 +1133,9 @@ def dump_text_content(
             dump_data = {
                 "export_timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
                 "total_bookmarks": len(rows),
+                "user_filter": user_account if user_account else "all_users",
+                "days_back_filter": days_back,
+                "time_range": f"Last {days_back} day{'s' if days_back != 1 else ''}",
                 "bookmarks": []
             }
             
@@ -1144,7 +1171,9 @@ def dump_text_content(
                 "total_available_bookmarks": len(rows),
                 "total_text_characters": total_text_chars,
                 "average_text_length": total_text_chars // bookmarks_with_content if bookmarks_with_content else 0,
-                "filter_applied": f"min_length >= {min_length}"
+                "filter_applied": f"min_length >= {min_length}",
+                "user_filter_applied": user_account if user_account else "none",
+                "time_filter_applied": f"last {days_back} day{'s' if days_back != 1 else ''}"
             }
             
             if include_html:
@@ -1156,6 +1185,8 @@ def dump_text_content(
                 # Return plain text format
                 text_output = f"# Bookmark Text Content Dump\n"
                 text_output += f"# Generated: {dump_data['export_timestamp']}\n"
+                text_output += f"# User filter: {dump_data['user_filter']}\n"
+                text_output += f"# Time range: {dump_data['time_range']}\n"
                 text_output += f"# Total bookmarks: {bookmarks_with_content}\n"
                 text_output += f"# Total characters: {total_text_chars:,}\n\n"
                 text_output += "=" * 80 + "\n\n"
@@ -1177,105 +1208,3 @@ def dump_text_content(
         logging.error(f"Error dumping text content: {e}")
         return {"error": f"Failed to dump text content: {str(e)}"}
 
-@app.get("/download-text-content")
-def download_text_content(
-    format: str = Query("txt", description="Download format: 'txt', 'json', or 'csv'"),
-    min_length: int = Query(100, description="Minimum content length to include")
-):
-    """Download all text content from bookmarked articles as a file"""
-    import io
-    
-    try:
-        engine = get_engine()
-        with engine.connect() as conn:
-            result = conn.execute(sql_text('''
-                SELECT 
-                    id, url, title, content, "crawledAt"
-                FROM "bookmarkLinks" 
-                WHERE content IS NOT NULL AND LENGTH(content) >= :min_length
-                ORDER BY "crawledAt" DESC
-            '''), {"min_length": min_length})
-            
-            rows = result.fetchall()
-            
-            timestamp = time.strftime("%Y%m%d_%H%M%S", time.gmtime())
-            
-            if format.lower() == "json":
-                # JSON format
-                import json
-                data = {
-                    "export_timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
-                    "total_bookmarks": len(rows),
-                    "bookmarks": [
-                        {
-                            "id": row.id,
-                            "url": row.url, 
-                            "title": row.title or "",
-                            "content": row.content or "",
-                            "crawled_at": row.crawledAt.isoformat() if row.crawledAt else None
-                        } for row in rows
-                    ]
-                }
-                
-                content = json.dumps(data, indent=2, ensure_ascii=False)
-                media_type = "application/json"
-                filename = f"bookmarks_content_{timestamp}.json"
-                
-            elif format.lower() == "csv":
-                # CSV format
-                import csv
-                output = io.StringIO()
-                writer = csv.writer(output)
-                writer.writerow(["ID", "URL", "Title", "Content", "Crawled At", "Content Length"])
-                
-                for row in rows:
-                    writer.writerow([
-                        row.id,
-                        row.url,
-                        row.title or "",
-                        row.content or "",
-                        row.crawledAt.isoformat() if row.crawledAt else "",
-                        len(row.content or "")
-                    ])
-                
-                content = output.getvalue()
-                media_type = "text/csv"
-                filename = f"bookmarks_content_{timestamp}.csv"
-                
-            else:  # txt format (default)
-                # Plain text format
-                content = f"Bookmark Text Content Export\n"
-                content += f"Generated: {time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}\n"
-                content += f"Total bookmarks: {len(rows)}\n"
-                content += f"Minimum content length: {min_length}\n"
-                content += "=" * 80 + "\n\n"
-                
-                for i, row in enumerate(rows, 1):
-                    content += f"[{i}] {row.title or 'Untitled'}\n"
-                    content += f"URL: {row.url}\n"
-                    content += f"Crawled: {row.crawledAt}\n"
-                    content += f"Content Length: {len(row.content or ''):,} characters\n"
-                    content += "-" * 40 + "\n"
-                    content += f"{row.content or ''}\n"
-                    content += "=" * 80 + "\n\n"
-                
-                media_type = "text/plain"
-                filename = f"bookmarks_content_{timestamp}.txt"
-            
-            # Create streaming response
-            def generate():
-                yield content.encode('utf-8')
-            
-            headers = {
-                'Content-Disposition': f'attachment; filename="{filename}"'
-            }
-            
-            return StreamingResponse(
-                generate(),
-                media_type=media_type,
-                headers=headers
-            )
-            
-    except Exception as e:
-        logging.error(f"Error downloading text content: {e}")
-        return {"error": f"Failed to download text content: {str(e)}"}
