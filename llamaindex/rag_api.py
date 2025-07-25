@@ -5,6 +5,7 @@ import time
 import logging
 from typing import List
 from fastapi import FastAPI, Query
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from sqlalchemy import create_engine, text as sql_text
 from sqlalchemy.engine import Engine
@@ -648,6 +649,16 @@ Focus on synthesizing the information rather than just summarizing individual fi
 # Global deep research agent
 deep_research_agent = DeepResearchAgent()
 
+# Import CrewAI system
+try:
+    from crewai_deep_research import crewai_research_system
+    CREWAI_AVAILABLE = True
+    logging.info("CrewAI multi-agent system loaded successfully")
+except ImportError as e:
+    CREWAI_AVAILABLE = False
+    logging.warning(f"CrewAI system not available: {e}")
+    crewai_research_system = None
+
 @app.get("/")
 def read_root():
     print("🔥 ROOT ENDPOINT CALLED - TESTING LOG VISIBILITY", flush=True)
@@ -659,91 +670,127 @@ class QueryRequest(BaseModel):
 
 @app.post("/query")
 def query_llamaindex(request: QueryRequest):
-    """Process query using deep research methodology"""
-    global deep_research_agent
+    """Process query using CrewAI multi-agent system with advanced reasoning (GPT-4o + o1-preview)"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
     
     if not request.query.strip():
         return {"error": "Query cannot be empty"}
     
     try:
-        print(f"🔍 QUERY PROCESSING STARTED: {request.query}", flush=True)
-        print("Using deep research methodology for comprehensive results", flush=True)
-        logging.info(f"🔍 QUERY PROCESSING STARTED: {request.query}")
-        logging.info("Using deep research methodology for comprehensive results")
+        print(f"🚀 CREWAI QUERY PROCESSING STARTED: {request.query}", flush=True)
+        print("Using enhanced multi-agent system with GPT-4o + o1-preview reasoning", flush=True)
+        logging.info(f"🚀 CREWAI QUERY PROCESSING STARTED: {request.query}")
+        logging.info("Using enhanced multi-agent system with advanced reasoning")
         
-        # Refresh the search tool if index was updated
-        deep_research_agent._setup_search_tool()
+        result = crewai_research_system.conduct_research(request.query)
         
-        result = deep_research_agent.conduct_deep_research(request.query)
-        
-        # Format response for backward compatibility while providing deep research results
+        # Format response for backward compatibility while providing CrewAI results
         if "error" in result:
             return result
         
-        # Extract the analysis as the main response for compatibility
-        main_response = result.get("analysis", "No analysis available")
+        # Extract the final report as the main response for compatibility
+        main_response = result.get("final_report", "No research report available")
         
         return {
             "response": main_response,
             "metadata": {
                 "query": request.query,
-                "model": DEFAULT_LLM_MODEL,
-                "method": "deep_research"
+                "model": "CrewAI Multi-Agent (GPT-4o + o1-preview)",
+                "method": "crewai_multi_agent_research",
+                "agent_count": 8,
+                "reasoning_model": "o1-preview"
             },
-            "deep_research_details": {
-                "plan": result.get("plan"),
-                "findings": result.get("findings"),
-                "summary": result.get("summary"),
-                "process_steps": result.get("process_steps")
+            "system_info": {
+                "research_method": "CrewAI Multi-Agent System",
+                "agents_used": [
+                    "Hybrid Research Developer (SQLite + RAG + Multi-language)",
+                    "Research Supervisor (data-driven question generation)",
+                    "Elite Research Critic (≥8.5 novelty + o1-preview reasoning)",
+                    "Strategic Analyzer (methodology design)", 
+                    "Research Student (LlamaIndex search)",
+                    "Research Philosopher (strategic guidance)",
+                    "Deep Thinker (o1-preview synthesis)",
+                    "Research Reporter (final reporting)"
+                ],
+                "capabilities": [
+                    "Multi-language support (English/Chinese/Japanese)",
+                    "Hybrid analysis (SQLite + LlamaIndex RAG)",
+                    "Advanced reasoning with o1-preview",
+                    "≥8.5/10 novelty requirements",
+                    "Cross-cultural research opportunities"
+                ]
+            },
+            "crewai_details": {
+                "agent_outputs": result.get("agent_outputs", {}),
+                "metadata": result.get("metadata", {})
             }
         }
     except Exception as e:
-        logging.error(f"Error processing query with deep research: {e}")
-        return {"error": f"Failed to process query: {str(e)}"}
+        logging.error(f"Error processing query with CrewAI: {e}")
+        return {"error": f"Failed to process query with CrewAI: {str(e)}"}
 
 @app.get("/query")
 def query_llamaindex_get(query: str = Query(..., description="Query string")):
-    """Process GET query using deep research methodology"""
-    global deep_research_agent
+    """Process GET query using CrewAI multi-agent system with advanced reasoning (GPT-4o + o1-preview)"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
     
     if not query.strip():
         return {"error": "Query cannot be empty"}
     
     try:
-        print(f"🔍 GET QUERY PROCESSING STARTED: {query}", flush=True)
-        print("Using deep research methodology for comprehensive results", flush=True)
-        logging.info(f"🔍 GET QUERY PROCESSING STARTED: {query}")
-        logging.info("Using deep research methodology for comprehensive results")
+        print(f"🚀 CREWAI GET QUERY PROCESSING STARTED: {query}", flush=True)
+        print("Using enhanced multi-agent system with GPT-4o + o1-preview reasoning", flush=True)
+        logging.info(f"🚀 CREWAI GET QUERY PROCESSING STARTED: {query}")
+        logging.info("Using enhanced multi-agent system with advanced reasoning")
         
-        # Refresh the search tool if index was updated
-        deep_research_agent._setup_search_tool()
+        result = crewai_research_system.conduct_research(query)
         
-        result = deep_research_agent.conduct_deep_research(query)
-        
-        # Format response for backward compatibility while providing deep research results
+        # Format response for backward compatibility while providing CrewAI results
         if "error" in result:
             return result
         
-        # Extract the analysis as the main response for compatibility
-        main_response = result.get("analysis", "No analysis available")
+        # Extract the final report as the main response for compatibility
+        main_response = result.get("final_report", "No research report available")
         
         return {
             "response": main_response,
             "metadata": {
                 "query": query,
-                "model": DEFAULT_LLM_MODEL,
-                "method": "deep_research"
+                "model": "CrewAI Multi-Agent (GPT-4o + o1-preview)",
+                "method": "crewai_multi_agent_research",
+                "agent_count": 8,
+                "reasoning_model": "o1-preview"
             },
-            "deep_research_details": {
-                "plan": result.get("plan"),
-                "findings": result.get("findings"),
-                "summary": result.get("summary"),
-                "process_steps": result.get("process_steps")
+            "system_info": {
+                "research_method": "CrewAI Multi-Agent System",
+                "agents_used": [
+                    "Hybrid Research Developer (SQLite + RAG + Multi-language)",
+                    "Research Supervisor (data-driven question generation)",
+                    "Elite Research Critic (≥8.5 novelty + o1-preview reasoning)",
+                    "Strategic Analyzer (methodology design)", 
+                    "Research Student (LlamaIndex search)",
+                    "Research Philosopher (strategic guidance)",
+                    "Deep Thinker (o1-preview synthesis)",
+                    "Research Reporter (final reporting)"
+                ],
+                "capabilities": [
+                    "Multi-language support (English/Chinese/Japanese)",
+                    "Hybrid analysis (SQLite + LlamaIndex RAG)",
+                    "Advanced reasoning with o1-preview",
+                    "≥8.5/10 novelty requirements",
+                    "Cross-cultural research opportunities"
+                ]
+            },
+            "crewai_details": {
+                "agent_outputs": result.get("agent_outputs", {}),
+                "metadata": result.get("metadata", {})
             }
         }
     except Exception as e:
-        logging.error(f"Error processing GET query with deep research: {e}")
-        return {"error": f"Failed to process query: {str(e)}"}
+        logging.error(f"Error processing GET query with CrewAI: {e}")
+        return {"error": f"Failed to process query with CrewAI: {str(e)}"}
 
 @app.post("/simple-query")
 def simple_query_llamaindex(request: QueryRequest):
@@ -866,17 +913,25 @@ class DeepResearchRequest(BaseModel):
 
 @app.post("/deep-research")
 def conduct_deep_research_endpoint(request: DeepResearchRequest):
-    """Conduct deep research using Plan → Think → Action → Analyze pattern"""
+    """Legacy single-agent deep research (Plan → Think → Action → Analyze pattern). Use /query for enhanced CrewAI multi-agent research."""
     global deep_research_agent
     
     if not request.research_query.strip():
         return {"error": "Research query cannot be empty"}
     
     try:
+        print(f"⚠️ Using legacy deep research endpoint. Consider using /query for enhanced CrewAI multi-agent research.", flush=True)
+        logging.info(f"Legacy deep research endpoint used for: {request.research_query}")
+        
         # Refresh the search tool if index was updated
         deep_research_agent._setup_search_tool()
         
         result = deep_research_agent.conduct_deep_research(request.research_query)
+        
+        # Add note about enhanced endpoint
+        if isinstance(result, dict):
+            result["note"] = "This is legacy single-agent research. Use /query endpoint for enhanced CrewAI multi-agent research with GPT-4o + o1-preview."
+        
         return result
     except Exception as e:
         logging.error(f"Deep research endpoint error: {e}")
@@ -899,3 +954,257 @@ def conduct_deep_research_get(research_query: str = Query(..., description="Rese
     except Exception as e:
         logging.error(f"Deep research GET endpoint error: {e}")
         return {"error": f"Deep research failed: {str(e)}"}
+
+# CrewAI Multi-Agent Research Endpoints
+
+class CrewAIResearchRequest(BaseModel):
+    research_query: str
+
+@app.post("/crewai-research")
+def conduct_crewai_research(request: CrewAIResearchRequest):
+    """Conduct research using CrewAI multi-agent system with 8 specialized agents"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
+    
+    if not request.research_query.strip():
+        return {"error": "Research query cannot be empty"}
+    
+    try:
+        logging.info(f"Starting CrewAI multi-agent research for: {request.research_query}")
+        
+        result = crewai_research_system.conduct_research(request.research_query)
+        
+        # Add system information
+        result["system_info"] = {
+            "research_method": "CrewAI Multi-Agent System",
+            "agents_used": [
+                "Research Supervisor (data-driven question generation)",
+                "Strategic Analyzer (methodology design)", 
+                "Research Student (LlamaIndex search)",
+                "Research Developer (computational analysis)",
+                "Research Philosopher (strategic guidance)",
+                "Deep Thinker (synthesis)",
+                "Professional Critic (quality control)",
+                "Research Reporter (final reporting)"
+            ],
+            "agent_count": 8,
+            "workflow": "Flexible sequential with context sharing"
+        }
+        
+        return result
+        
+    except Exception as e:
+        logging.error(f"CrewAI research error: {e}")
+        return {"error": f"CrewAI research failed: {str(e)}"}
+
+@app.get("/crewai-research")
+def conduct_crewai_research_get(research_query: str = Query(..., description="Research query for CrewAI multi-agent analysis")):
+    """GET endpoint for CrewAI multi-agent research"""
+    if not CREWAI_AVAILABLE:
+        return {"error": "CrewAI multi-agent system not available. Please install crewai and crewai-tools packages."}
+    
+    if not research_query.strip():
+        return {"error": "Research query cannot be empty"}
+    
+    try:
+        logging.info(f"Starting CrewAI multi-agent research (GET) for: {research_query}")
+        
+        result = crewai_research_system.conduct_research(research_query)
+        
+        # Add system information
+        result["system_info"] = {
+            "research_method": "CrewAI Multi-Agent System",
+            "agents_used": [
+                "Research Supervisor (data-driven question generation)",
+                "Strategic Analyzer (methodology design)", 
+                "Research Student (LlamaIndex search)",
+                "Research Developer (computational analysis)",
+                "Research Philosopher (strategic guidance)",
+                "Deep Thinker (synthesis)",
+                "Professional Critic (quality control)",
+                "Research Reporter (final reporting)"
+            ],
+            "agent_count": 8,
+            "workflow": "Flexible sequential with context sharing"
+        }
+        
+        return result
+        
+    except Exception as e:
+        logging.error(f"CrewAI research GET error: {e}")
+        return {"error": f"CrewAI research failed: {str(e)}"}
+
+@app.get("/research-methods")
+def get_available_research_methods():
+    """Get information about available research methods"""
+    methods = {
+        "simple_query": {
+            "endpoint": "/simple-query",
+            "description": "Basic LlamaIndex search without deep analysis",
+            "features": ["Single query", "Fast response", "Vector similarity search"],
+            "use_case": "Quick information lookup"
+        },
+        "deep_research": {
+            "endpoint": "/deep-research", 
+            "description": "Advanced single-agent deep research with Plan→Think→Action→Analyze pattern",
+            "features": ["Multi-phase analysis", "Iterative searching", "Comprehensive synthesis"],
+            "use_case": "Thorough research on complex topics"
+        },
+        "crewai_research": {
+            "endpoint": "/crewai-research",
+            "description": "Multi-agent collaborative research with 8 specialized agents",
+            "features": [
+                "Data-driven question generation", 
+                "Collaborative agent workflow",
+                "Professional quality control",
+                "Comprehensive methodology",
+                "Multi-perspective analysis"
+            ],
+            "use_case": "Complex research requiring multiple expertise areas",
+            "available": CREWAI_AVAILABLE,
+            "agents": [
+                "Supervisor: Generates research questions based on actual data",
+                "Analyzer: Creates research methodology", 
+                "Student: Searches LlamaIndex database",
+                "Developer: Performs computational analysis",
+                "Philosopher: Provides strategic guidance",
+                "Deep Thinker: Synthesizes findings",
+                "Critic: Quality control and evaluation", 
+                "Reporter: Creates final report"
+            ] if CREWAI_AVAILABLE else []
+        }
+    }
+    
+    return {
+        "available_methods": methods,
+        "recommendation": "Use crewai-research for comprehensive analysis, deep-research for structured investigation, simple-query for quick lookups"
+    }
+
+@app.get("/dump-text-content")
+def dump_text_content(
+    format: str = Query("json", description="Output format: 'json' or 'text'"),
+    include_html: bool = Query(False, description="Include HTML content in response"),
+    min_length: int = Query(0, description="Minimum content length to include"),
+    user_account: str = Query(None, description="User account (email) to filter content for specific user"),
+    days_back: int = Query(1, description="Number of days back to include content (default: 1 day)")
+):
+    """Dump text content from bookmarked articles from the last N days, optionally filtered by user account"""
+    try:
+        engine = get_engine()
+        with engine.connect() as conn:
+            # Fetch bookmark data with text content, optionally filtered by user and time range
+            if user_account:
+                # Join bookmarkLinks with bookmarks and user tables to filter by user email and date
+                result = conn.execute(sql_text('''
+                    SELECT 
+                        bl.id,
+                        bl.url,
+                        bl.title,
+                        bl.content,
+                        bl."htmlContent",
+                        bl."crawledAt"
+                    FROM "bookmarkLinks" bl
+                    INNER JOIN "bookmarks" b ON bl.id = b.id
+                    INNER JOIN "user" u ON b."userId" = u.id
+                    WHERE u.email = :user_email
+                      AND bl."crawledAt" >= NOW() - :days_back * INTERVAL '1 day'
+                      AND bl."crawledAt" IS NOT NULL
+                    ORDER BY bl."crawledAt" DESC
+                '''), {"user_email": user_account, "days_back": days_back})
+            else:
+                # Fetch all bookmark data with text content from the last N days
+                result = conn.execute(sql_text('''
+                    SELECT 
+                        id,
+                        url,
+                        title,
+                        content,
+                        "htmlContent",
+                        "crawledAt"
+                    FROM "bookmarkLinks" 
+                    WHERE "crawledAt" >= NOW() - :days_back * INTERVAL '1 day'
+                      AND "crawledAt" IS NOT NULL
+                    ORDER BY "crawledAt" DESC
+                '''), {"days_back": days_back})
+            
+            rows = result.fetchall()
+            
+            # Prepare the dump data
+            dump_data = {
+                "export_timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+                "total_bookmarks": len(rows),
+                "user_filter": user_account if user_account else "all_users",
+                "days_back_filter": days_back,
+                "time_range": f"Last {days_back} day{'s' if days_back != 1 else ''}",
+                "bookmarks": []
+            }
+            
+            for row in rows:
+                content = row.content or ""
+                
+                # Filter by minimum length
+                if len(content) < min_length:
+                    continue
+                    
+                bookmark_data = {
+                    "id": row.id,
+                    "url": row.url,
+                    "title": row.title or "",
+                    "crawled_at": row.crawledAt.isoformat() if row.crawledAt else None,
+                    "content": content,
+                    "text_length": len(content)
+                }
+                
+                # Include HTML content only if requested
+                if include_html:
+                    bookmark_data["html_content"] = row.htmlContent or ""
+                    bookmark_data["html_length"] = len(row.htmlContent or "")
+                    
+                dump_data["bookmarks"].append(bookmark_data)
+            
+            # Calculate statistics
+            total_text_chars = sum(len(b["content"]) for b in dump_data["bookmarks"])
+            bookmarks_with_content = len(dump_data["bookmarks"])
+            
+            dump_data["statistics"] = {
+                "filtered_bookmarks": bookmarks_with_content,
+                "total_available_bookmarks": len(rows),
+                "total_text_characters": total_text_chars,
+                "average_text_length": total_text_chars // bookmarks_with_content if bookmarks_with_content else 0,
+                "filter_applied": f"min_length >= {min_length}",
+                "user_filter_applied": user_account if user_account else "none",
+                "time_filter_applied": f"last {days_back} day{'s' if days_back != 1 else ''}"
+            }
+            
+            if include_html:
+                total_html_chars = sum(len(b.get("html_content", "")) for b in dump_data["bookmarks"])
+                dump_data["statistics"]["total_html_characters"] = total_html_chars
+            
+            # Handle different output formats
+            if format.lower() == "text":
+                # Return plain text format
+                text_output = f"# Bookmark Text Content Dump\n"
+                text_output += f"# Generated: {dump_data['export_timestamp']}\n"
+                text_output += f"# User filter: {dump_data['user_filter']}\n"
+                text_output += f"# Time range: {dump_data['time_range']}\n"
+                text_output += f"# Total bookmarks: {bookmarks_with_content}\n"
+                text_output += f"# Total characters: {total_text_chars:,}\n\n"
+                text_output += "=" * 80 + "\n\n"
+                
+                for i, bookmark in enumerate(dump_data["bookmarks"], 1):
+                    text_output += f"[{i}] {bookmark['title']}\n"
+                    text_output += f"URL: {bookmark['url']}\n"
+                    text_output += f"Crawled: {bookmark['crawled_at']}\n"
+                    text_output += f"Length: {bookmark['text_length']:,} characters\n"
+                    text_output += "-" * 40 + "\n"
+                    text_output += f"{bookmark['content']}\n"
+                    text_output += "=" * 80 + "\n\n"
+                
+                return {"content_type": "text/plain", "data": text_output}
+            
+            return dump_data
+            
+    except Exception as e:
+        logging.error(f"Error dumping text content: {e}")
+        return {"error": f"Failed to dump text content: {str(e)}"}
+

@@ -137,6 +137,7 @@ services:
     volumes:
       - ../llamaindex:/app/llamaindex
       - llamaindex_storage:/app/llamaindex/storage
+      - deepre_user_storage:/app/user_storage
     working_dir: /app/llamaindex
     command:
       - /bin/sh
@@ -148,6 +149,28 @@ services:
     depends_on:
       setup-trigger:
         condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+
+  deepre:
+    build:
+      context: ../deepre
+      dockerfile: Dockerfile
+    container_name: deepre-graphrag
+    ports:
+      - "127.0.0.1:8001:8000"
+    env_file:
+      - .env
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
+      TZ: Asia/Tokyo
+    volumes:
+      - ../deepre:/app
+      - deepre_user_storage:/app/user_storage
+    working_dir: /app
+    restart: unless-stopped
+    depends_on:
       postgres:
         condition: service_healthy
 
@@ -174,3 +197,4 @@ volumes:
   data:
   postgres_data:
   llamaindex_storage:
+  deepre_user_storage:
