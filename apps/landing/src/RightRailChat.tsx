@@ -97,7 +97,7 @@ export default function RightRailChat() {
                   <div
                     className={
                       msg.role === "user"
-                        ? "max-w-[80%] bg-blue-500 text-white px-4 py-2 rounded-2xl rounded-br-md shadow-md border border-blue-600"
+                        ? "max-w-[80%] bg-blue-500 text-gray-900 px-4 py-2 rounded-2xl rounded-br-md shadow-md border border-blue-600"
                         : "max-w-[85%] bg-gray-50 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-md shadow-md border border-gray-200"
                     }
                   >
