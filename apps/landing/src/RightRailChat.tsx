@@ -97,8 +97,8 @@ export default function RightRailChat() {
                   <div
                     className={
                       msg.role === "user"
-                        ? "max-w-[80%] bg-blue-600 text-white px-4 py-2 rounded-2xl rounded-br-md shadow-sm"
-                        : "max-w-[85%] bg-gray-100 text-gray-800 px-4 py-3 rounded-2xl rounded-bl-md shadow-sm"
+                        ? "max-w-[80%] bg-blue-500 text-white px-4 py-2 rounded-2xl rounded-br-md shadow-md border border-blue-600"
+                        : "max-w-[85%] bg-gray-50 text-gray-900 px-4 py-3 rounded-2xl rounded-bl-md shadow-md border border-gray-200"
                     }
                   >
                     {msg.role === "assistant" ? (
@@ -119,7 +119,7 @@ export default function RightRailChat() {
                               </SyntaxHighlighter>
                             ) : (
                               <code
-                                className="bg-gray-200 text-gray-900 px-1.5 py-0.5 rounded text-sm font-mono"
+                                className="bg-gray-200 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono"
                                 {...props}
                               >
                                 {children}
@@ -160,7 +160,7 @@ export default function RightRailChat() {
                               href={href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-blue-700 hover:text-blue-800 underline font-medium"
+                              className="text-blue-600 hover:text-blue-700 underline font-medium"
                             >
                               {children}
                             </a>
