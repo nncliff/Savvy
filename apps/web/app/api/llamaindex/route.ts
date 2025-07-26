@@ -2,12 +2,24 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   const { query } = await req.json();
-  // Use Docker internal hostname for llamaindex
-  const llamaRes = await fetch("http://llamaindex:8080/query", {
+  // Use deepre GraphRAG service
+  const graphragRes = await fetch("http://deepre:8000/query", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ 
+      query,
+      method: "global",
+      root: "/app/user_storage/zhan.chen_gmail.com"
+    }),
   });
-  const data = await llamaRes.json();
-  return NextResponse.json(data, { status: llamaRes.status });
+  const data = await graphragRes.json();
+  
+  // Transform the response to match the expected chat format
+  const response = {
+    response: data.result || data.detail || "No response received",
+    query: data.query || query,
+    method: data.method || "global"
+  };
+  
+  return NextResponse.json(response, { status: graphragRes.status });
 }
