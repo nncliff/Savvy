@@ -24,23 +24,18 @@ models:
     tokens_per_minute: auto              # set to null to disable rate limiting
     requests_per_minute: auto            # set to null to disable rate limiting
   default_embedding_model:
-    type: openai_embedding # or azure_openai_embedding
-    # api_base: https://<instance>.openai.azure.com
-    # api_version: 2024-05-01-preview
-    auth_type: api_key # or azure_managed_identity
-    api_key: ${GRAPHRAG_API_KEY}
-    # audience: "https://cognitiveservices.azure.com/.default"
-    # organization: <organization_id>
-    model: text-embedding-3-small
-    # deployment_name: <azure_model_deployment_name>
-    # encoding_model: cl100k_base # automatically set by tiktoken if left undefined
-    model_supports_json: true # recommended if this is available for your model.
-    concurrent_requests: 25 # max number of simultaneous LLM requests allowed
-    async_mode: threaded # or asyncio
+    type: google_vertex_ai_embedding # Custom Google Gemini API provider
+    api_key: ${GOOGLE_API_KEY} # Google API key for text-embedding-004
+    use_vertex_ai: false # Use Gemini API (no project ID required)
+    model: text-embedding-004 # Google text-embedding-004 model
+    encoding_model: cl100k_base
+    model_supports_json: true
+    concurrent_requests: 25
+    async_mode: threaded
     retry_strategy: native
     max_retries: 10
-    tokens_per_minute: null              # set to null to disable rate limiting or auto for dynamic
-    requests_per_minute: null            # set to null to disable rate limiting or auto for dynamic
+    tokens_per_minute: null
+    requests_per_minute: null
 
 ### Input settings ###
 
