@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ 
       query,
-      method: "global",
+      method: "local",
       root: "/app/user_storage/zhan.chen_gmail.com"
     }),
   });
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   const response = {
     response: data.result || data.detail || "No response received",
     query: data.query || query,
-    method: data.method || "global"
+    method: data.method || "local"
   };
   
   return NextResponse.json(response, { status: graphragRes.status });
