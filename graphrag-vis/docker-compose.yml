@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  ubuntu-dev:
+    build: .
+    volumes:
+      - ./:/app
+      - docker_deepre_user_storage:/app/docker_volume
+    ports:
+      - "3030:3030"
+    stdin_open: true
+    tty: true
+    working_dir: /app/graphrag-visualizer
+    environment:
+      - PYTHONPATH=/app/workspace
+      - NODE_ENV=development
+      # - ANTHROPIC_AUTH_TOKEN=sk-jEjhvnw3q1l51onR34RJCywhDAAQrmrTkc1kOmnjv7UI3Kcm
+      # - ANTHROPIC_BASE_URL=https://api.moonshot.cn/anthropic
+      - ANTHROPIC_AUTH_TOKEN=sk-66f88a86a0454489a1d7eee784ed5760
+      - ANTHROPIC_BASE_URL=https://dashscope-intl.aliyuncs.com/api/v2/apps/claude-code-proxy
+
+volumes:
+  docker_deepre_user_storage:
+    external: true
