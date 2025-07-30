@@ -10,7 +10,7 @@ services:
       - "3030:3030"
     stdin_open: true
     tty: true
-    working_dir: /app/graphrag-visualizer
+    working_dir: /app
     environment:
       - PYTHONPATH=/app/workspace
       - NODE_ENV=development

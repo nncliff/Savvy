@@ -26,26 +26,23 @@ RUN node --version && npm --version
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install as node user
-COPY --chown=node:node graphrag-visualizer/package*.json ./graphrag-visualizer/
-WORKDIR /app/graphrag-visualizer
-USER node
+# Copy package files first
+COPY package*.json ./
+
+# Install dependencies as root, then change ownership
 RUN npm install
 
-# Switch back to root for copying files and creating symlink
-USER root
-WORKDIR /app
+# Copy the rest of the application
 COPY . .
 
 # Create directory structure and symbolic link
-RUN ln -sf /app/docker_volume/zhan.chen_gmail.com/output /app/graphrag-visualizer/public/artifacts
+RUN ln -sf /app/docker_volume/zhan.chen_gmail.com/output /app/public/artifacts
 
-# Fix ownership of all files
+# Fix ownership of all files to node user
 RUN chown -R node:node /app
 
-# Switch to node user
+# Switch to node user for runtime
 USER node
-WORKDIR /app/graphrag-visualizer
 
 # Set environment variable for port
 ENV PORT=3030
